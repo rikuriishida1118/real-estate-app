@@ -1,16 +1,14 @@
-version: "3.8"
-
 services:
   db:
     image: postgres:16
-    container_name: realestate-db
+    container_name: realestate-app-db
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: realestate
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
 

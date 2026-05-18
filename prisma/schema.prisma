@@ -2,14 +2,21 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "./src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
 
-model User {
+model property {
+  id       Int    @id @default(autoincrement())
+  title    String
+  price    Int
+  location String
+}
+
+model user {
   id    String @id @default(cuid())
   email String @unique
   name  String?
