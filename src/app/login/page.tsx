@@ -3,12 +3,15 @@ import Link from "next/link";
 export default async function Home() {
   return (
     <main style={{ padding: "40px" }}>
-        <h1>株式会社 橘不動産</h1>
+        <h1>お客様情報登録</h1>
         <Link href="/login">
          ログイン
         </Link>
-        <Link href="/user/new">
+        <Link href="/userregistration">
          新規登録
+        </Link>
+        <Link href="/">
+         戻る
         </Link>
     </main>
   );
