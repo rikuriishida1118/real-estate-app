@@ -9,17 +9,18 @@ datasource db {
   provider = "postgresql"
 }
 
-model property {
-  id       Int    @id @default(autoincrement())
-  title    String
-  price    Int
-  location String
-}
-
-model user {
-  id          Int    @id @default(autoincrement())
-  name        String
-  phoneNumber String
-  email       String
-  createdAt   DateTime @default(now())
+model Property {
+  id           Int      @id @default(autoincrement())
+  propertyNo   String   @unique
+  type         String
+  title        String
+  price        Int?
+  address      String?
+  station      String?
+  floorPlan    String?
+  landArea     Float?
+  buildingArea Float?
+  buildingAge  Int?
+  description  String?
+  createdAt    DateTime @default(now())
 }

@@ -17,6 +17,7 @@ export default function Header() {
             alt="TACHIBANA ESTATE"
             width={190}
             height={100}
+            style={{ width: "auto", height: "auto" }}
             priority
             />
         </Link>

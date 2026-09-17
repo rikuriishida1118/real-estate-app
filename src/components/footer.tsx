@@ -13,6 +13,7 @@ export default function Footer() {
               alt="TACHIBANA ESTATE"
               width={240}
               height={100}
+              style={{ width: "auto", height: "auto" }}
             />
           </Link>
 
@@ -68,7 +69,6 @@ export default function Footer() {
             <p className="footer-company-name">
               TACHIBANA ESTATE
             </p>
-            <p>橘不動産</p>
           </div>
 
           <div className="footer-company-info">
