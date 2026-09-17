@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600&display=swap");
 
+/* =========================
+   Variables
+========================= */
+
 :root {
   --green: #667a68;
   --green-dark: #3f5143;
@@ -10,6 +14,10 @@
   --white: #ffffff;
   --border: #dfe3dd;
 }
+
+/* =========================
+   Reset
+========================= */
 
 * {
   box-sizing: border-box;
@@ -53,6 +61,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: min(1200px, calc(100% - 80px));
   height: 100px;
   margin: 0 auto;
@@ -73,6 +82,7 @@ button {
   display: flex;
   align-items: center;
   gap: 34px;
+
   font-size: 13px;
   letter-spacing: 0.08em;
 }
@@ -92,19 +102,24 @@ button {
 
 .menu-button {
   display: none;
+
   width: 42px;
   height: 42px;
   padding: 8px;
+
   border: 0;
   background: transparent;
+
   cursor: pointer;
 }
 
 .menu-button span {
   display: block;
+
   width: 100%;
   height: 1px;
   margin: 6px 0;
+
   background: var(--white);
 }
 
@@ -118,39 +133,66 @@ button {
 
 .hero {
   position: relative;
+
   min-height: 760px;
+
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+}
+
+.hero-image-content {
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
   background:
     linear-gradient(
       90deg,
       rgba(30, 42, 32, 0.72) 0%,
       rgba(30, 42, 32, 0.42) 50%,
       rgba(30, 42, 32, 0.18) 100%
-    ),
-    url("/images/hero/main.jpg") center / cover no-repeat,
-    #657566;
-}
-
-.hero-overlay {
-  display: flex;
-  align-items: center;
-  min-height: 760px;
+    );
 }
 
 .hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   width: min(1200px, calc(100% - 80px));
+  min-height: 760px;
+
   margin: 0 auto;
   padding-top: 70px;
+
   color: var(--white);
 }
 
 .hero-label {
   margin: 0 0 25px;
+
   font-size: 12px;
   letter-spacing: 0.25em;
 }
 
 .hero h1 {
   margin: 0;
+
   font-family: "Shippori Mincho", serif;
   font-size: clamp(48px, 6vw, 82px);
   font-weight: 400;
@@ -160,6 +202,7 @@ button {
 
 .hero-description {
   margin: 32px 0 40px;
+
   font-size: 15px;
   line-height: 2.1;
   letter-spacing: 0.08em;
@@ -179,11 +222,14 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-width: 210px;
   min-height: 58px;
   padding: 15px 28px;
+
   font-size: 13px;
   letter-spacing: 0.08em;
+
   transition:
     background 0.3s ease,
     color 0.3s ease,
@@ -218,9 +264,17 @@ button {
   background: var(--green-dark);
 }
 
+.button-dark:hover {
+  background: var(--green);
+}
+
 .button-light {
   color: var(--green-dark);
   background: var(--white);
+}
+
+.button-light:hover {
+  background: var(--green-light);
 }
 
 /* =========================
@@ -246,7 +300,9 @@ button {
 
 .section-label {
   margin: 0 0 15px;
+
   color: var(--green);
+
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.25em;
@@ -254,6 +310,7 @@ button {
 
 .section-heading h2 {
   margin: 0;
+
   font-family: "Shippori Mincho", serif;
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 400;
@@ -272,6 +329,7 @@ button {
 .about-section .section-inner {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
+
   gap: 100px;
 }
 
@@ -282,19 +340,29 @@ button {
 
 .about-content p {
   margin: 0 0 28px;
+
   color: var(--gray);
+
   font-size: 15px;
   line-height: 2.2;
 }
 
 .text-link {
   display: inline-block;
+
   margin-top: 15px;
   padding-bottom: 5px;
+
   border-bottom: 1px solid var(--green);
+
   color: var(--green-dark);
+
   font-size: 13px;
   letter-spacing: 0.08em;
+}
+
+.text-link:hover {
+  opacity: 0.65;
 }
 
 /* =========================
@@ -308,12 +376,15 @@ button {
 .property-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 28px;
 }
 
 .property-card {
   overflow: hidden;
+
   background: var(--cream);
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -321,6 +392,7 @@ button {
 
 .property-card:hover {
   transform: translateY(-5px);
+
   box-shadow: 0 15px 35px rgba(40, 50, 42, 0.1);
 }
 
@@ -328,13 +400,18 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+
   aspect-ratio: 4 / 3;
-  background: linear-gradient(
-    135deg,
-    #dce3dc,
-    #bfc9c0
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      #dce3dc,
+      #bfc9c0
+    );
+
   color: #667067;
+
   font-size: 10px;
   letter-spacing: 0.15em;
 }
@@ -345,13 +422,16 @@ button {
 
 .property-type {
   margin: 0 0 7px;
+
   color: var(--green);
+
   font-size: 11px;
   letter-spacing: 0.15em;
 }
 
 .property-info h3 {
   margin: 0 0 12px;
+
   font-family: "Shippori Mincho", serif;
   font-size: 21px;
   font-weight: 500;
@@ -359,18 +439,22 @@ button {
 
 .property-price {
   margin: 0 0 7px;
+
   font-size: 19px;
   font-weight: 600;
 }
 
 .property-detail {
   margin: 0;
+
   color: var(--gray);
+
   font-size: 12px;
 }
 
 .section-button {
   margin-top: 60px;
+
   text-align: center;
 }
 
@@ -380,7 +464,9 @@ button {
 
 .sell-section {
   position: relative;
+
   min-height: 580px;
+
   background:
     linear-gradient(
       90deg,
@@ -394,13 +480,16 @@ button {
 .sell-inner {
   display: flex;
   align-items: center;
-  min-height: 580px;
+
   width: min(1100px, calc(100% - 80px));
+  min-height: 580px;
+
   margin: 0 auto;
 }
 
 .sell-content {
   max-width: 560px;
+
   color: var(--white);
 }
 
@@ -410,6 +499,7 @@ button {
 
 .sell-content h2 {
   margin: 0 0 30px;
+
   font-family: "Shippori Mincho", serif;
   font-size: clamp(38px, 4vw, 58px);
   font-weight: 400;
@@ -418,8 +508,10 @@ button {
 
 .sell-content > p:not(.section-label) {
   margin: 0 0 35px;
+
   font-size: 14px;
   line-height: 2.2;
+
   opacity: 0.9;
 }
 
@@ -433,23 +525,30 @@ button {
 
 .contact-description {
   margin: 25px auto 0;
+
   color: var(--gray);
+
   font-size: 14px;
 }
 
 .contact-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 18px;
+
   margin-top: 55px;
 }
 
 .contact-button {
   display: flex;
   flex-direction: column;
+
   min-height: 150px;
   padding: 30px;
+
   background: var(--white);
+
   transition:
     transform 0.3s ease,
     background 0.3s ease;
@@ -457,13 +556,17 @@ button {
 
 .contact-button:hover {
   transform: translateY(-4px);
+
   background: var(--green-dark);
+
   color: var(--white);
 }
 
 .contact-button-label {
   margin-bottom: auto;
+
   color: var(--green);
+
   font-size: 10px;
   letter-spacing: 0.2em;
 }
@@ -483,21 +586,27 @@ button {
 
 .site-footer {
   width: 100%;
+
   color: rgba(255, 255, 255, 0.9);
+
   background: #29342c;
 }
 
 .footer-main {
   display: grid;
   grid-template-columns: 1.5fr 0.7fr 0.9fr;
+
   gap: 80px;
 
   width: min(1100px, calc(100% - 80px));
+
   margin: 0 auto;
   padding: 90px 0;
 }
 
-/* ブランド */
+/* =========================
+   Footer Brand
+========================= */
 
 .footer-brand {
   min-width: 0;
@@ -509,8 +618,10 @@ button {
 
 .footer-logo img {
   display: block;
+
   width: 190px;
   height: auto;
+
   border-radius: 8px;
 }
 
@@ -518,11 +629,14 @@ button {
   margin: 28px 0 0;
 
   color: rgba(255, 255, 255, 0.65);
+
   font-size: 12px;
   line-height: 2;
 }
 
-/* MENU */
+/* =========================
+   Footer Menu
+========================= */
 
 .footer-menu {
   display: flex;
@@ -534,6 +648,7 @@ button {
   margin: 0 0 22px;
 
   color: rgba(255, 255, 255, 0.45);
+
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -545,6 +660,7 @@ button {
   margin: 0 0 12px;
 
   color: rgba(255, 255, 255, 0.85);
+
   font-size: 13px;
   line-height: 1.8;
 
@@ -555,7 +671,9 @@ button {
   opacity: 0.55;
 }
 
-/* CONTACT */
+/* =========================
+   Footer Contact
+========================= */
 
 .footer-contact {
   min-width: 0;
@@ -581,6 +699,7 @@ button {
 
 .footer-social {
   display: flex;
+
   gap: 10px;
 }
 
@@ -592,6 +711,7 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.25);
 
   color: rgba(255, 255, 255, 0.8);
+
   font-size: 10px;
   letter-spacing: 0.08em;
 
@@ -602,6 +722,7 @@ button {
 
 .footer-social a:hover {
   color: #29342c;
+
   background: #ffffff;
 }
 
@@ -611,6 +732,7 @@ button {
 
 .footer-company-area {
   width: 100%;
+
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -618,9 +740,11 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
   gap: 40px;
 
   width: min(1100px, calc(100% - 80px));
+
   margin: 0 auto;
   padding: 35px 0;
 }
@@ -637,6 +761,7 @@ button {
   margin: 0;
 
   color: rgba(255, 255, 255, 0.55);
+
   font-size: 10px;
 }
 
@@ -654,7 +779,9 @@ button {
 
 .footer-bottom {
   width: 100%;
+
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+
   text-align: center;
 }
 
@@ -663,6 +790,7 @@ button {
   padding: 18px;
 
   color: rgba(255, 255, 255, 0.35);
+
   font-size: 9px;
   letter-spacing: 0.08em;
 }
@@ -672,6 +800,8 @@ button {
 ========================= */
 
 @media (max-width: 900px) {
+  /* Header */
+
   .header-inner {
     width: calc(100% - 40px);
   }
@@ -687,36 +817,46 @@ button {
   .mobile-nav {
     display: flex;
     flex-direction: column;
+
     padding: 20px 30px 30px;
+
     background: rgba(40, 52, 43, 0.97);
   }
 
   .mobile-nav a {
     padding: 15px 0;
+
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
     font-size: 13px;
   }
+
+  /* Hero */
 
   .hero {
     min-height: 680px;
   }
 
-  .hero-overlay {
+  .hero-content {
+    width: calc(100% - 40px);
     min-height: 680px;
   }
 
-  .hero-content {
-    width: calc(100% - 40px);
-  }
+  /* About */
 
   .about-section .section-inner {
     grid-template-columns: 1fr;
+
     gap: 20px;
   }
 
+  /* Properties */
+
   .property-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Contact */
 
   .contact-buttons {
     grid-template-columns: 1fr;
@@ -726,9 +866,11 @@ button {
 
   .footer-main {
     grid-template-columns: 1fr;
+
     gap: 50px;
 
     width: calc(100% - 40px);
+
     padding: 70px 0;
   }
 
@@ -743,7 +885,13 @@ button {
   }
 }
 
+/* =========================
+   Mobile
+========================= */
+
 @media (max-width: 600px) {
+  /* Header */
+
   .header-inner {
     height: 80px;
   }
@@ -751,6 +899,8 @@ button {
   .site-logo img {
     width: 145px;
   }
+
+  /* Common */
 
   .section {
     padding: 90px 0;
@@ -761,11 +911,13 @@ button {
     width: calc(100% - 40px);
   }
 
+  /* Hero */
+
   .hero {
     min-height: 680px;
   }
 
-  .hero-overlay {
+  .hero-content {
     min-height: 680px;
   }
 
@@ -779,12 +931,17 @@ button {
 
   .hero-buttons {
     flex-direction: column;
+
     align-items: stretch;
   }
+
+  /* Buttons */
 
   .button {
     width: 100%;
   }
+
+  /* Properties */
 
   .property-grid {
     grid-template-columns: 1fr;
@@ -793,6 +950,8 @@ button {
   .property-card {
     width: 100%;
   }
+
+  /* Sell */
 
   .sell-section,
   .sell-inner {
@@ -813,6 +972,7 @@ button {
     font-size: 21px;
   }
 }
+
 /* =========================
    Properties Page
 ========================= */
@@ -823,12 +983,15 @@ button {
 
 .properties-hero {
   padding: 190px 0 110px;
+
   color: var(--white);
+
   background: var(--green-dark);
 }
 
 .properties-hero-inner {
   width: min(1100px, calc(100% - 80px));
+
   margin: 0 auto;
 }
 
@@ -838,6 +1001,7 @@ button {
 
 .properties-hero h1 {
   margin: 0 0 25px;
+
   font-family: "Shippori Mincho", serif;
   font-size: clamp(42px, 5vw, 64px);
   font-weight: 400;
@@ -847,18 +1011,26 @@ button {
 
 .properties-hero p:last-child {
   margin: 0;
+
   color: rgba(255, 255, 255, 0.7);
+
   font-size: 14px;
   line-height: 2;
 }
 
+/* =========================
+   Properties List
+========================= */
+
 .properties-list-section {
   padding: 110px 0;
+
   background: var(--cream);
 }
 
 .properties-list-inner {
   width: min(1100px, calc(100% - 80px));
+
   margin: 0 auto;
 }
 
@@ -866,11 +1038,13 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
   margin-bottom: 45px;
 }
 
 .properties-list-heading h2 {
   margin: 0;
+
   font-family: "Shippori Mincho", serif;
   font-size: 42px;
   font-weight: 400;
@@ -879,25 +1053,36 @@ button {
 
 .property-count {
   margin: 0;
+
   color: var(--gray);
+
   font-size: 13px;
 }
 
 .property-filters {
   display: flex;
+
   gap: 10px;
+
   margin-bottom: 45px;
 }
 
 .property-filter {
   min-width: 100px;
+
   padding: 12px 22px;
+
   border: 1px solid var(--border);
+
   background: var(--white);
+
   color: var(--gray);
+
   font-family: inherit;
   font-size: 12px;
+
   cursor: pointer;
+
   transition:
     background 0.3s ease,
     color 0.3s ease;
@@ -906,19 +1091,24 @@ button {
 .property-filter:hover,
 .property-filter.active {
   color: var(--white);
+
   background: var(--green-dark);
 }
 
 .properties-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 30px;
 }
 
 .property-list-card {
   display: block;
+
   overflow: hidden;
+
   background: var(--white);
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -926,6 +1116,7 @@ button {
 
 .property-list-card:hover {
   transform: translateY(-5px);
+
   box-shadow: 0 15px 35px rgba(40, 50, 42, 0.1);
 }
 
@@ -933,13 +1124,18 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+
   aspect-ratio: 4 / 3;
-  background: linear-gradient(
-    135deg,
-    #dce3dc,
-    #bfc9c0
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      #dce3dc,
+      #bfc9c0
+    );
+
   color: #667067;
+
   font-size: 10px;
   letter-spacing: 0.15em;
 }
@@ -950,7 +1146,9 @@ button {
 
 .property-list-type {
   margin: 0 0 7px;
+
   color: var(--green);
+
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -958,6 +1156,7 @@ button {
 
 .property-list-content h3 {
   margin: 0 0 15px;
+
   font-family: "Shippori Mincho", serif;
   font-size: 21px;
   font-weight: 500;
@@ -966,6 +1165,7 @@ button {
 
 .property-list-price {
   margin: 0 0 8px;
+
   font-size: 20px;
   font-weight: 600;
 }
@@ -973,28 +1173,41 @@ button {
 .property-list-detail,
 .property-list-address {
   margin: 0;
+
   color: var(--gray);
+
   font-size: 11px;
 }
 
 .property-list-link {
   display: inline-block;
+
   margin-top: 22px;
   padding-bottom: 3px;
+
   border-bottom: 1px solid var(--green);
+
   color: var(--green-dark);
+
   font-size: 11px;
   letter-spacing: 0.08em;
 }
 
+/* =========================
+   Properties Contact
+========================= */
+
 .properties-contact {
   padding: 120px 0;
+
   background: var(--green-light);
 }
 
 .properties-contact-inner {
   width: min(800px, calc(100% - 80px));
+
   margin: 0 auto;
+
   text-align: center;
 }
 
@@ -1004,7 +1217,9 @@ button {
 
 .properties-contact h2 {
   margin: 0 0 25px;
+
   color: var(--dark);
+
   font-family: "Shippori Mincho", serif;
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 400;
@@ -1013,11 +1228,15 @@ button {
 
 .properties-contact p:not(.section-label) {
   margin: 0 0 35px;
+
   color: var(--gray);
+
   font-size: 13px;
 }
 
-/* Properties Responsive */
+/* =========================
+   Properties Responsive
+========================= */
 
 @media (max-width: 900px) {
   .properties-hero-inner,
@@ -1071,6 +1290,7 @@ button {
     width: calc(100% - 40px);
   }
 }
+
 /* =========================
    Property Detail
 ========================= */
@@ -1081,12 +1301,15 @@ button {
 
 .property-detail-hero {
   padding: 190px 0 100px;
+
   color: var(--white);
+
   background: var(--green-dark);
 }
 
 .property-detail-inner {
   width: min(1000px, calc(100% - 80px));
+
   margin: 0 auto;
 }
 
@@ -1096,6 +1319,7 @@ button {
 
 .property-detail-hero h1 {
   margin: 0 0 25px;
+
   font-family: "Shippori Mincho", serif;
   font-size: clamp(36px, 5vw, 58px);
   font-weight: 400;
@@ -1104,9 +1328,14 @@ button {
 
 .property-detail-price {
   margin: 0;
+
   font-size: 25px;
   font-weight: 600;
 }
+
+/* =========================
+   Property Detail Content
+========================= */
 
 .property-detail-section {
   padding: 100px 0 130px;
@@ -1116,20 +1345,27 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+
   aspect-ratio: 16 / 9;
+
   margin-bottom: 80px;
-  background: linear-gradient(
-    135deg,
-    #dce3dc,
-    #bfc9c0
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      #dce3dc,
+      #bfc9c0
+    );
+
   color: #667067;
+
   font-size: 11px;
   letter-spacing: 0.15em;
 }
 
 .property-detail-content {
   max-width: 850px;
+
   margin: 0 auto;
 }
 
@@ -1139,7 +1375,9 @@ button {
 
 .property-detail-label {
   margin: 0 0 10px;
+
   color: var(--green);
+
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -1147,6 +1385,7 @@ button {
 
 .property-detail-block h2 {
   margin: 0;
+
   font-family: "Shippori Mincho", serif;
   font-size: 38px;
   font-weight: 400;
@@ -1159,9 +1398,13 @@ button {
 .property-info-row {
   display: grid;
   grid-template-columns: 180px 1fr;
+
   gap: 30px;
+
   padding: 20px 0;
+
   border-bottom: 1px solid var(--border);
+
   font-size: 13px;
 }
 
@@ -1179,7 +1422,9 @@ button {
 
 .property-description p {
   margin: 0;
+
   color: var(--gray);
+
   font-size: 14px;
   line-height: 2.2;
 }
@@ -1187,17 +1432,25 @@ button {
 .property-detail-actions {
   display: flex;
   align-items: center;
+
   gap: 30px;
+
   margin-top: 60px;
 }
 
+/* =========================
+   Property Not Found
+========================= */
+
 .property-not-found {
   padding: 220px 20px 150px;
+
   text-align: center;
 }
 
 .property-not-found h1 {
   margin: 0 0 25px;
+
   font-family: "Shippori Mincho", serif;
   font-size: 42px;
   font-weight: 400;
@@ -1205,8 +1458,13 @@ button {
 
 .property-not-found p:not(.section-label) {
   margin: 0 0 35px;
+
   color: var(--gray);
 }
+
+/* =========================
+   Property Detail Mobile
+========================= */
 
 @media (max-width: 600px) {
   .property-detail-inner {
@@ -1231,12 +1489,14 @@ button {
 
   .property-info-row {
     grid-template-columns: 1fr;
+
     gap: 5px;
   }
 
   .property-detail-actions {
     flex-direction: column;
     align-items: stretch;
+
     gap: 25px;
   }
 
@@ -1246,5 +1506,633 @@ button {
 
   .property-detail-actions .text-link {
     align-self: center;
+  }
+}
+/* =========================================================
+   About Page
+========================================================= */
+
+.about-page {
+  background: var(--cream);
+}
+
+/* =========================
+   About Hero
+========================= */
+
+.about-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 42, 32, 0.88) 0%,
+      rgba(30, 42, 32, 0.68) 55%,
+      rgba(30, 42, 32, 0.45) 100%
+    ),
+    url("/images/gunma/about-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero-inner {
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 100px 0;
+  color: var(--white);
+}
+
+.about-hero .section-label {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+}
+
+.about-hero h1 {
+  margin: 0 0 28px;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.about-hero p:last-child {
+  margin: 0;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   About Message
+========================= */
+
+.about-message {
+  background: var(--cream);
+}
+
+.about-message .section-inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.about-message-content {
+  padding-top: 10px;
+}
+
+.about-message-content p {
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.about-message-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   Strength
+========================= */
+
+.about-strength {
+  background: var(--light-green);
+}
+
+.about-strength-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 70px;
+}
+
+.about-strength-card {
+  position: relative;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(45, 74, 53, 0.1);
+}
+
+.about-strength-number {
+  display: block;
+  margin-bottom: 28px;
+
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  color: var(--green);
+}
+
+.about-strength-card h3 {
+  margin: 0 0 22px;
+  font-size: 21px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.about-strength-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+/* =========================
+   Company
+========================= */
+
+.company-section {
+  background: var(--white);
+}
+
+.company-info {
+  max-width: 900px;
+  margin-top: 60px;
+  border-top: 1px solid var(--border);
+}
+
+.company-info-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.company-info-row > span:first-child {
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+
+.company-info-row strong {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* =========================
+   About Contact
+========================= */
+
+.about-contact {
+  background: var(--light-green);
+  text-align: center;
+}
+
+.about-contact-inner {
+  width: min(900px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.about-contact .section-label {
+  margin-bottom: 24px;
+}
+
+.about-contact h2 {
+  margin: 0 0 28px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.about-contact p:not(.section-label) {
+  margin: 0 0 40px;
+  font-size: 15px;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+/* =========================
+   About Responsive
+========================= */
+
+@media (max-width: 900px) {
+  .about-message .section-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-strength-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-info-row {
+    grid-template-columns: 180px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: 460px;
+  }
+
+  .about-hero-inner {
+    width: calc(100% - 40px);
+    padding: 80px 0;
+  }
+
+  .about-hero h1 {
+    font-size: 42px;
+  }
+
+  .about-message .section-inner,
+  .about-strength .section-inner,
+  .company-section .section-inner {
+    width: calc(100% - 40px);
+  }
+
+  .about-strength-grid {
+    margin-top: 50px;
+  }
+
+  .about-strength-card {
+    padding: 36px 28px;
+  }
+
+  .company-info {
+    margin-top: 40px;
+  }
+
+  .company-info-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 20px 0;
+  }
+
+  .about-contact-inner {
+    width: calc(100% - 40px);
+    padding: 90px 0;
+  }
+
+  .about-contact h2 {
+    font-size: 32px;
+  }
+}
+/* =========================================================
+   Sell Page
+========================================================= */
+
+.sell-page {
+  background: var(--cream);
+}
+
+/* =========================
+   Sell Hero
+========================= */
+
+.sell-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 42, 32, 0.88) 0%,
+      rgba(30, 42, 32, 0.68) 55%,
+      rgba(30, 42, 32, 0.42) 100%
+    ),
+    url("/images/gunma/sell-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.sell-hero-inner {
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 100px 0;
+  color: var(--white);
+}
+
+.sell-hero .section-label {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+}
+
+.sell-hero h1 {
+  margin: 0 0 28px;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.sell-hero p:last-child {
+  margin: 0;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   Sell Message
+========================= */
+
+.sell-message {
+  background: var(--cream);
+}
+
+.sell-message .section-inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.sell-message-content {
+  padding-top: 10px;
+}
+
+.sell-message-content p {
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.sell-message-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   Sell Reasons
+========================= */
+
+.sell-reasons {
+  background: var(--light-green);
+}
+
+.sell-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 70px;
+}
+
+.sell-reason-card {
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(45, 74, 53, 0.1);
+}
+
+.sell-reason-number {
+  display: block;
+  margin-bottom: 28px;
+
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  color: var(--green);
+}
+
+.sell-reason-card h3 {
+  margin: 0 0 22px;
+  font-size: 21px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.sell-reason-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+/* =========================
+   Sell Flow
+========================= */
+
+.sell-flow {
+  background: var(--white);
+}
+
+.sell-flow-list {
+  max-width: 900px;
+  margin-top: 65px;
+  border-top: 1px solid var(--border);
+}
+
+.sell-flow-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 40px;
+  padding: 38px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sell-flow-number {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: var(--green);
+  letter-spacing: 0.08em;
+}
+
+.sell-flow-content h3 {
+  margin: 0 0 12px;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.sell-flow-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+/* =========================
+   Sell Consultation
+========================= */
+
+.sell-consultation {
+  background: var(--green);
+  color: var(--white);
+}
+
+.sell-consultation-inner {
+  width: min(1000px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+.sell-consultation .section-label {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+}
+
+.sell-consultation h2 {
+  margin: 0 0 50px;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.sell-consultation-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 60px;
+  max-width: 800px;
+}
+
+.sell-consultation-list p {
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* =========================
+   Sell Contact
+========================= */
+
+.sell-contact {
+  background: var(--cream);
+  text-align: center;
+}
+
+.sell-contact-inner {
+  width: min(900px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.sell-contact .section-label {
+  margin-bottom: 24px;
+}
+
+.sell-contact h2 {
+  margin: 0 0 28px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.sell-contact-inner > p:not(.section-label) {
+  margin: 0 0 40px;
+  font-size: 15px;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+.sell-contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   Sell Responsive
+========================= */
+
+@media (max-width: 900px) {
+  .sell-message .section-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sell-reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sell-consultation-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sell-hero {
+    min-height: 460px;
+  }
+
+  .sell-hero-inner {
+    width: calc(100% - 40px);
+    padding: 80px 0;
+  }
+
+  .sell-hero h1 {
+    font-size: 42px;
+  }
+
+  .sell-message .section-inner,
+  .sell-reasons .section-inner,
+  .sell-flow .section-inner {
+    width: calc(100% - 40px);
+  }
+
+  .sell-reasons-grid {
+    margin-top: 50px;
+  }
+
+  .sell-reason-card {
+    padding: 36px 28px;
+  }
+
+  .sell-flow-list {
+    margin-top: 45px;
+  }
+
+  .sell-flow-item {
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 30px 0;
+  }
+
+  .sell-flow-number {
+    font-size: 22px;
+  }
+
+  .sell-flow-content h3 {
+    font-size: 18px;
+  }
+
+  .sell-consultation-inner {
+    width: calc(100% - 40px);
+    padding: 90px 0;
+  }
+
+  .sell-consultation h2 {
+    font-size: 34px;
+  }
+
+  .sell-contact-inner {
+    width: calc(100% - 40px);
+    padding: 90px 0;
+  }
+
+  .sell-contact h2 {
+    font-size: 32px;
+  }
+
+  .sell-contact-buttons {
+    flex-direction: column;
+  }
+
+  .sell-contact-buttons .button {
+    width: 100%;
   }
 }

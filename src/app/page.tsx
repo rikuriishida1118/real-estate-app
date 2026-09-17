@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -11,31 +12,42 @@ export default function Home() {
             Hero
         ========================= */}
         <section className="hero">
-          <div className="hero-overlay">
-            <div className="hero-content">
-              <p className="hero-label">SHIBUKAWA / GUNMA</p>
+          <div className="hero-image">
+            <Image
+              src="/images/hero/hero-shibukawa.png"
+              alt="群馬県渋川市の風景"
+              fill
+              priority
+              sizes="100vw"
+              className="hero-image-content"
+            />
+          </div>
 
-              <h1>
-                暮らしを、
-                <br />
-                もっと身近に。
-              </h1>
+          <div className="hero-overlay"></div>
 
-              <p className="hero-description">
-                群馬・渋川の暮らしと不動産を、
-                <br />
-                地域に寄り添いながらお手伝いします。
-              </p>
+          <div className="hero-content">
+            <p className="hero-label">SHIBUKAWA / GUNMA</p>
 
-              <div className="hero-buttons">
-                <a href="/properties" className="button button-primary">
-                  物件を探す
-                </a>
+            <h1>
+              暮らしを、
+              <br />
+              もっと身近に。
+            </h1>
 
-                <a href="/sell" className="button button-secondary">
-                  不動産を売りたい方へ
-                </a>
-              </div>
+            <p className="hero-description">
+              群馬・渋川の暮らしと不動産を、
+              <br />
+              地域に寄り添いながらお手伝いします。
+            </p>
+
+            <div className="hero-buttons">
+              <a href="/properties" className="button button-primary">
+                物件を探す
+              </a>
+
+              <a href="/sell" className="button button-secondary">
+                不動産を売りたい方へ
+              </a>
             </div>
           </div>
         </section>
@@ -103,13 +115,9 @@ export default function Home() {
 
                   <h3>渋川市 ○○町</h3>
 
-                  <p className="property-price">
-                    〇〇〇万円
-                  </p>
+                  <p className="property-price">〇〇〇万円</p>
 
-                  <p className="property-detail">
-                    土地面積：〇〇㎡
-                  </p>
+                  <p className="property-detail">土地面積：〇〇㎡</p>
                 </div>
               </article>
 
@@ -123,13 +131,9 @@ export default function Home() {
 
                   <h3>渋川市 ○○町</h3>
 
-                  <p className="property-price">
-                    〇〇〇万円
-                  </p>
+                  <p className="property-price">〇〇〇万円</p>
 
-                  <p className="property-detail">
-                    土地面積：〇〇㎡
-                  </p>
+                  <p className="property-detail">土地面積：〇〇㎡</p>
                 </div>
               </article>
 
@@ -143,13 +147,9 @@ export default function Home() {
 
                   <h3>渋川市 ○○町</h3>
 
-                  <p className="property-price">
-                    〇〇〇万円
-                  </p>
+                  <p className="property-price">〇〇〇万円</p>
 
-                  <p className="property-detail">
-                    土地面積：〇〇㎡
-                  </p>
+                  <p className="property-detail">土地面積：〇〇㎡</p>
                 </div>
               </article>
             </div>
@@ -212,6 +212,7 @@ export default function Home() {
             <div className="contact-buttons">
               <a href="tel:0000000000" className="contact-button">
                 <span className="contact-button-label">PHONE</span>
+
                 <span className="contact-button-title">
                   電話で相談する
                 </span>
@@ -219,15 +220,14 @@ export default function Home() {
 
               <a href="#" className="contact-button">
                 <span className="contact-button-label">LINE</span>
+
                 <span className="contact-button-title">
                   LINEで相談する
                 </span>
               </a>
 
               <a href="#" className="contact-button">
-                <span className="contact-button-label">
-                  INSTAGRAM
-                </span>
+                <span className="contact-button-label">INSTAGRAM</span>
 
                 <span className="contact-button-title">
                   Instagramを見る
