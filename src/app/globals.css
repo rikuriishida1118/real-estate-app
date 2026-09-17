@@ -1,26 +1,815 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600&display=swap");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green: #667a68;
+  --green-dark: #3f5143;
+  --green-light: #e9eee9;
+  --cream: #f5f4ef;
+  --gray: #6f736e;
+  --dark: #252925;
+  --white: #ffffff;
+  --border: #dfe3dd;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: var(--dark);
+  background: var(--cream);
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================
+   Header
+========================= */
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  color: var(--white);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1200px, calc(100% - 80px));
+  height: 100px;
+  margin: 0 auto;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  display: block;
+  width: 190px;
+  height: auto;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.desktop-nav a {
+  transition: opacity 0.3s ease;
+}
+
+.desktop-nav a:hover {
+  opacity: 0.65;
+}
+
+.nav-contact {
+  padding: 11px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 6px 0;
+  background: var(--white);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* =========================
+   Hero
+========================= */
+
+.hero {
+  position: relative;
+  min-height: 760px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 42, 32, 0.72) 0%,
+      rgba(30, 42, 32, 0.42) 50%,
+      rgba(30, 42, 32, 0.18) 100%
+    ),
+    url("/images/hero/main.jpg") center / cover no-repeat,
+    #657566;
+}
+
+.hero-overlay {
+  display: flex;
+  align-items: center;
+  min-height: 760px;
+}
+
+.hero-content {
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+  padding-top: 70px;
+  color: var(--white);
+}
+
+.hero-label {
+  margin: 0 0 25px;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(48px, 6vw, 82px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+}
+
+.hero-description {
+  margin: 32px 0 40px;
+  font-size: 15px;
+  line-height: 2.1;
+  letter-spacing: 0.08em;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  min-height: 58px;
+  padding: 15px 28px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: var(--dark);
+  background: var(--white);
+}
+
+.button-primary:hover {
+  background: var(--green-light);
+}
+
+.button-secondary {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.button-secondary:hover {
+  color: var(--dark);
+  background: var(--white);
+}
+
+.button-dark {
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+.button-light {
+  color: var(--green-dark);
+  background: var(--white);
+}
+
+/* =========================
+   Common Section
+========================= */
+
+.section {
+  padding: 130px 0;
+}
+
+.section-inner {
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+.section-heading {
+  margin-bottom: 65px;
+}
+
+.section-heading.center {
+  text-align: center;
+}
+
+.section-label {
+  margin: 0 0 15px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+}
+
+/* =========================
+   About
+========================= */
+
+.about-section {
+  background: var(--cream);
+}
+
+.about-section .section-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 100px;
+}
+
+.about-content {
+  max-width: 600px;
+  padding-top: 25px;
+}
+
+.about-content p {
+  margin: 0 0 28px;
+  color: var(--gray);
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--green);
+  color: var(--green-dark);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   Properties
+========================= */
+
+.property-section {
+  background: var(--white);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.property-card {
+  overflow: hidden;
+  background: var(--cream);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(40, 50, 42, 0.1);
+}
+
+.property-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(
+    135deg,
+    #dce3dc,
+    #bfc9c0
+  );
+  color: #667067;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.property-info {
+  padding: 25px;
+}
+
+.property-type {
+  margin: 0 0 7px;
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.property-info h3 {
+  margin: 0 0 12px;
+  font-family: "Shippori Mincho", serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.property-price {
+  margin: 0 0 7px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.property-detail {
+  margin: 0;
+  color: var(--gray);
+  font-size: 12px;
+}
+
+.section-button {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* =========================
+   Sell
+========================= */
+
+.sell-section {
+  position: relative;
+  min-height: 580px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(45, 61, 48, 0.86),
+      rgba(45, 61, 48, 0.55)
+    ),
+    url("/images/gunma/mountain.jpg") center / cover no-repeat,
+    var(--green-dark);
+}
+
+.sell-inner {
+  display: flex;
+  align-items: center;
+  min-height: 580px;
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+.sell-content {
+  max-width: 560px;
+  color: var(--white);
+}
+
+.sell-content .section-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sell-content h2 {
+  margin: 0 0 30px;
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.sell-content > p:not(.section-label) {
+  margin: 0 0 35px;
+  font-size: 14px;
+  line-height: 2.2;
+  opacity: 0.9;
+}
+
+/* =========================
+   Contact
+========================= */
+
+.contact-section {
+  background: var(--green-light);
+}
+
+.contact-description {
+  margin: 25px auto 0;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.contact-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 55px;
+}
+
+.contact-button {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  padding: 30px;
+  background: var(--white);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-4px);
+  background: var(--green-dark);
+  color: var(--white);
+}
+
+.contact-button-label {
+  margin-bottom: auto;
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.contact-button:hover .contact-button-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-button-title {
+  font-family: "Shippori Mincho", serif;
+  font-size: 20px;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  background: #29342c;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr 0.9fr;
+  gap: 80px;
+
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 90px 0;
+}
+
+/* ブランド */
+
+.footer-brand {
+  min-width: 0;
+}
+
+.footer-logo {
+  display: inline-block;
+}
+
+.footer-logo img {
+  display: block;
+  width: 190px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.footer-description {
+  margin: 28px 0 0;
+
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  line-height: 2;
+}
+
+/* MENU */
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-title {
+  margin: 0 0 22px;
+
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.footer-menu a {
+  display: block;
+
+  margin: 0 0 12px;
+
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  line-height: 1.8;
+
+  transition: opacity 0.3s ease;
+}
+
+.footer-menu a:hover {
+  opacity: 0.55;
+}
+
+/* CONTACT */
+
+.footer-contact {
+  min-width: 0;
+}
+
+.footer-contact-text {
+  margin: 0 0 20px;
+
+  font-family: "Shippori Mincho", serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.footer-phone {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  font-family: "Shippori Mincho", serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a {
+  display: inline-block;
+
+  padding: 7px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #29342c;
+  background: #ffffff;
+}
+
+/* =========================
+   Company Information
+========================= */
+
+.footer-company-area {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-company-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 35px 0;
+}
+
+.footer-company-name {
+  margin: 0 0 5px;
+
+  font-family: "Shippori Mincho", serif;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+}
+
+.footer-company-inner p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+}
+
+.footer-company-info {
+  text-align: right;
+}
+
+.footer-company-info p + p {
+  margin-top: 5px;
+}
+
+/* =========================
+   Copyright
+========================= */
+
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  padding: 18px;
+
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+  .header-inner {
+    width: calc(100% - 40px);
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px 30px;
+    background: rgba(40, 52, 43, 0.97);
+  }
+
+  .mobile-nav a {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-overlay {
+    min-height: 680px;
+  }
+
+  .hero-content {
+    width: calc(100% - 40px);
+  }
+
+  .about-section .section-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 50px;
+
+    width: calc(100% - 40px);
+    padding: 70px 0;
+  }
+
+  .footer-company-inner {
+    flex-direction: column;
+
+    width: calc(100% - 40px);
+  }
+
+  .footer-company-info {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    height: 80px;
+  }
+
+  .site-logo img {
+    width: 145px;
+  }
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .section-inner,
+  .sell-inner {
+    width: calc(100% - 40px);
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-overlay {
+    min-height: 680px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-card {
+    width: 100%;
+  }
+
+  .sell-section,
+  .sell-inner {
+    min-height: 520px;
+  }
+
+  /* Footer */
+
+  .footer-logo img {
+    width: 160px;
+  }
+
+  .footer-main {
+    gap: 45px;
+  }
+
+  .footer-phone {
+    font-size: 21px;
+  }
 }
