@@ -156,7 +156,7 @@ export default function ContactPage() {
             <div className="contact-company-content">
               <div className="contact-company-info">
                 <p className="contact-company-name">
-                  TACHIBANA ESTATE
+                  橘 ESTATE
                 </p>
 
                 <p>
@@ -186,7 +186,7 @@ export default function ContactPage() {
         ========================= */}
         <section className="contact-final">
           <div className="contact-final-inner">
-            <p className="section-label">TACHIBANA ESTATE</p>
+            <p className="section-label">橘 ESTATE</p>
 
             <h2>
               暮らしと不動産のこと、

@@ -14,7 +14,7 @@ export default function Header() {
         <Link href="/" className="site-logo">
           <Image
             src="/logo/tachibana-estate.png"
-            alt="TACHIBANA ESTATE"
+            alt="橘　ESTATE"
             width={190}
             height={100}
             style={{ width: "auto", height: "auto" }}

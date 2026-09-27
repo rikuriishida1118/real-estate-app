@@ -10,7 +10,7 @@ export default function Footer() {
           <Link href="/" className="footer-logo">
             <Image
               src="/logo/tachibana-estate.png"
-              alt="TACHIBANA ESTATE"
+              alt="橘 ESTATE"
               width={240}
               height={100}
               style={{ width: "auto", height: "auto" }}
@@ -67,7 +67,7 @@ export default function Footer() {
         <div className="footer-company-inner">
           <div>
             <p className="footer-company-name">
-              TACHIBANA ESTATE
+              橘 ESTATE
             </p>
           </div>
 

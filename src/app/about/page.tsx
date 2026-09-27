@@ -44,7 +44,7 @@ export default function AboutPage() {
 
             <div className="about-message-content">
               <p>
-                TACHIBANA ESTATEは、
+                橘 ESTATEは、
                 群馬県渋川市を中心に不動産の売買をサポートする
                 地域密着型の不動産会社です。
               </p>
@@ -75,7 +75,7 @@ export default function AboutPage() {
               <p className="section-label">OUR STRENGTH</p>
 
               <h2>
-                TACHIBANA ESTATEが
+                橘 ESTATEが
                 <br />
                 大切にしていること
               </h2>
@@ -136,12 +136,12 @@ export default function AboutPage() {
             <div className="company-info">
               <div className="company-info-row">
                 <span>会社名</span>
-                <strong>TACHIBANA ESTATE</strong>
+                <strong>橘 ESTATE</strong>
               </div>
 
               <div className="company-info-row">
                 <span>法人名</span>
-                <strong>有限会社TACHIBANA ESTATE</strong>
+                <strong>有限会社橘 ESTATE</strong>
               </div>
 
               <div className="company-info-row">

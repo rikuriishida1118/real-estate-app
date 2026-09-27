@@ -58,7 +58,7 @@ export default function SellPage() {
               </p>
 
               <p>
-                TACHIBANA ESTATEでは、
+                橘 ESTATEでは、
                 お客様のお話を伺いながら、
                 不動産の状況やご希望に合わせた売却方法をご提案します。
               </p>
@@ -77,7 +77,7 @@ export default function SellPage() {
         <section className="sell-reasons section">
           <div className="section-inner">
             <div className="section-heading center">
-              <p className="section-label">WHY TACHIBANA ESTATE</p>
+              <p className="section-label">WHY 橘 ESTATE</p>
 
               <h2>
                 売却のご相談で
