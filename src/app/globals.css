@@ -1,23 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600&display=swap");
 
-/* =========================
+/* =========================================================
+   TACHIBANA ESTATE
+   Global Styles
+========================================================= */
+
+/* =========================================================
    Variables
-========================= */
+========================================================= */
 
 :root {
   --green: #667a68;
   --green-dark: #3f5143;
+  --green-deep: #293a2f;
   --green-light: #e9eee9;
+
   --cream: #f5f4ef;
-  --gray: #6f736e;
-  --dark: #252925;
   --white: #ffffff;
+
+  --dark: #252925;
+  --text: #252925;
+  --gray: #6f736e;
+  --text-light: #6f736e;
+
   --border: #dfe3dd;
+
+  --content-width: 1100px;
+  --wide-width: 1200px;
+
+  --side-padding: 40px;
 }
 
-/* =========================
+
+/* =========================================================
    Reset
-========================= */
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -29,10 +46,16 @@ html {
 
 body {
   margin: 0;
-  color: var(--dark);
+
+  color: var(--text);
   background: var(--cream);
+
   font-family: "Noto Sans JP", sans-serif;
+
   line-height: 1.8;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -40,253 +63,80 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
 }
 
-/* =========================
-   Header
-========================= */
-
-.site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  color: var(--white);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: min(1200px, calc(100% - 80px));
-  height: 100px;
-  margin: 0 auto;
-}
-
-.site-logo {
-  display: flex;
-  align-items: center;
-}
-
-.site-logo img {
-  display: block;
-  width: 190px;
-  height: auto;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 34px;
-
-  font-size: 13px;
-  letter-spacing: 0.08em;
-}
-
-.desktop-nav a {
-  transition: opacity 0.3s ease;
-}
-
-.desktop-nav a:hover {
-  opacity: 0.65;
-}
-
-.nav-contact {
-  padding: 11px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.menu-button {
-  display: none;
-
-  width: 42px;
-  height: 42px;
-  padding: 8px;
-
+button {
   border: 0;
-  background: transparent;
-
-  cursor: pointer;
 }
 
-.menu-button span {
-  display: block;
-
-  width: 100%;
-  height: 1px;
-  margin: 6px 0;
-
-  background: var(--white);
+img {
+  max-width: 100%;
 }
 
-.mobile-nav {
-  display: none;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
 }
 
-/* =========================
-   Hero
-========================= */
-
-.hero {
-  position: relative;
-
-  min-height: 760px;
-
-  overflow: hidden;
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
-
-  z-index: 0;
-}
-
-.hero-image-content {
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(30, 42, 32, 0.72) 0%,
-      rgba(30, 42, 32, 0.42) 50%,
-      rgba(30, 42, 32, 0.18) 100%
-    );
-}
-
-.hero-content {
-  position: relative;
-
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  width: min(1200px, calc(100% - 80px));
-  min-height: 760px;
-
-  margin: 0 auto;
-  padding-top: 70px;
-
-  color: var(--white);
-}
-
-.hero-label {
-  margin: 0 0 25px;
-
-  font-size: 12px;
-  letter-spacing: 0.25em;
-}
-
-.hero h1 {
-  margin: 0;
-
-  font-family: "Shippori Mincho", serif;
-  font-size: clamp(48px, 6vw, 82px);
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: 0.08em;
-}
-
-.hero-description {
-  margin: 32px 0 40px;
-
-  font-size: 15px;
-  line-height: 2.1;
-  letter-spacing: 0.08em;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-/* =========================
-   Buttons
-========================= */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 210px;
-  min-height: 58px;
-  padding: 15px 28px;
-
-  font-size: 13px;
-  letter-spacing: 0.08em;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button-primary {
-  color: var(--dark);
-  background: var(--white);
-}
-
-.button-primary:hover {
-  background: var(--green-light);
-}
-
-.button-secondary {
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-.button-secondary:hover {
-  color: var(--dark);
-  background: var(--white);
-}
-
-.button-dark {
+::selection {
   color: var(--white);
   background: var(--green-dark);
 }
 
-.button-dark:hover {
-  background: var(--green);
+
+/* =========================================================
+   Typography
+========================================================= */
+
+/*
+  日本語の大きな見出しは
+  Shippori Minchoで統一
+*/
+
+.hero h1,
+.about-hero h1,
+.properties-hero h1,
+.sell-hero h1,
+.contact-hero h1,
+.property-detail-hero h1,
+.property-not-found h1,
+.section-heading h2,
+.sell-content h2,
+.properties-list-heading h2,
+.properties-contact h2,
+.property-detail-block h2,
+.about-contact h2,
+.sell-consultation h2,
+.sell-contact h2,
+.contact-final h2,
+.property-info h3,
+.property-list-content h3,
+.contact-button-title,
+.footer-contact-text,
+.footer-phone,
+.footer-company-name {
+  font-family: "Shippori Mincho", serif;
 }
 
-.button-light {
-  color: var(--green-dark);
-  background: var(--white);
-}
 
-.button-light:hover {
-  background: var(--green-light);
-}
-
-/* =========================
-   Common Section
-========================= */
+/* =========================================================
+   Common
+========================================================= */
 
 .section {
   padding: 130px 0;
 }
 
 .section-inner {
-  width: min(1100px, calc(100% - 80px));
+  width: min(var(--content-width), calc(100% - 80px));
   margin: 0 auto;
 }
 
@@ -299,75 +149,440 @@ button {
 }
 
 .section-label {
-  margin: 0 0 15px;
+  margin: 0 0 18px;
 
   color: var(--green);
 
   font-size: 11px;
   font-weight: 600;
+
   letter-spacing: 0.25em;
 }
 
 .section-heading h2 {
   margin: 0;
 
-  font-family: "Shippori Mincho", serif;
+  color: var(--dark);
+
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 400;
-  line-height: 1.45;
+
+  line-height: 1.5;
+
   letter-spacing: 0.06em;
 }
 
-/* =========================
-   About
-========================= */
 
-.about-section {
-  background: var(--cream);
+/* =========================================================
+   Header
+========================================================= */
+
+.site-header {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  color: var(--white);
 }
 
-.about-section .section-inner {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+.header-inner {
+  display: flex;
 
-  gap: 100px;
+  align-items: center;
+  justify-content: space-between;
+
+  width: min(var(--wide-width), calc(100% - 80px));
+
+  height: 100px;
+
+  margin: 0 auto;
 }
 
-.about-content {
-  max-width: 600px;
-  padding-top: 25px;
+.site-logo {
+  display: flex;
+  align-items: center;
 }
 
-.about-content p {
-  margin: 0 0 28px;
+.site-logo img {
+  display: block;
 
-  color: var(--gray);
-
-  font-size: 15px;
-  line-height: 2.2;
+  width: 190px;
+  height: auto;
 }
 
-.text-link {
-  display: inline-block;
+.desktop-nav {
+  display: flex;
 
-  margin-top: 15px;
-  padding-bottom: 5px;
+  align-items: center;
 
-  border-bottom: 1px solid var(--green);
-
-  color: var(--green-dark);
+  gap: 34px;
 
   font-size: 13px;
+
   letter-spacing: 0.08em;
 }
 
-.text-link:hover {
+.desktop-nav a {
+  transition: opacity 0.3s ease;
+}
+
+.desktop-nav a:hover {
   opacity: 0.65;
 }
 
-/* =========================
-   Properties
-========================= */
+.nav-contact {
+  padding: 12px 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.nav-contact:hover {
+  color: var(--dark);
+
+  background: var(--white);
+
+  opacity: 1 !important;
+}
+
+.menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 8px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  margin: 6px 0;
+
+  background: var(--white);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 760px;
+
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+}
+
+.hero-image-content {
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 38, 29, 0.76) 0%,
+      rgba(25, 38, 29, 0.50) 42%,
+      rgba(25, 38, 29, 0.20) 100%
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  width: min(var(--wide-width), calc(100% - 80px));
+
+  min-height: 760px;
+
+  margin: 0 auto;
+
+  padding-top: 70px;
+
+  color: var(--white);
+}
+
+.hero-label {
+  margin: 0 0 25px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 6vw, 82px);
+
+  font-weight: 400;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.08em;
+}
+
+.hero-description {
+  margin: 32px 0 40px;
+
+  font-size: 15px;
+
+  line-height: 2.2;
+
+  letter-spacing: 0.08em;
+}
+
+.hero-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+}
+
+
+/* =========================================================
+   Buttons
+========================================================= */
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 210px;
+  min-height: 58px;
+
+  padding: 15px 28px;
+
+  font-size: 13px;
+
+  letter-spacing: 0.08em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: var(--dark);
+
+  background: var(--white);
+}
+
+.button-primary:hover {
+  background: var(--green-light);
+}
+
+.button-secondary {
+  color: var(--white);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.button-secondary:hover {
+  color: var(--dark);
+
+  background: var(--white);
+}
+
+.button-dark {
+  color: var(--white);
+
+  background: var(--green-dark);
+}
+
+.button-dark:hover {
+  background: var(--green);
+
+  box-shadow: 0 10px 25px rgba(45, 61, 48, 0.15);
+}
+
+.button-light {
+  color: var(--green-dark);
+
+  background: var(--white);
+}
+
+.button-light:hover {
+  background: var(--green-light);
+}
+
+
+/* =========================================================
+   HOME
+   About Section
+========================================================= */
+
+.about-section {
+  position: relative;
+
+  min-height: 420px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(27, 42, 32, 0.82) 0%,
+      rgba(27, 42, 32, 0.58) 45%,
+      rgba(27, 42, 32, 0.28) 100%
+    ),
+    url("/images/gunma/about-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-section::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20, 30, 23, 0.04),
+      rgba(20, 30, 23, 0.12)
+    );
+}
+
+.about-section-inner {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(var(--content-width), calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 80px 0;
+}
+
+.about-content {
+  max-width: 700px;
+}
+
+.about-content .section-label {
+  margin: 0 0 20px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+}
+
+.about-content h2 {
+  margin: 0 0 28px;
+
+  color: var(--white);
+
+  font-family: "Shippori Mincho", serif;
+
+  font-size: clamp(38px, 4.5vw, 56px);
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.about-content .text-link {
+  display: inline-block;
+
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+
+  color: var(--white);
+
+  font-size: 13px;
+
+  letter-spacing: 0.08em;
+
+  transition:
+    opacity 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.about-content .text-link:hover {
+  opacity: 0.65;
+
+  border-color: transparent;
+}
+
+/* =========================================================
+   HOME
+   Property Section
+========================================================= */
 
 .property-section {
   background: var(--white);
@@ -375,6 +590,7 @@ button {
 
 .property-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 28px;
@@ -393,11 +609,12 @@ button {
 .property-card:hover {
   transform: translateY(-5px);
 
-  box-shadow: 0 15px 35px rgba(40, 50, 42, 0.1);
+  box-shadow: 0 18px 40px rgba(40, 50, 42, 0.10);
 }
 
 .property-image {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -413,6 +630,7 @@ button {
   color: #667067;
 
   font-size: 10px;
+
   letter-spacing: 0.15em;
 }
 
@@ -426,21 +644,25 @@ button {
   color: var(--green);
 
   font-size: 11px;
+
   letter-spacing: 0.15em;
 }
 
 .property-info h3 {
   margin: 0 0 12px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 21px;
+
   font-weight: 500;
+
+  line-height: 1.5;
 }
 
 .property-price {
   margin: 0 0 7px;
 
   font-size: 19px;
+
   font-weight: 600;
 }
 
@@ -458,30 +680,42 @@ button {
   text-align: center;
 }
 
-/* =========================
-   Sell
-========================= */
+
+/* =========================================================
+   HOME
+   Sell Section
+========================================================= */
 
 .sell-section {
   position: relative;
 
   min-height: 580px;
 
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  color: var(--white);
+
   background:
     linear-gradient(
       90deg,
-      rgba(45, 61, 48, 0.86),
-      rgba(45, 61, 48, 0.55)
+      rgba(40, 58, 45, 0.88),
+      rgba(40, 58, 45, 0.58)
     ),
-    url("/images/gunma/mountain.jpg") center / cover no-repeat,
+    url("/images/gunma/sell-bg.jpg") center / cover no-repeat,
     var(--green-dark);
 }
 
 .sell-inner {
   display: flex;
+
   align-items: center;
 
-  width: min(1100px, calc(100% - 80px));
+  width: min(var(--content-width), calc(100% - 80px));
+
   min-height: 580px;
 
   margin: 0 auto;
@@ -489,8 +723,6 @@ button {
 
 .sell-content {
   max-width: 560px;
-
-  color: var(--white);
 }
 
 .sell-content .section-label {
@@ -500,24 +732,30 @@ button {
 .sell-content h2 {
   margin: 0 0 30px;
 
-  font-family: "Shippori Mincho", serif;
+  color: var(--white);
+
   font-size: clamp(38px, 4vw, 58px);
+
   font-weight: 400;
-  line-height: 1.45;
+
+  line-height: 1.5;
 }
 
 .sell-content > p:not(.section-label) {
   margin: 0 0 35px;
 
-  font-size: 14px;
-  line-height: 2.2;
+  color: rgba(255, 255, 255, 0.9);
 
-  opacity: 0.9;
+  font-size: 14px;
+
+  line-height: 2.2;
 }
 
-/* =========================
-   Contact
-========================= */
+
+/* =========================================================
+   HOME
+   Contact Section
+========================================================= */
 
 .contact-section {
   background: var(--green-light);
@@ -533,6 +771,7 @@ button {
 
 .contact-buttons {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 18px;
@@ -542,24 +781,27 @@ button {
 
 .contact-button {
   display: flex;
+
   flex-direction: column;
 
   min-height: 150px;
+
   padding: 30px;
 
   background: var(--white);
 
   transition:
     transform 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .contact-button:hover {
   transform: translateY(-4px);
 
-  background: var(--green-dark);
-
   color: var(--white);
+
+  background: var(--green-dark);
 }
 
 .contact-button-label {
@@ -568,6 +810,7 @@ button {
   color: var(--green);
 
   font-size: 10px;
+
   letter-spacing: 0.2em;
 }
 
@@ -576,13 +819,13 @@ button {
 }
 
 .contact-button-title {
-  font-family: "Shippori Mincho", serif;
   font-size: 20px;
 }
 
-/* =========================
+
+/* =========================================================
    Footer
-========================= */
+========================================================= */
 
 .site-footer {
   width: 100%;
@@ -594,19 +837,17 @@ button {
 
 .footer-main {
   display: grid;
+
   grid-template-columns: 1.5fr 0.7fr 0.9fr;
 
   gap: 80px;
 
-  width: min(1100px, calc(100% - 80px));
+  width: min(var(--content-width), calc(100% - 80px));
 
   margin: 0 auto;
+
   padding: 90px 0;
 }
-
-/* =========================
-   Footer Brand
-========================= */
 
 .footer-brand {
   min-width: 0;
@@ -620,6 +861,7 @@ button {
   display: block;
 
   width: 190px;
+
   height: auto;
 
   border-radius: 8px;
@@ -631,16 +873,15 @@ button {
   color: rgba(255, 255, 255, 0.65);
 
   font-size: 12px;
+
   line-height: 2;
 }
 
-/* =========================
-   Footer Menu
-========================= */
-
 .footer-menu {
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
 }
 
@@ -650,7 +891,9 @@ button {
   color: rgba(255, 255, 255, 0.45);
 
   font-size: 10px;
+
   font-weight: 600;
+
   letter-spacing: 0.2em;
 }
 
@@ -662,7 +905,6 @@ button {
   color: rgba(255, 255, 255, 0.85);
 
   font-size: 13px;
-  line-height: 1.8;
 
   transition: opacity 0.3s ease;
 }
@@ -671,10 +913,6 @@ button {
   opacity: 0.55;
 }
 
-/* =========================
-   Footer Contact
-========================= */
-
 .footer-contact {
   min-width: 0;
 }
@@ -682,8 +920,8 @@ button {
 .footer-contact-text {
   margin: 0 0 20px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 17px;
+
   line-height: 1.8;
 }
 
@@ -692,8 +930,8 @@ button {
 
   margin-bottom: 25px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 24px;
+
   letter-spacing: 0.04em;
 }
 
@@ -713,6 +951,7 @@ button {
   color: rgba(255, 255, 255, 0.8);
 
   font-size: 10px;
+
   letter-spacing: 0.08em;
 
   transition:
@@ -721,14 +960,10 @@ button {
 }
 
 .footer-social a:hover {
-  color: #29342c;
+  color: var(--green-dark);
 
-  background: #ffffff;
+  background: var(--white);
 }
-
-/* =========================
-   Company Information
-========================= */
 
 .footer-company-area {
   width: 100%;
@@ -738,22 +973,24 @@ button {
 
 .footer-company-inner {
   display: flex;
+
   align-items: flex-start;
   justify-content: space-between;
 
   gap: 40px;
 
-  width: min(1100px, calc(100% - 80px));
+  width: min(var(--content-width), calc(100% - 80px));
 
   margin: 0 auto;
+
   padding: 35px 0;
 }
 
 .footer-company-name {
   margin: 0 0 5px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 17px;
+
   letter-spacing: 0.08em;
 }
 
@@ -773,10 +1010,6 @@ button {
   margin-top: 5px;
 }
 
-/* =========================
-   Copyright
-========================= */
-
 .footer-bottom {
   width: 100%;
 
@@ -787,195 +1020,20 @@ button {
 
 .footer-bottom p {
   margin: 0;
+
   padding: 18px;
 
   color: rgba(255, 255, 255, 0.35);
 
   font-size: 9px;
+
   letter-spacing: 0.08em;
 }
 
-/* =========================
-   Responsive
-========================= */
 
-@media (max-width: 900px) {
-  /* Header */
-
-  .header-inner {
-    width: calc(100% - 40px);
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
-
-  .mobile-nav {
-    display: flex;
-    flex-direction: column;
-
-    padding: 20px 30px 30px;
-
-    background: rgba(40, 52, 43, 0.97);
-  }
-
-  .mobile-nav a {
-    padding: 15px 0;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-
-    font-size: 13px;
-  }
-
-  /* Hero */
-
-  .hero {
-    min-height: 680px;
-  }
-
-  .hero-content {
-    width: calc(100% - 40px);
-    min-height: 680px;
-  }
-
-  /* About */
-
-  .about-section .section-inner {
-    grid-template-columns: 1fr;
-
-    gap: 20px;
-  }
-
-  /* Properties */
-
-  .property-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Contact */
-
-  .contact-buttons {
-    grid-template-columns: 1fr;
-  }
-
-  /* Footer */
-
-  .footer-main {
-    grid-template-columns: 1fr;
-
-    gap: 50px;
-
-    width: calc(100% - 40px);
-
-    padding: 70px 0;
-  }
-
-  .footer-company-inner {
-    flex-direction: column;
-
-    width: calc(100% - 40px);
-  }
-
-  .footer-company-info {
-    text-align: left;
-  }
-}
-
-/* =========================
-   Mobile
-========================= */
-
-@media (max-width: 600px) {
-  /* Header */
-
-  .header-inner {
-    height: 80px;
-  }
-
-  .site-logo img {
-    width: 145px;
-  }
-
-  /* Common */
-
-  .section {
-    padding: 90px 0;
-  }
-
-  .section-inner,
-  .sell-inner {
-    width: calc(100% - 40px);
-  }
-
-  /* Hero */
-
-  .hero {
-    min-height: 680px;
-  }
-
-  .hero-content {
-    min-height: 680px;
-  }
-
-  .hero h1 {
-    font-size: 46px;
-  }
-
-  .hero-description {
-    font-size: 13px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  /* Buttons */
-
-  .button {
-    width: 100%;
-  }
-
-  /* Properties */
-
-  .property-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .property-card {
-    width: 100%;
-  }
-
-  /* Sell */
-
-  .sell-section,
-  .sell-inner {
-    min-height: 520px;
-  }
-
-  /* Footer */
-
-  .footer-logo img {
-    width: 160px;
-  }
-
-  .footer-main {
-    gap: 45px;
-  }
-
-  .footer-phone {
-    font-size: 21px;
-  }
-}
-
-/* =========================
+/* =========================================================
    Properties Page
-========================= */
+========================================================= */
 
 .properties-page {
   background: var(--cream);
@@ -990,7 +1048,7 @@ button {
 }
 
 .properties-hero-inner {
-  width: min(1100px, calc(100% - 80px));
+  width: min(var(--content-width), calc(100% - 80px));
 
   margin: 0 auto;
 }
@@ -1002,25 +1060,24 @@ button {
 .properties-hero h1 {
   margin: 0 0 25px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: clamp(42px, 5vw, 64px);
+
   font-weight: 400;
+
   line-height: 1.4;
+
   letter-spacing: 0.08em;
 }
 
 .properties-hero p:last-child {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.72);
 
   font-size: 14px;
+
   line-height: 2;
 }
-
-/* =========================
-   Properties List
-========================= */
 
 .properties-list-section {
   padding: 110px 0;
@@ -1029,13 +1086,14 @@ button {
 }
 
 .properties-list-inner {
-  width: min(1100px, calc(100% - 80px));
+  width: min(var(--content-width), calc(100% - 80px));
 
   margin: 0 auto;
 }
 
 .properties-list-heading {
   display: flex;
+
   align-items: flex-end;
   justify-content: space-between;
 
@@ -1045,9 +1103,10 @@ button {
 .properties-list-heading h2 {
   margin: 0;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 42px;
+
   font-weight: 400;
+
   line-height: 1.4;
 }
 
@@ -1078,7 +1137,6 @@ button {
 
   color: var(--gray);
 
-  font-family: inherit;
   font-size: 12px;
 
   cursor: pointer;
@@ -1097,6 +1155,7 @@ button {
 
 .properties-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 30px;
@@ -1117,11 +1176,12 @@ button {
 .property-list-card:hover {
   transform: translateY(-5px);
 
-  box-shadow: 0 15px 35px rgba(40, 50, 42, 0.1);
+  box-shadow: 0 18px 40px rgba(40, 50, 42, 0.1);
 }
 
 .property-list-image {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -1137,6 +1197,7 @@ button {
   color: #667067;
 
   font-size: 10px;
+
   letter-spacing: 0.15em;
 }
 
@@ -1150,16 +1211,19 @@ button {
   color: var(--green);
 
   font-size: 10px;
+
   font-weight: 600;
+
   letter-spacing: 0.15em;
 }
 
 .property-list-content h3 {
   margin: 0 0 15px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 21px;
+
   font-weight: 500;
+
   line-height: 1.5;
 }
 
@@ -1167,6 +1231,7 @@ button {
   margin: 0 0 8px;
 
   font-size: 20px;
+
   font-weight: 600;
 }
 
@@ -1183,6 +1248,7 @@ button {
   display: inline-block;
 
   margin-top: 22px;
+
   padding-bottom: 3px;
 
   border-bottom: 1px solid var(--green);
@@ -1190,12 +1256,9 @@ button {
   color: var(--green-dark);
 
   font-size: 11px;
+
   letter-spacing: 0.08em;
 }
-
-/* =========================
-   Properties Contact
-========================= */
 
 .properties-contact {
   padding: 120px 0;
@@ -1211,18 +1274,13 @@ button {
   text-align: center;
 }
 
-.properties-contact .section-label {
-  color: var(--green);
-}
-
 .properties-contact h2 {
   margin: 0 0 25px;
 
-  color: var(--dark);
-
-  font-family: "Shippori Mincho", serif;
   font-size: clamp(32px, 4vw, 48px);
+
   font-weight: 400;
+
   line-height: 1.5;
 }
 
@@ -1234,66 +1292,10 @@ button {
   font-size: 13px;
 }
 
-/* =========================
-   Properties Responsive
-========================= */
 
-@media (max-width: 900px) {
-  .properties-hero-inner,
-  .properties-list-inner {
-    width: calc(100% - 40px);
-  }
-
-  .properties-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .properties-hero {
-    padding: 150px 0 80px;
-  }
-
-  .properties-list-section {
-    padding: 80px 0;
-  }
-
-  .properties-list-inner {
-    width: calc(100% - 40px);
-  }
-
-  .properties-list-heading {
-    align-items: flex-start;
-  }
-
-  .properties-list-heading h2 {
-    font-size: 34px;
-  }
-
-  .property-filters {
-    overflow-x: auto;
-  }
-
-  .property-filter {
-    flex-shrink: 0;
-  }
-
-  .properties-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .properties-contact {
-    padding: 90px 0;
-  }
-
-  .properties-contact-inner {
-    width: calc(100% - 40px);
-  }
-}
-
-/* =========================
+/* =========================================================
    Property Detail
-========================= */
+========================================================= */
 
 .property-detail-page {
   background: var(--cream);
@@ -1320,9 +1322,10 @@ button {
 .property-detail-hero h1 {
   margin: 0 0 25px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: clamp(36px, 5vw, 58px);
+
   font-weight: 400;
+
   line-height: 1.5;
 }
 
@@ -1330,12 +1333,9 @@ button {
   margin: 0;
 
   font-size: 25px;
+
   font-weight: 600;
 }
-
-/* =========================
-   Property Detail Content
-========================= */
 
 .property-detail-section {
   padding: 100px 0 130px;
@@ -1343,6 +1343,7 @@ button {
 
 .property-main-image {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -1360,6 +1361,7 @@ button {
   color: #667067;
 
   font-size: 11px;
+
   letter-spacing: 0.15em;
 }
 
@@ -1379,15 +1381,17 @@ button {
   color: var(--green);
 
   font-size: 10px;
+
   font-weight: 600;
+
   letter-spacing: 0.2em;
 }
 
 .property-detail-block h2 {
   margin: 0;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 38px;
+
   font-weight: 400;
 }
 
@@ -1397,6 +1401,7 @@ button {
 
 .property-info-row {
   display: grid;
+
   grid-template-columns: 180px 1fr;
 
   gap: 30px;
@@ -1426,21 +1431,19 @@ button {
   color: var(--gray);
 
   font-size: 14px;
+
   line-height: 2.2;
 }
 
 .property-detail-actions {
   display: flex;
+
   align-items: center;
 
   gap: 30px;
 
   margin-top: 60px;
 }
-
-/* =========================
-   Property Not Found
-========================= */
 
 .property-not-found {
   padding: 220px 20px 150px;
@@ -1451,8 +1454,8 @@ button {
 .property-not-found h1 {
   margin: 0 0 25px;
 
-  font-family: "Shippori Mincho", serif;
   font-size: 42px;
+
   font-weight: 400;
 }
 
@@ -1462,11 +1465,1166 @@ button {
   color: var(--gray);
 }
 
-/* =========================
-   Property Detail Mobile
-========================= */
+
+/* =========================================================
+   About Page
+========================================================= */
+
+.about-page {
+  background: var(--cream);
+}
+
+.about-hero {
+  position: relative;
+
+  min-height: 520px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 42, 32, 0.88) 0%,
+      rgba(30, 42, 32, 0.68) 55%,
+      rgba(30, 42, 32, 0.42) 100%
+    ),
+    url("/images/gunma/about-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.about-hero-inner {
+  width: min(var(--wide-width), calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 100px 0;
+}
+
+.about-hero .section-label {
+  color: rgba(255, 255, 255, 0.75);
+
+  margin-bottom: 24px;
+}
+
+.about-hero h1 {
+  margin: 0 0 28px;
+
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 1.15;
+
+  letter-spacing: 0.08em;
+}
+
+.about-hero p:last-child {
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 2;
+
+  letter-spacing: 0.08em;
+}
+
+.about-message {
+  background: var(--cream);
+}
+
+.about-message .section-inner {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.about-message-content {
+  padding-top: 10px;
+}
+
+.about-message-content p {
+  margin: 0 0 28px;
+
+  font-size: 16px;
+
+  line-height: 2.2;
+
+  letter-spacing: 0.05em;
+
+  color: var(--text);
+}
+
+.about-strength {
+  background: var(--green-light);
+}
+
+.about-strength-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+
+  margin-top: 70px;
+}
+
+.about-strength-card {
+  position: relative;
+
+  padding: 48px 40px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(45, 74, 53, 0.1);
+}
+
+.about-strength-number {
+  display: block;
+
+  margin-bottom: 28px;
+
+  color: var(--green);
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+  letter-spacing: 0.18em;
+}
+
+.about-strength-card h3 {
+  margin: 0 0 22px;
+
+  font-size: 21px;
+
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  letter-spacing: 0.06em;
+}
+
+.about-strength-card p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.company-section {
+  background: var(--white);
+}
+
+.company-info {
+  max-width: 900px;
+
+  margin-top: 60px;
+
+  border-top: 1px solid var(--border);
+}
+
+.company-info-row {
+  display: grid;
+
+  grid-template-columns: 240px 1fr;
+
+  gap: 40px;
+
+  padding: 24px 0;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.company-info-row > span:first-child {
+  color: var(--text-light);
+
+  letter-spacing: 0.08em;
+}
+
+.company-info-row strong {
+  font-weight: 500;
+
+  letter-spacing: 0.05em;
+}
+
+.about-contact {
+  background: var(--green-light);
+
+  text-align: center;
+}
+
+.about-contact-inner {
+  width: min(900px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 120px 0;
+}
+
+.about-contact .section-label {
+  margin-bottom: 24px;
+}
+
+.about-contact h2 {
+  margin: 0 0 28px;
+
+  font-size: clamp(32px, 4vw, 52px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.about-contact p:not(.section-label) {
+  margin: 0 0 40px;
+
+  color: var(--text-light);
+
+  font-size: 15px;
+
+  line-height: 2;
+}
+
+
+/* =========================================================
+   Sell Page
+========================================================= */
+
+.sell-page {
+  background: var(--cream);
+}
+
+.sell-hero {
+  position: relative;
+
+  min-height: 520px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 42, 32, 0.88) 0%,
+      rgba(30, 42, 32, 0.68) 55%,
+      rgba(30, 42, 32, 0.42) 100%
+    ),
+    url("/images/gunma/sell-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.sell-hero-inner {
+  width: min(var(--wide-width), calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 100px 0;
+}
+
+.sell-hero .section-label {
+  color: rgba(255, 255, 255, 0.75);
+
+  margin-bottom: 24px;
+}
+
+.sell-hero h1 {
+  margin: 0 0 28px;
+
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 1.15;
+
+  letter-spacing: 0.08em;
+}
+
+.sell-hero p:last-child {
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 2;
+
+  letter-spacing: 0.08em;
+}
+
+.sell-message {
+  background: var(--cream);
+}
+
+.sell-message .section-inner {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.sell-message-content {
+  padding-top: 10px;
+}
+
+.sell-message-content p {
+  margin: 0 0 28px;
+
+  color: var(--text);
+
+  font-size: 16px;
+
+  line-height: 2.2;
+
+  letter-spacing: 0.05em;
+}
+
+.sell-reasons {
+  background: var(--green-light);
+}
+
+.sell-reasons-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+
+  margin-top: 70px;
+}
+
+.sell-reason-card {
+  padding: 48px 40px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(45, 74, 53, 0.1);
+}
+
+.sell-reason-number {
+  display: block;
+
+  margin-bottom: 28px;
+
+  color: var(--green);
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+
+  letter-spacing: 0.18em;
+}
+
+.sell-reason-card h3 {
+  margin: 0 0 22px;
+
+  font-size: 21px;
+
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  letter-spacing: 0.06em;
+}
+
+.sell-reason-card p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.sell-flow {
+  background: var(--white);
+}
+
+.sell-flow-list {
+  max-width: 900px;
+
+  margin-top: 65px;
+
+  border-top: 1px solid var(--border);
+}
+
+.sell-flow-item {
+  display: grid;
+
+  grid-template-columns: 100px 1fr;
+
+  gap: 40px;
+
+  padding: 38px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.sell-flow-number {
+  color: var(--green);
+
+  font-family: Georgia, serif;
+
+  font-size: 28px;
+
+  letter-spacing: 0.08em;
+}
+
+.sell-flow-content h3 {
+  margin: 0 0 12px;
+
+  font-size: 21px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.06em;
+}
+
+.sell-flow-content p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.sell-consultation {
+  color: var(--white);
+
+  background: var(--green-dark);
+}
+
+.sell-consultation-inner {
+  width: min(1000px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 110px 0;
+}
+
+.sell-consultation .section-label {
+  color: rgba(255, 255, 255, 0.7);
+
+  margin-bottom: 24px;
+}
+
+.sell-consultation h2 {
+  margin: 0 0 50px;
+
+  color: var(--white);
+
+  font-size: clamp(34px, 4vw, 54px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.sell-consultation-list {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 0 60px;
+
+  max-width: 800px;
+}
+
+.sell-consultation-list p {
+  margin: 0;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.04em;
+}
+
+.sell-contact {
+  background: var(--cream);
+
+  text-align: center;
+}
+
+.sell-contact-inner {
+  width: min(900px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 120px 0;
+}
+
+.sell-contact .section-label {
+  margin-bottom: 24px;
+}
+
+.sell-contact h2 {
+  margin: 0 0 28px;
+
+  font-size: clamp(32px, 4vw, 52px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.sell-contact-inner > p:not(.section-label) {
+  margin: 0 0 40px;
+
+  color: var(--text-light);
+
+  font-size: 15px;
+
+  line-height: 2;
+}
+
+.sell-contact-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   Contact Page
+========================================================= */
+
+.contact-page {
+  background: var(--cream);
+}
+
+.contact-hero {
+  position: relative;
+
+  min-height: 520px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 42, 32, 0.88) 0%,
+      rgba(30, 42, 32, 0.68) 55%,
+      rgba(30, 42, 32, 0.42) 100%
+    ),
+    url("/images/gunma/contact-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.contact-hero-inner {
+  width: min(var(--wide-width), calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 100px 0;
+}
+
+.contact-hero .section-label {
+  color: rgba(255, 255, 255, 0.75);
+
+  margin-bottom: 24px;
+}
+
+.contact-hero h1 {
+  margin: 0 0 28px;
+
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 1.15;
+
+  letter-spacing: 0.08em;
+}
+
+.contact-hero p:last-child {
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 2;
+
+  letter-spacing: 0.08em;
+}
+
+.contact-message {
+  background: var(--cream);
+}
+
+.contact-message .section-inner {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.contact-message-content {
+  padding-top: 10px;
+}
+
+.contact-message-content p {
+  margin: 0 0 28px;
+
+  color: var(--text);
+
+  font-size: 16px;
+
+  line-height: 2.2;
+
+  letter-spacing: 0.05em;
+}
+
+.contact-methods {
+  background: var(--green-light);
+}
+
+.contact-method-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+
+  margin-top: 70px;
+}
+
+.contact-method-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 300px;
+
+  padding: 42px 36px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  border: 1px solid rgba(45, 74, 53, 0.1);
+
+  color: var(--text);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.contact-method-card:hover {
+  transform: translateY(-5px);
+
+  background: var(--white);
+
+  box-shadow: 0 16px 40px rgba(30, 42, 32, 0.08);
+}
+
+.contact-method-label {
+  margin-bottom: 24px;
+
+  color: var(--green);
+
+  font-family: Georgia, serif;
+
+  font-size: 13px;
+
+  letter-spacing: 0.18em;
+}
+
+.contact-method-card h3 {
+  margin: 0 0 18px;
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.06em;
+}
+
+.contact-method-card p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.contact-method-action {
+  margin-top: auto;
+
+  padding-top: 30px;
+
+  color: var(--green);
+
+  font-size: 14px;
+
+  letter-spacing: 0.04em;
+}
+
+.contact-company {
+  background: var(--white);
+}
+
+.contact-company-content {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  max-width: 900px;
+
+  margin-top: 60px;
+}
+
+.contact-company-info {
+  padding: 30px 0;
+
+  border-top: 1px solid var(--border);
+}
+
+.contact-company-info p {
+  margin: 0 0 10px;
+
+  color: var(--text-light);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.contact-company-info .contact-company-name {
+  margin-bottom: 4px;
+
+  color: var(--text);
+
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  letter-spacing: 0.12em;
+}
+
+.contact-final {
+  background: var(--green-light);
+
+  text-align: center;
+}
+
+.contact-final-inner {
+  width: min(900px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 120px 0;
+}
+
+.contact-final .section-label {
+  margin-bottom: 24px;
+}
+
+.contact-final h2 {
+  margin: 0 0 45px;
+
+  font-size: clamp(32px, 4vw, 52px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.contact-final-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   Responsive
+   Tablet
+========================================================= */
+
+@media (max-width: 900px) {
+
+  /* Header */
+
+  .header-inner {
+    width: calc(100% - 40px);
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px 30px 30px;
+
+    background: rgba(40, 52, 43, 0.97);
+  }
+
+  .mobile-nav a {
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+    font-size: 13px;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-content {
+    width: calc(100% - 40px);
+
+    min-height: 680px;
+  }
+
+
+  /* About */
+
+  .about-section {
+    min-height: auto;
+  }
+
+  .about-section .section-inner {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    width: calc(100% - 60px);
+
+    padding: 90px 0;
+  }
+
+  .about-content {
+    max-width: 700px;
+
+    padding-left: 0;
+  }
+
+
+  /* Home Property */
+
+  .property-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* Home Contact */
+
+  .contact-buttons {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* About / Sell / Contact */
+
+  .about-message .section-inner,
+  .sell-message .section-inner,
+  .contact-message .section-inner {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .about-strength-grid,
+  .sell-reasons-grid,
+  .contact-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-info-row {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .contact-company-content {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .sell-consultation-list {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Properties */
+
+  .properties-hero-inner,
+  .properties-list-inner,
+  .property-detail-inner {
+    width: calc(100% - 40px);
+  }
+
+  .properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* Sell Flow */
+
+  .sell-flow-item {
+    grid-template-columns: 80px 1fr;
+  }
+
+
+  /* Footer */
+
+  .footer-main {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    width: calc(100% - 40px);
+
+    padding: 70px 0;
+  }
+
+  .footer-company-inner {
+    flex-direction: column;
+
+    width: calc(100% - 40px);
+  }
+
+  .footer-company-info {
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   Responsive
+   Mobile
+========================================================= */
 
 @media (max-width: 600px) {
+
+  /* Header */
+
+  .header-inner {
+    height: 80px;
+  }
+
+  .site-logo img {
+    width: 145px;
+  }
+
+
+  /* Common */
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .section-inner,
+  .sell-inner {
+    width: calc(100% - 40px);
+  }
+
+
+  /* Hero */
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-content {
+    width: calc(100% - 40px);
+
+    min-height: 680px;
+
+    padding-top: 80px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+
+    line-height: 1.45;
+  }
+
+  .hero-description {
+    margin-top: 28px;
+
+    font-size: 13px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  /* Buttons */
+
+  .button {
+    width: 100%;
+  }
+
+/* About Home */
+
+.about-section {
+  min-height: 360px;
+
+  background-position: center;
+}
+
+.about-section-inner {
+  width: calc(100% - 40px);
+
+  padding: 70px 0;
+}
+
+.about-content {
+  max-width: 100%;
+}
+
+.about-content .section-label {
+  margin-bottom: 16px;
+}
+
+.about-content h2 {
+  margin-bottom: 24px;
+
+  font-size: 34px;
+
+  line-height: 1.55;
+}
+
+.about-content .text-link {
+  font-size: 12px;
+}
+
+  /* Home Property */
+
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-card {
+    width: 100%;
+  }
+
+
+  /* Properties Page */
+
+  .properties-hero {
+    padding: 150px 0 80px;
+  }
+
+  .properties-list-section {
+    padding: 80px 0;
+  }
+
+  .properties-list-inner {
+    width: calc(100% - 40px);
+  }
+
+  .properties-list-heading {
+    align-items: flex-start;
+  }
+
+  .properties-list-heading h2 {
+    font-size: 34px;
+  }
+
+  .property-filters {
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+  }
+
+  .property-filter {
+    flex-shrink: 0;
+  }
+
+  .properties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .properties-contact {
+    padding: 90px 0;
+  }
+
+  .properties-contact-inner {
+    width: calc(100% - 40px);
+  }
+
+
+  /* Property Detail */
+
   .property-detail-inner {
     width: calc(100% - 40px);
   }
@@ -1495,6 +2653,7 @@ button {
 
   .property-detail-actions {
     flex-direction: column;
+
     align-items: stretch;
 
     gap: 25px;
@@ -1507,239 +2666,17 @@ button {
   .property-detail-actions .text-link {
     align-self: center;
   }
-}
-/* =========================================================
-   About Page
-========================================================= */
 
-.about-page {
-  background: var(--cream);
-}
 
-/* =========================
-   About Hero
-========================= */
+  /* About Page */
 
-.about-hero {
-  position: relative;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(30, 42, 32, 0.88) 0%,
-      rgba(30, 42, 32, 0.68) 55%,
-      rgba(30, 42, 32, 0.45) 100%
-    ),
-    url("/images/gunma/about-bg.jpg");
-
-  background-size: cover;
-  background-position: center;
-}
-
-.about-hero-inner {
-  width: min(1200px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 100px 0;
-  color: var(--white);
-}
-
-.about-hero .section-label {
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 24px;
-}
-
-.about-hero h1 {
-  margin: 0 0 28px;
-  font-size: clamp(42px, 5vw, 72px);
-  line-height: 1.15;
-  letter-spacing: 0.08em;
-  font-weight: 500;
-}
-
-.about-hero p:last-child {
-  margin: 0;
-  font-size: 16px;
-  line-height: 2;
-  letter-spacing: 0.08em;
-}
-
-/* =========================
-   About Message
-========================= */
-
-.about-message {
-  background: var(--cream);
-}
-
-.about-message .section-inner {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
-  align-items: start;
-}
-
-.about-message-content {
-  padding-top: 10px;
-}
-
-.about-message-content p {
-  margin: 0 0 28px;
-  font-size: 16px;
-  line-height: 2.2;
-  letter-spacing: 0.05em;
-  color: var(--text);
-}
-
-.about-message-content p:last-child {
-  margin-bottom: 0;
-}
-
-/* =========================
-   Strength
-========================= */
-
-.about-strength {
-  background: var(--light-green);
-}
-
-.about-strength-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 70px;
-}
-
-.about-strength-card {
-  position: relative;
-  padding: 48px 40px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(45, 74, 53, 0.1);
-}
-
-.about-strength-number {
-  display: block;
-  margin-bottom: 28px;
-
-  font-family: Georgia, serif;
-  font-size: 15px;
-  letter-spacing: 0.18em;
-  color: var(--green);
-}
-
-.about-strength-card h3 {
-  margin: 0 0 22px;
-  font-size: 21px;
-  line-height: 1.6;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
-
-.about-strength-card p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 2;
-  color: var(--text-light);
-}
-
-/* =========================
-   Company
-========================= */
-
-.company-section {
-  background: var(--white);
-}
-
-.company-info {
-  max-width: 900px;
-  margin-top: 60px;
-  border-top: 1px solid var(--border);
-}
-
-.company-info-row {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 40px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.company-info-row > span:first-child {
-  color: var(--text-light);
-  letter-spacing: 0.08em;
-}
-
-.company-info-row strong {
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* =========================
-   About Contact
-========================= */
-
-.about-contact {
-  background: var(--light-green);
-  text-align: center;
-}
-
-.about-contact-inner {
-  width: min(900px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 120px 0;
-}
-
-.about-contact .section-label {
-  margin-bottom: 24px;
-}
-
-.about-contact h2 {
-  margin: 0 0 28px;
-  font-size: clamp(32px, 4vw, 52px);
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
-.about-contact p:not(.section-label) {
-  margin: 0 0 40px;
-  font-size: 15px;
-  line-height: 2;
-  color: var(--text-light);
-}
-
-/* =========================
-   About Responsive
-========================= */
-
-@media (max-width: 900px) {
-  .about-message .section-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .about-strength-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .company-info-row {
-    grid-template-columns: 180px 1fr;
-  }
-}
-
-@media (max-width: 768px) {
   .about-hero {
     min-height: 460px;
   }
 
   .about-hero-inner {
     width: calc(100% - 40px);
+
     padding: 80px 0;
   }
 
@@ -1767,310 +2704,37 @@ button {
 
   .company-info-row {
     grid-template-columns: 1fr;
+
     gap: 6px;
+
     padding: 20px 0;
   }
 
   .about-contact-inner {
     width: calc(100% - 40px);
+
     padding: 90px 0;
   }
 
   .about-contact h2 {
     font-size: 32px;
   }
-}
-/* =========================================================
-   Sell Page
-========================================================= */
 
-.sell-page {
-  background: var(--cream);
-}
 
-/* =========================
-   Sell Hero
-========================= */
+  /* Sell */
 
-.sell-hero {
-  position: relative;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(30, 42, 32, 0.88) 0%,
-      rgba(30, 42, 32, 0.68) 55%,
-      rgba(30, 42, 32, 0.42) 100%
-    ),
-    url("/images/gunma/sell-bg.jpg");
-
-  background-size: cover;
-  background-position: center;
-}
-
-.sell-hero-inner {
-  width: min(1200px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 100px 0;
-  color: var(--white);
-}
-
-.sell-hero .section-label {
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 24px;
-}
-
-.sell-hero h1 {
-  margin: 0 0 28px;
-  font-size: clamp(42px, 5vw, 72px);
-  line-height: 1.15;
-  letter-spacing: 0.08em;
-  font-weight: 500;
-}
-
-.sell-hero p:last-child {
-  margin: 0;
-  font-size: 16px;
-  line-height: 2;
-  letter-spacing: 0.08em;
-}
-
-/* =========================
-   Sell Message
-========================= */
-
-.sell-message {
-  background: var(--cream);
-}
-
-.sell-message .section-inner {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
-  align-items: start;
-}
-
-.sell-message-content {
-  padding-top: 10px;
-}
-
-.sell-message-content p {
-  margin: 0 0 28px;
-  font-size: 16px;
-  line-height: 2.2;
-  letter-spacing: 0.05em;
-  color: var(--text);
-}
-
-.sell-message-content p:last-child {
-  margin-bottom: 0;
-}
-
-/* =========================
-   Sell Reasons
-========================= */
-
-.sell-reasons {
-  background: var(--light-green);
-}
-
-.sell-reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 70px;
-}
-
-.sell-reason-card {
-  padding: 48px 40px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(45, 74, 53, 0.1);
-}
-
-.sell-reason-number {
-  display: block;
-  margin-bottom: 28px;
-
-  font-family: Georgia, serif;
-  font-size: 15px;
-  letter-spacing: 0.18em;
-  color: var(--green);
-}
-
-.sell-reason-card h3 {
-  margin: 0 0 22px;
-  font-size: 21px;
-  line-height: 1.6;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
-
-.sell-reason-card p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 2;
-  color: var(--text-light);
-}
-
-/* =========================
-   Sell Flow
-========================= */
-
-.sell-flow {
-  background: var(--white);
-}
-
-.sell-flow-list {
-  max-width: 900px;
-  margin-top: 65px;
-  border-top: 1px solid var(--border);
-}
-
-.sell-flow-item {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 40px;
-  padding: 38px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.sell-flow-number {
-  font-family: Georgia, serif;
-  font-size: 28px;
-  color: var(--green);
-  letter-spacing: 0.08em;
-}
-
-.sell-flow-content h3 {
-  margin: 0 0 12px;
-  font-size: 21px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
-
-.sell-flow-content p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 2;
-  color: var(--text-light);
-}
-
-/* =========================
-   Sell Consultation
-========================= */
-
-.sell-consultation {
-  background: var(--green);
-  color: var(--white);
-}
-
-.sell-consultation-inner {
-  width: min(1000px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 110px 0;
-}
-
-.sell-consultation .section-label {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 24px;
-}
-
-.sell-consultation h2 {
-  margin: 0 0 50px;
-  font-size: clamp(34px, 4vw, 54px);
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
-.sell-consultation-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 60px;
-  max-width: 800px;
-}
-
-.sell-consultation-list p {
-  margin: 0;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-  font-size: 15px;
-  line-height: 1.8;
-  letter-spacing: 0.04em;
-}
-
-/* =========================
-   Sell Contact
-========================= */
-
-.sell-contact {
-  background: var(--cream);
-  text-align: center;
-}
-
-.sell-contact-inner {
-  width: min(900px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 120px 0;
-}
-
-.sell-contact .section-label {
-  margin-bottom: 24px;
-}
-
-.sell-contact h2 {
-  margin: 0 0 28px;
-  font-size: clamp(32px, 4vw, 52px);
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
-.sell-contact-inner > p:not(.section-label) {
-  margin: 0 0 40px;
-  font-size: 15px;
-  line-height: 2;
-  color: var(--text-light);
-}
-
-.sell-contact-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-/* =========================
-   Sell Responsive
-========================= */
-
-@media (max-width: 900px) {
-  .sell-message .section-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .sell-section,
+  .sell-inner {
+    min-height: 520px;
   }
 
-  .sell-reasons-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sell-consultation-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
   .sell-hero {
     min-height: 460px;
   }
 
   .sell-hero-inner {
     width: calc(100% - 40px);
+
     padding: 80px 0;
   }
 
@@ -2098,7 +2762,9 @@ button {
 
   .sell-flow-item {
     grid-template-columns: 60px 1fr;
+
     gap: 20px;
+
     padding: 30px 0;
   }
 
@@ -2112,6 +2778,7 @@ button {
 
   .sell-consultation-inner {
     width: calc(100% - 40px);
+
     padding: 90px 0;
   }
 
@@ -2121,6 +2788,7 @@ button {
 
   .sell-contact-inner {
     width: calc(100% - 40px);
+
     padding: 90px 0;
   }
 
@@ -2134,5 +2802,75 @@ button {
 
   .sell-contact-buttons .button {
     width: 100%;
+  }
+
+
+  /* Contact */
+
+  .contact-hero {
+    min-height: 460px;
+  }
+
+  .contact-hero-inner {
+    width: calc(100% - 40px);
+
+    padding: 80px 0;
+  }
+
+  .contact-hero h1 {
+    font-size: 42px;
+  }
+
+  .contact-message .section-inner,
+  .contact-methods .section-inner,
+  .contact-company .section-inner {
+    width: calc(100% - 40px);
+  }
+
+  .contact-method-grid {
+    margin-top: 50px;
+  }
+
+  .contact-method-card {
+    min-height: 260px;
+
+    padding: 34px 28px;
+  }
+
+  .contact-company-content {
+    margin-top: 40px;
+  }
+
+  .contact-final-inner {
+    width: calc(100% - 40px);
+
+    padding: 90px 0;
+  }
+
+  .contact-final h2 {
+    font-size: 32px;
+  }
+
+  .contact-final-buttons {
+    flex-direction: column;
+  }
+
+  .contact-final-buttons .button {
+    width: 100%;
+  }
+
+
+  /* Footer */
+
+  .footer-logo img {
+    width: 160px;
+  }
+
+  .footer-main {
+    gap: 45px;
+  }
+
+  .footer-phone {
+    font-size: 21px;
   }
 }

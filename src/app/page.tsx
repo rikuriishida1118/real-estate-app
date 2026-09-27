@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,9 +9,9 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* =========================
+        {/* =========================================================
             Hero
-        ========================= */}
+        ========================================================= */}
         <section className="hero">
           <div className="hero-image">
             <Image
@@ -41,23 +42,31 @@ export default function Home() {
             </p>
 
             <div className="hero-buttons">
-              <a href="/properties" className="button button-primary">
+              <Link
+                href="/properties"
+                className="button button-primary"
+              >
                 物件を探す
-              </a>
+              </Link>
 
-              <a href="/sell" className="button button-secondary">
+              <Link
+                href="/sell"
+                className="button button-secondary"
+              >
                 不動産を売りたい方へ
-              </a>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             About
-        ========================= */}
-        <section className="about-section section">
-          <div className="section-inner">
-            <div className="section-heading">
+            詳細はAboutページへ。
+            トップページでは簡潔な紹介のみ。
+        ========================================================= */}
+        <section className="about-section">
+          <div className="about-section-inner">
+            <div className="about-content">
               <p className="section-label">ABOUT US</p>
 
               <h2>
@@ -65,32 +74,20 @@ export default function Home() {
                 <br />
                 もっと身近に。
               </h2>
-            </div>
 
-            <div className="about-content">
-              <p>
-                私たちは群馬県渋川市を中心に、
-                不動産の売買をサポートする地域密着型の不動産会社です。
-              </p>
-
-              <p>
-                「家を買いたい」
-                「土地を探している」
-                「今ある不動産を売りたい」
-                そんな一人ひとりのご相談に寄り添い、
-                地域のことを知っているからこそできる提案を大切にしています。
-              </p>
-
-              <a href="/about" className="text-link">
+              <Link
+                href="/about"
+                className="text-link"
+              >
                 私たちについて →
-              </a>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             Properties
-        ========================= */}
+        ========================================================= */}
         <section className="property-section section">
           <div className="section-inner">
             <div className="section-heading">
@@ -104,7 +101,10 @@ export default function Home() {
             </div>
 
             <div className="property-grid">
-              {/* 仮の物件カード */}
+              {/* -------------------------------------------------
+                  Property 01
+                  ※ 後ほどDBから取得する形に変更
+              ------------------------------------------------- */}
               <article className="property-card">
                 <div className="property-image">
                   <span>PROPERTY IMAGE</span>
@@ -115,12 +115,19 @@ export default function Home() {
 
                   <h3>渋川市 ○○町</h3>
 
-                  <p className="property-price">〇〇〇万円</p>
+                  <p className="property-price">
+                    〇〇〇万円
+                  </p>
 
-                  <p className="property-detail">土地面積：〇〇㎡</p>
+                  <p className="property-detail">
+                    土地面積：〇〇㎡
+                  </p>
                 </div>
               </article>
 
+              {/* -------------------------------------------------
+                  Property 02
+              ------------------------------------------------- */}
               <article className="property-card">
                 <div className="property-image">
                   <span>PROPERTY IMAGE</span>
@@ -131,12 +138,19 @@ export default function Home() {
 
                   <h3>渋川市 ○○町</h3>
 
-                  <p className="property-price">〇〇〇万円</p>
+                  <p className="property-price">
+                    〇〇〇万円
+                  </p>
 
-                  <p className="property-detail">土地面積：〇〇㎡</p>
+                  <p className="property-detail">
+                    土地面積：〇〇㎡
+                  </p>
                 </div>
               </article>
 
+              {/* -------------------------------------------------
+                  Property 03
+              ------------------------------------------------- */}
               <article className="property-card">
                 <div className="property-image">
                   <span>PROPERTY IMAGE</span>
@@ -147,28 +161,37 @@ export default function Home() {
 
                   <h3>渋川市 ○○町</h3>
 
-                  <p className="property-price">〇〇〇万円</p>
+                  <p className="property-price">
+                    〇〇〇万円
+                  </p>
 
-                  <p className="property-detail">土地面積：〇〇㎡</p>
+                  <p className="property-detail">
+                    土地面積：〇〇㎡
+                  </p>
                 </div>
               </article>
             </div>
 
             <div className="section-button">
-              <a href="/properties" className="button button-dark">
-                物件一覧を見る
-              </a>
+              <Link
+                href="/properties"
+                className="button button-primary"
+              >
+                物件を探す
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             Sell
-        ========================= */}
+        ========================================================= */}
         <section className="sell-section">
           <div className="sell-inner">
             <div className="sell-content">
-              <p className="section-label">SELL YOUR PROPERTY</p>
+              <p className="section-label">
+                SELL YOUR PROPERTY
+              </p>
 
               <h2>
                 不動産を
@@ -182,16 +205,19 @@ export default function Home() {
                 という方も、まずはお気軽にご相談ください。
               </p>
 
-              <a href="/sell" className="button button-light">
+              <Link
+                href="/sell"
+                className="button button-light"
+              >
                 売却について相談する
-              </a>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             Contact
-        ========================= */}
+        ========================================================= */}
         <section className="contact-section section">
           <div className="section-inner">
             <div className="section-heading center">
@@ -210,24 +236,42 @@ export default function Home() {
             </div>
 
             <div className="contact-buttons">
-              <a href="tel:0000000000" className="contact-button">
-                <span className="contact-button-label">PHONE</span>
+              {/* PHONE */}
+              <a
+                href="tel:0000000000"
+                className="contact-button"
+              >
+                <span className="contact-button-label">
+                  PHONE
+                </span>
 
                 <span className="contact-button-title">
                   電話で相談する
                 </span>
               </a>
 
-              <a href="#" className="contact-button">
-                <span className="contact-button-label">LINE</span>
+              {/* LINE */}
+              <a
+                href="#"
+                className="contact-button"
+              >
+                <span className="contact-button-label">
+                  LINE
+                </span>
 
                 <span className="contact-button-title">
                   LINEで相談する
                 </span>
               </a>
 
-              <a href="#" className="contact-button">
-                <span className="contact-button-label">INSTAGRAM</span>
+              {/* INSTAGRAM */}
+              <a
+                href="#"
+                className="contact-button"
+              >
+                <span className="contact-button-label">
+                  INSTAGRAM
+                </span>
 
                 <span className="contact-button-title">
                   Instagramを見る
