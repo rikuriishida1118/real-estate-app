@@ -10,8 +10,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        {/* ロゴ・会社名 */}
-        <Link href="/" className="site-logo">
+        <Link href="/" className="site-logo" aria-label="橘　ESTATE ホーム">
           <Image
             src="/logo/tachibana-estate.png"
             alt="橘　ESTATE"
@@ -19,26 +18,35 @@ export default function Header() {
             height={100}
             style={{ width: "auto", height: "auto" }}
             priority
-            />
+          />
         </Link>
 
-        {/* PC用ナビゲーション */}
-        <nav className="desktop-nav">
+        <nav className="desktop-nav" aria-label="メインナビゲーション">
           <Link href="/">ホーム</Link>
-          <Link href="/about">私たちについて</Link>
-          <Link href="/properties">物件を探す</Link>
-          <Link href="/sell">売却相談</Link>
+
+          <Link href="/about">
+            私たちについて
+          </Link>
+
+          <Link href="/properties">
+            物件を探す
+          </Link>
+
+          <Link href="/sell">
+            売却相談
+          </Link>
+
           <Link href="/contact" className="nav-contact">
             お問い合わせ
           </Link>
         </nav>
 
-        {/* スマートフォン用メニューボタン */}
         <button
           className="menu-button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="メニューを開く"
+          aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={isMenuOpen}
+          type="button"
         >
           <span></span>
           <span></span>
@@ -46,9 +54,8 @@ export default function Header() {
         </button>
       </div>
 
-      {/* スマートフォン用メニュー */}
       {isMenuOpen && (
-        <nav className="mobile-nav">
+        <nav className="mobile-nav" aria-label="モバイルナビゲーション">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
             ホーム
           </Link>

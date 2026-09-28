@@ -1,16 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const INSTAGRAM_URL =
+  "https://www.instagram.com/tachibana_estate_gunma/";
+
+const PHONE_NUMBER = "0279-25-7099";
+
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-main">
         {/* ブランド */}
         <div className="footer-brand">
-          <Link href="/" className="footer-logo">
+          <Link
+            href="/"
+            className="footer-logo"
+            aria-label="橘　ESTATE ホーム"
+          >
             <Image
               src="/logo/tachibana-estate.png"
-              alt="橘 ESTATE"
+              alt="橘　ESTATE"
               width={240}
               height={100}
               style={{ width: "auto", height: "auto" }}
@@ -31,14 +40,31 @@ export default function Footer() {
         </div>
 
         {/* メニュー */}
-        <nav className="footer-menu">
+        <nav
+          className="footer-menu"
+          aria-label="フッターメニュー"
+        >
           <p className="footer-title">MENU</p>
 
-          <Link href="/">ホーム</Link>
-          <Link href="/about">私たちについて</Link>
-          <Link href="/properties">物件を探す</Link>
-          <Link href="/sell">売却相談</Link>
-          <Link href="/contact">お問い合わせ</Link>
+          <Link href="/">
+            ホーム
+          </Link>
+
+          <Link href="/about">
+            私たちについて
+          </Link>
+
+          <Link href="/properties">
+            物件を探す
+          </Link>
+
+          <Link href="/sell">
+            売却相談
+          </Link>
+
+          <Link href="/contact">
+            お問い合わせ
+          </Link>
         </nav>
 
         {/* お問い合わせ */}
@@ -51,13 +77,22 @@ export default function Footer() {
             お気軽にご相談ください。
           </p>
 
-          <a href="tel:0279257099" className="footer-phone">
-            0279-25-7099
+          <a
+            href={`tel:${PHONE_NUMBER.replaceAll("-", "")}`}
+            className="footer-phone"
+          >
+            {PHONE_NUMBER}
           </a>
 
           <div className="footer-social">
-            <a href="#">LINE</a>
-            <a href="#">Instagram</a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="橘　ESTATE Instagram"
+            >
+              Instagram
+            </a>
           </div>
         </div>
       </div>
@@ -67,20 +102,27 @@ export default function Footer() {
         <div className="footer-company-inner">
           <div>
             <p className="footer-company-name">
-              橘 ESTATE
+              橘　ESTATE
+            </p>
+
+            <p className="footer-company-history">
+              株式会社橘電工として、地域に根ざして20年。
             </p>
           </div>
 
           <div className="footer-company-info">
             <p>群馬県渋川市</p>
+            <p>株式会社橘電工</p>
             <p>宅地建物取引業免許：XXXXXXXX号</p>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
+      {/* コピーライト */}
       <div className="footer-bottom">
-        <p>© TACHIBANA ESTATE All Rights Reserved.</p>
+        <p>
+          © 橘　ESTATE All Rights Reserved.
+        </p>
       </div>
     </footer>
   );

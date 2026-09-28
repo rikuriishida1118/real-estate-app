@@ -8,16 +8,14 @@ export default function AboutPage() {
       <Header />
 
       <main className="about-page">
-        {/* =========================
-            About Hero
-        ========================= */}
+        {/* =========================================================
+            Hero
+        ========================================================= */}
         <section className="about-hero">
           <div className="about-hero-inner">
             <p className="section-label">ABOUT US</p>
 
-            <h1>
-              私たちについて
-            </h1>
+            <h1>私たちについて</h1>
 
             <p>
               群馬・渋川の暮らしと不動産に、
@@ -27,9 +25,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             Message
-        ========================= */}
+        ========================================================= */}
         <section className="about-message section">
           <div className="section-inner">
             <div className="section-heading">
@@ -44,9 +42,8 @@ export default function AboutPage() {
 
             <div className="about-message-content">
               <p>
-                橘 ESTATEは、
-                群馬県渋川市を中心に不動産の売買をサポートする
-                地域密着型の不動産会社です。
+                橘　ESTATEは、群馬県渋川市を中心に、
+                暮らしと不動産のご相談を承っています。
               </p>
 
               <p>
@@ -66,36 +63,47 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =========================
-            Strength
-        ========================= */}
+        {/* =========================================================
+            Our Roots
+        ========================================================= */}
         <section className="about-strength section">
           <div className="section-inner">
             <div className="section-heading center">
-              <p className="section-label">OUR STRENGTH</p>
+              <p className="section-label">OUR ROOTS</p>
 
               <h2>
-                橘 ESTATEが
+                地域に根ざして、
                 <br />
-                大切にしていること
+                20年。
               </h2>
+
+              <p className="about-roots-lead">
+                株式会社橘電工として、地域とともに歩んできた20年。
+                <br />
+                その経験を、これからの暮らしと不動産のご相談にも活かします。
+              </p>
             </div>
 
             <div className="about-strength-grid">
+              {/* 01 */}
               <article className="about-strength-card">
-                <span className="about-strength-number">01</span>
+                <span className="about-strength-number">
+                  01
+                </span>
 
                 <h3>地域を知っていること</h3>
 
                 <p>
                   渋川・群馬の地域性や暮らしを大切にし、
-                  地域に根ざした不動産会社として
-                  お客様のご相談に向き合います。
+                  地域に根ざした視点からお客様のご相談に向き合います。
                 </p>
               </article>
 
+              {/* 02 */}
               <article className="about-strength-card">
-                <span className="about-strength-number">02</span>
+                <span className="about-strength-number">
+                  02
+                </span>
 
                 <h3>一人ひとりに寄り添うこと</h3>
 
@@ -106,14 +114,17 @@ export default function AboutPage() {
                 </p>
               </article>
 
+              {/* 03 */}
               <article className="about-strength-card">
-                <span className="about-strength-number">03</span>
+                <span className="about-strength-number">
+                  03
+                </span>
 
                 <h3>売ることにも向き合うこと</h3>
 
                 <p>
-                  購入だけでなく、
-                  土地や建物の売却についてもご相談いただけます。
+                  購入だけでなく、土地や建物の売却についても
+                  ご相談いただけます。
                   「何から始めればいいかわからない」という段階から
                   お気軽にご相談ください。
                 </p>
@@ -122,9 +133,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             Company
-        ========================= */}
+        ========================================================= */}
         <section className="company-section section">
           <div className="section-inner">
             <div className="section-heading">
@@ -135,18 +146,23 @@ export default function AboutPage() {
 
             <div className="company-info">
               <div className="company-info-row">
-                <span>会社名</span>
-                <strong>橘 ESTATE</strong>
+                <span>ブランド名</span>
+                <strong>橘　ESTATE</strong>
               </div>
 
               <div className="company-info-row">
-                <span>法人名</span>
-                <strong>有限会社橘 ESTATE</strong>
+                <span>運営会社</span>
+                <strong>株式会社橘電工</strong>
               </div>
 
               <div className="company-info-row">
                 <span>所在地</span>
                 <span>群馬県渋川市</span>
+              </div>
+
+              <div className="company-info-row">
+                <span>地域での歩み</span>
+                <span>株式会社橘電工として20年</span>
               </div>
 
               <div className="company-info-row">
@@ -162,9 +178,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =========================
+        {/* =========================================================
             Contact
-        ========================= */}
+        ========================================================= */}
         <section className="about-contact">
           <div className="about-contact-inner">
             <p className="section-label">CONTACT</p>

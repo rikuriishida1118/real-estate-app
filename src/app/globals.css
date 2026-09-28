@@ -2874,3 +2874,317 @@ p {
     font-size: 21px;
   }
 }
+/* =========================================================
+   橘　ESTATE Design Update
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Typography
+   サイト全体のフォントを Noto Sans JP に統一
+   --------------------------------------------------------- */
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.hero h1,
+.about-hero h1,
+.properties-hero h1,
+.sell-hero h1,
+.contact-hero h1,
+.property-detail-hero h1,
+.property-not-found h1,
+.section-heading h2,
+.sell-content h2,
+.properties-list-heading h2,
+.properties-contact h2,
+.property-detail-block h2,
+.about-contact h2,
+.sell-consultation h2,
+.sell-contact h2,
+.contact-final h2,
+.property-info h3,
+.property-list-content h3,
+.contact-button-title,
+.footer-contact-text,
+.footer-phone,
+.footer-company-name {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+
+/* ---------------------------------------------------------
+   Letter Spacing
+   --------------------------------------------------------- */
+
+body {
+  letter-spacing: 0.02em;
+}
+
+.section-label {
+  letter-spacing: 0.22em;
+}
+
+.button,
+.desktop-nav,
+.mobile-nav,
+.text-link {
+  letter-spacing: 0.06em;
+}
+
+
+/* ---------------------------------------------------------
+   HOME
+   About / 20年
+   --------------------------------------------------------- */
+
+.home-about-history {
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+}
+
+
+/* ---------------------------------------------------------
+   ABOUT
+   地域に根ざして20年
+   --------------------------------------------------------- */
+
+.about-roots-lead {
+  max-width: 720px;
+  margin: 28px auto 0;
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.footer-company-name {
+  letter-spacing: 0.08em;
+}
+
+.footer-company-history {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   INSTAGRAM
+   --------------------------------------------------------- */
+
+.footer-social a {
+  transition: opacity 0.3s ease;
+}
+
+.footer-social a:hover {
+  opacity: 0.65;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT
+   LINE削除後の2カラム
+   --------------------------------------------------------- */
+
+.contact-buttons-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.contact-method-grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 820px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.contact-final-buttons-two {
+  justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT CARD
+   --------------------------------------------------------- */
+
+.contact-method-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-method-card:hover {
+  transform: translateY(-4px);
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.site-logo {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  max-width: 190px;
+  height: auto;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .contact-buttons-two,
+  .contact-method-grid-two {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .home-about-history,
+  .about-roots-lead {
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .site-logo img {
+    max-width: 150px;
+  }
+}
+/* =========================================================
+   ABOUT US - Home
+   ========================================================= */
+
+.about-section {
+  background: #f7f7f3;
+  padding: 120px 0;
+}
+
+.about-section-inner {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 90px;
+}
+
+.about-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.about-image img {
+  object-fit: cover;
+}
+
+.about-content {
+  padding: 20px 0;
+}
+
+.about-content .section-label {
+  margin-bottom: 30px;
+}
+
+.about-content h2 {
+  margin: 0;
+
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  color: #333;
+}
+
+.about-content .home-about-history {
+  margin: 36px 0 0;
+
+  font-family: "Noto Sans JP", sans-serif;
+  color: #666;
+  font-size: 14px;
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+.about-content .text-link {
+  display: inline-block;
+  margin-top: 42px;
+
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+
+  border-bottom: 1px solid #999;
+  padding-bottom: 8px;
+}
+
+.about-content .text-link:hover {
+  opacity: 0.6;
+}
+
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .about-section {
+    padding: 80px 0;
+  }
+
+  .about-section-inner {
+    width: calc(100% - 40px);
+
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .about-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-content {
+    padding: 0;
+  }
+
+  .about-content h2 {
+    font-size: 32px;
+    line-height: 1.7;
+  }
+
+  .about-content .home-about-history {
+    margin-top: 28px;
+    font-size: 13px;
+  }
+
+  .about-content .text-link {
+    margin-top: 32px;
+  }
+}
