@@ -3076,115 +3076,207 @@ body {
   }
 }
 /* =========================================================
-   ABOUT US - Home
+   ABOUT US - Image Background
    ========================================================= */
 
 .about-section {
-  background: #f7f7f3;
-  padding: 120px 0;
+  position: relative;
+  min-height: 680px;
+  padding: 0;
+  overflow: hidden;
+  background: #333;
 }
 
 .about-section-inner {
-  width: min(1180px, calc(100% - 80px));
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  align-items: center;
-  gap: 90px;
-}
-
-.about-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  min-height: 680px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------
+   Background Image
+   --------------------------------------------------------- */
+
+.about-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  z-index: 0;
 }
 
 .about-image img {
   object-fit: cover;
+  object-position: center;
 }
+
+/* ---------------------------------------------------------
+   Image Overlay
+   --------------------------------------------------------- */
+
+.about-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 30, 25, 0.68) 0%,
+      rgba(20, 30, 25, 0.42) 38%,
+      rgba(20, 30, 25, 0.12) 70%,
+      rgba(20, 30, 25, 0.02) 100%
+    );
+
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------
+   Text
+   --------------------------------------------------------- */
 
 .about-content {
-  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, calc(100% - 80px));
+  min-height: 680px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 80px 0;
 }
 
+/* ABOUT US */
+
 .about-content .section-label {
-  margin-bottom: 30px;
+  margin: 0 0 28px;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  letter-spacing: 0.25em;
 }
+
+/* Main heading */
 
 .about-content h2 {
   margin: 0;
 
+  color: #fff;
+
   font-family: "Shippori Mincho", serif;
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(38px, 4.5vw, 64px);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.65;
   letter-spacing: 0.08em;
-  color: #333;
 }
+
+/* Description */
 
 .about-content .home-about-history {
   margin: 36px 0 0;
 
+  color: rgba(255, 255, 255, 0.9);
+
   font-family: "Noto Sans JP", sans-serif;
-  color: #666;
   font-size: 14px;
   line-height: 2.2;
   letter-spacing: 0.04em;
 }
 
+/* Link */
+
 .about-content .text-link {
   display: inline-block;
-  margin-top: 42px;
+  width: fit-content;
 
-  color: #333;
+  margin-top: 40px;
+  padding-bottom: 9px;
+
+  color: #fff;
+
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 13px;
-  text-decoration: none;
   letter-spacing: 0.08em;
 
-  border-bottom: 1px solid #999;
-  padding-bottom: 8px;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+
+  transition:
+    opacity 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .about-content .text-link:hover {
-  opacity: 0.6;
+  opacity: 0.65;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 
-/* Mobile */
+/* =========================================================
+   Mobile
+   ========================================================= */
 
 @media (max-width: 767px) {
   .about-section {
-    padding: 80px 0;
+    min-height: 620px;
   }
 
   .about-section-inner {
-    width: calc(100% - 40px);
-
-    grid-template-columns: 1fr;
-    gap: 45px;
+    min-height: 620px;
   }
 
   .about-image {
-    aspect-ratio: 4 / 3;
+    min-height: 620px;
+  }
+
+  .about-image img {
+    object-position: center;
+  }
+
+  .about-image::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(20, 30, 25, 0.25) 0%,
+        rgba(20, 30, 25, 0.55) 45%,
+        rgba(20, 30, 25, 0.82) 100%
+      );
   }
 
   .about-content {
-    padding: 0;
+    width: calc(100% - 40px);
+    min-height: 620px;
+
+    justify-content: flex-end;
+
+    padding: 60px 0;
+  }
+
+  .about-content .section-label {
+    margin-bottom: 20px;
+    font-size: 10px;
   }
 
   .about-content h2 {
     font-size: 32px;
     line-height: 1.7;
+    letter-spacing: 0.06em;
   }
 
   .about-content .home-about-history {
-    margin-top: 28px;
-    font-size: 13px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 2;
   }
 
   .about-content .text-link {
-    margin-top: 32px;
+    margin-top: 30px;
   }
 }

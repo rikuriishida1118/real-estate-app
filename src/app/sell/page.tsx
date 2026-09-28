@@ -58,7 +58,7 @@ export default function SellPage() {
               </p>
 
               <p>
-                橘 ESTATEでは、
+                橘ESTATEでは、
                 お客様のお話を伺いながら、
                 不動産の状況やご希望に合わせた売却方法をご提案します。
               </p>
@@ -249,14 +249,9 @@ export default function SellPage() {
             </p>
 
             <div className="sell-contact-buttons">
-              <a href="tel:0000000000" className="button button-dark">
+              <a href="tel:0279257099" className="button button-dark">
                 電話で相談する
               </a>
-
-              <a href="#" className="button button-dark">
-                LINEで相談する
-              </a>
-
               <Link href="/contact" className="button button-dark">
                 お問い合わせ
               </Link>

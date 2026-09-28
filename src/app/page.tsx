@@ -65,7 +65,7 @@ export default function Home() {
   <div className="about-section-inner">
     <div className="about-image">
       <Image
-        src="/images/about/about-shibukawa.jpg"
+        src="/images/gunma/about-bg.jpg"
         alt="群馬県渋川市の風景"
         fill
         sizes="(max-width: 767px) 100vw, 50vw"

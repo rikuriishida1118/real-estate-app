@@ -42,7 +42,7 @@ export default function AboutPage() {
 
             <div className="about-message-content">
               <p>
-                橘　ESTATEは、群馬県渋川市を中心に、
+                橘ESTATEは、群馬県渋川市を中心に、
                 暮らしと不動産のご相談を承っています。
               </p>
 
@@ -147,17 +147,17 @@ export default function AboutPage() {
             <div className="company-info">
               <div className="company-info-row">
                 <span>ブランド名</span>
-                <strong>橘　ESTATE</strong>
+                <strong>橘ESTATE</strong>
               </div>
 
               <div className="company-info-row">
                 <span>運営会社</span>
-                <strong>株式会社橘電工</strong>
+                <strong>有限会社橘不動産</strong>
               </div>
 
               <div className="company-info-row">
                 <span>所在地</span>
-                <span>群馬県渋川市</span>
+                <span>群馬県渋川市北橘町下箱田724-5</span>
               </div>
 
               <div className="company-info-row">

@@ -137,12 +137,12 @@ export default function ContactPage() {
             <div className="contact-company-content">
               <div className="contact-company-info">
                 <p className="contact-company-name">
-                  橘　ESTATE
+                  橘ESTATE
                 </p>
 
-                <p>株式会社橘電工</p>
+                <p>有限会社橘不動産</p>
 
-                <p>群馬県渋川市</p>
+                <p>群馬県渋川市北橘町下箱田724-5</p>
 
                 <p>地域に根ざして20年</p>
               </div>
@@ -161,7 +161,7 @@ export default function ContactPage() {
         ========================================================= */}
         <section className="contact-final">
           <div className="contact-final-inner">
-            <p className="section-label">橘　ESTATE</p>
+            <p className="section-label">橘ESTATE</p>
 
             <h2>
               暮らしと不動産のこと、
