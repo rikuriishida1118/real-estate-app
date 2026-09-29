@@ -3,20 +3,15 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
 
-const INSTAGRAM_URL =
-  "https://www.instagram.com/tachibana_estate_gunma/";
-
-const PHONE_NUMBER = "0279-25-7099";
-
 export default function Home() {
   return (
     <>
       <Header />
 
       <main>
-        {/* =========================================================
-            Hero
-        ========================================================= */}
+        {/* ==================================================
+            HERO
+        ================================================== */}
         <section className="hero">
           <div className="hero-image">
             <Image
@@ -32,7 +27,9 @@ export default function Home() {
           <div className="hero-overlay"></div>
 
           <div className="hero-content">
-            <p className="hero-label">SHIBUKAWA / GUNMA</p>
+            <p className="hero-label">
+              SHIBUKAWA / GUNMA
+            </p>
 
             <h1>
               暮らしを、
@@ -47,62 +44,79 @@ export default function Home() {
             </p>
 
             <div className="hero-buttons">
-              <Link href="/properties" className="button button-primary">
+              <Link
+                href="/properties"
+                className="button button-primary"
+              >
                 物件を探す
               </Link>
 
-              <Link href="/sell" className="button button-secondary">
+              <Link
+                href="/sell"
+                className="button button-secondary"
+              >
                 不動産を売りたい方へ
               </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            About
-        ========================================================= */}
+        {/* ==================================================
+            ABOUT
+        ================================================== */}
         <section className="about-section">
-  <div className="about-section-inner">
-    <div className="about-image">
-      <Image
-        src="/images/gunma/about-bg.jpg"
-        alt="群馬県渋川市の風景"
-        fill
-        sizes="(max-width: 767px) 100vw, 50vw"
-      />
-    </div>
+          <div className="about-section-inner">
+            <div className="section-heading">
+              <p className="section-label">
+                ABOUT US
+              </p>
 
-    <div className="about-content">
-      <p className="section-label">ABOUT US</p>
+              <h2>
+                渋川の暮らしを、
+                <br />
+                もっと身近に。
+              </h2>
+            </div>
 
-      <h2>
-        渋川の暮らしを、
-        <br />
-        もっと身近に。
-      </h2>
+            <div className="about-content">
+              <p>
+                橘 ESTATEは、群馬県渋川市を中心に、
+                土地・中古住宅などの不動産仲介を行っています。
+              </p>
 
-      <p className="home-about-history">
-        株式会社橘電工として地域に根ざして20年。
-        <br />
-        その地域で積み重ねてきた経験を、
-        <br />
-        暮らしと不動産のご相談にも活かします。
-      </p>
+              <p>
+                地域で暮らす方はもちろん、
+                これから渋川・群馬で暮らしたい方にも、
+                不動産を通じて地域の魅力をお伝えしていきます。
+              </p>
 
-      <Link href="/about" className="text-link">
-        私たちについて →
-      </Link>
-    </div>
-  </div>
-</section>
+              <p className="home-about-history">
+                株式会社橘電工として地域で20年。
+                <br />
+                これまで築いてきた地域とのつながりを大切に、
+                <br />
+                新しい暮らしのお手伝いをしています。
+              </p>
 
-        {/* =========================================================
-            Properties
-        ========================================================= */}
+              <Link
+                href="/about"
+                className="text-link"
+              >
+                私たちについて →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================
+            PROPERTY
+        ================================================== */}
         <section className="property-section section">
           <div className="section-inner">
             <div className="section-heading">
-              <p className="section-label">PROPERTY</p>
+              <p className="section-label">
+                PROPERTY
+              </p>
 
               <h2>
                 おすすめの
@@ -112,76 +126,114 @@ export default function Home() {
             </div>
 
             <div className="property-grid">
+              {/* Property 01 */}
               <article className="property-card">
                 <div className="property-image">
-                  <span>PROPERTY IMAGE</span>
+                  <div className="property-image-placeholder">
+                    <span>PROPERTY</span>
+                  </div>
                 </div>
 
                 <div className="property-info">
-                  <p className="property-type">土地</p>
+                  <p className="property-type">
+                    土地
+                  </p>
 
-                  <h3>渋川市 ○○町</h3>
+                  <h3>
+                    渋川市北橘町の土地
+                  </h3>
 
-                  <p className="property-price">〇〇〇万円</p>
+                  <p className="property-price">
+                    780万円
+                  </p>
 
                   <p className="property-detail">
-                    土地面積：〇〇㎡
+                    群馬県渋川市北橘町
+                    <br />
+                    土地面積 245.80㎡
                   </p>
                 </div>
               </article>
 
+              {/* Property 02 */}
               <article className="property-card">
                 <div className="property-image">
-                  <span>PROPERTY IMAGE</span>
+                  <div className="property-image-placeholder">
+                    <span>PROPERTY</span>
+                  </div>
                 </div>
 
                 <div className="property-info">
-                  <p className="property-type">中古住宅</p>
+                  <p className="property-type">
+                    中古住宅
+                  </p>
 
-                  <h3>渋川市 ○○町</h3>
+                  <h3>
+                    渋川市○○町 中古住宅
+                  </h3>
 
-                  <p className="property-price">〇〇〇万円</p>
+                  <p className="property-price">
+                    1,280万円
+                  </p>
 
                   <p className="property-detail">
-                    土地面積：〇〇㎡
+                    群馬県渋川市○○町
+                    <br />
+                    詳細は物件ページをご覧ください。
                   </p>
                 </div>
               </article>
 
+              {/* Property 03 */}
               <article className="property-card">
                 <div className="property-image">
-                  <span>PROPERTY IMAGE</span>
+                  <div className="property-image-placeholder">
+                    <span>PROPERTY</span>
+                  </div>
                 </div>
 
                 <div className="property-info">
-                  <p className="property-type">土地</p>
+                  <p className="property-type">
+                    土地
+                  </p>
 
-                  <h3>渋川市 ○○町</h3>
+                  <h3>
+                    渋川市の土地
+                  </h3>
 
-                  <p className="property-price">〇〇〇万円</p>
+                  <p className="property-price">
+                    580万円〜
+                  </p>
 
                   <p className="property-detail">
-                    土地面積：〇〇㎡
+                    渋川市周辺
+                    <br />
+                    土地・住宅用地
                   </p>
                 </div>
               </article>
             </div>
 
             <div className="section-button">
-              <Link href="/properties" className="button button-primary">
+              <Link
+                href="/properties"
+                className="button button-primary"
+              >
                 物件を探す
               </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Sell
-        ========================================================= */}
+        {/* ==================================================
+            SELL
+        ================================================== */}
         <section className="sell-section">
           <div className="sell-inner">
             <div className="sell-content">
-              <p className="section-label">SELL YOUR PROPERTY</p>
+              <p className="section-label">
+                SELL YOUR PROPERTY
+              </p>
 
               <h2>
                 不動産を
@@ -195,20 +247,30 @@ export default function Home() {
                 という方も、まずはお気軽にご相談ください。
               </p>
 
-              <Link href="/sell" className="button button-light">
+              <p>
+                地域に根ざしてきた経験を活かし、
+                大切な不動産の売却を丁寧にサポートします。
+              </p>
+
+              <Link
+                href="/sell"
+                className="button button-light"
+              >
                 売却について相談する
               </Link>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Contact
-        ========================================================= */}
+        {/* ==================================================
+            CONTACT
+        ================================================== */}
         <section className="contact-section section">
           <div className="section-inner">
             <div className="section-heading center">
-              <p className="section-label">CONTACT</p>
+              <p className="section-label">
+                CONTACT
+              </p>
 
               <h2>
                 不動産のこと、
@@ -223,9 +285,10 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="contact-buttons contact-buttons-two">
+            <div className="contact-buttons">
+              {/* Phone */}
               <a
-                href={`tel:${PHONE_NUMBER.replaceAll("-", "")}`}
+                href="tel:0000000000"
                 className="contact-button"
               >
                 <span className="contact-button-label">
@@ -237,11 +300,26 @@ export default function Home() {
                 </span>
               </a>
 
-              <a
-                href={INSTAGRAM_URL}
+              {/* Contact */}
+              <Link
+                href="/contact"
                 className="contact-button"
+              >
+                <span className="contact-button-label">
+                  CONTACT
+                </span>
+
+                <span className="contact-button-title">
+                  お問い合わせ
+                </span>
+              </Link>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/tachibana_estate_gunma?stkn=ajN4OW54bHdidDk%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="contact-button"
               >
                 <span className="contact-button-label">
                   INSTAGRAM

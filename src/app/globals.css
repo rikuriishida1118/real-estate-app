@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&display=swap");
 
 /* =========================================================
    TACHIBANA ESTATE
    Global Styles
+   Font: Shippori Mincho
 ========================================================= */
+
 
 /* =========================================================
    Variables
@@ -18,10 +20,9 @@
   --cream: #f5f4ef;
   --white: #ffffff;
 
-  --dark: #252925;
   --text: #252925;
-  --gray: #6f736e;
   --text-light: #6f736e;
+  --gray: #6f736e;
 
   --border: #dfe3dd;
 
@@ -29,6 +30,10 @@
   --wide-width: 1200px;
 
   --side-padding: 40px;
+
+  --radius: 0px;
+
+  --transition: 0.3s ease;
 }
 
 
@@ -44,15 +49,20 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+}
 
+body {
   color: var(--text);
   background: var(--cream);
 
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Shippori Mincho", serif;
 
-  line-height: 1.8;
+  font-weight: 400;
+  line-height: 1.9;
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -67,23 +77,35 @@ button,
 input,
 textarea,
 select {
-  font-family: inherit;
+  font: inherit;
 }
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 h1,
 h2,
 h3,
 h4,
-p {
+h5,
+h6,
+p,
+ul,
+ol {
   margin-top: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin-bottom: 0;
 }
 
 ::selection {
@@ -96,34 +118,32 @@ p {
    Typography
 ========================================================= */
 
-/*
-  日本語の大きな見出しは
-  Shippori Minchoで統一
-*/
-
-.hero h1,
-.about-hero h1,
-.properties-hero h1,
-.sell-hero h1,
-.contact-hero h1,
-.property-detail-hero h1,
-.property-not-found h1,
-.section-heading h2,
-.sell-content h2,
-.properties-list-heading h2,
-.properties-contact h2,
-.property-detail-block h2,
-.about-contact h2,
-.sell-consultation h2,
-.sell-contact h2,
-.contact-final h2,
-.property-info h3,
-.property-list-content h3,
-.contact-button-title,
-.footer-contact-text,
-.footer-phone,
-.footer-company-name {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+textarea,
+select {
   font-family: "Shippori Mincho", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+p {
+  letter-spacing: 0.04em;
 }
 
 
@@ -140,8 +160,13 @@ p {
   margin: 0 auto;
 }
 
+.wide-inner {
+  width: min(var(--wide-width), calc(100% - 80px));
+  margin: 0 auto;
+}
+
 .section-heading {
-  margin-bottom: 65px;
+  margin-bottom: 60px;
 }
 
 .section-heading.center {
@@ -153,23 +178,100 @@ p {
 
   color: var(--green);
 
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 400;
 
-  letter-spacing: 0.25em;
+  line-height: 1.5;
+
+  letter-spacing: 0.18em;
 }
 
 .section-heading h2 {
   margin: 0;
 
-  color: var(--dark);
+  color: var(--text);
 
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 400;
 
+  line-height: 1.55;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   Buttons
+========================================================= */
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 210px;
+  min-height: 58px;
+
+  padding: 14px 28px;
+
+  font-size: 14px;
+  font-weight: 400;
+
   line-height: 1.5;
 
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: var(--text);
+  background: var(--white);
+}
+
+.button-primary:hover {
+  background: var(--green-light);
+}
+
+.button-secondary {
+  color: var(--white);
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.button-secondary:hover {
+  color: var(--text);
+  background: var(--white);
+}
+
+.button-dark {
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+.button-dark:hover {
+  background: var(--green);
+}
+
+.button-light {
+  color: var(--green-dark);
+  background: var(--white);
+}
+
+.button-light:hover {
+  background: var(--green-light);
 }
 
 
@@ -222,17 +324,19 @@ p {
 
   gap: 34px;
 
-  font-size: 13px;
+  font-size: 14px;
+
+  line-height: 1.5;
 
   letter-spacing: 0.08em;
 }
 
 .desktop-nav a {
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition);
 }
 
 .desktop-nav a:hover {
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 .nav-contact {
@@ -241,16 +345,16 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.7);
 
   transition:
-    background 0.3s ease,
-    color 0.3s ease;
+    background var(--transition),
+    color var(--transition);
 }
 
 .nav-contact:hover {
-  color: var(--dark);
+  color: var(--text);
 
   background: var(--white);
 
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .menu-button {
@@ -261,9 +365,9 @@ p {
 
   padding: 8px;
 
-  background: transparent;
+  color: var(--white);
 
-  cursor: pointer;
+  background: transparent;
 }
 
 .menu-button span {
@@ -283,6 +387,7 @@ p {
 
 
 /* =========================================================
+   HOME
    Hero
 ========================================================= */
 
@@ -316,8 +421,8 @@ p {
   background:
     linear-gradient(
       90deg,
-      rgba(25, 38, 29, 0.76) 0%,
-      rgba(25, 38, 29, 0.50) 42%,
+      rgba(25, 38, 29, 0.78) 0%,
+      rgba(25, 38, 29, 0.52) 45%,
       rgba(25, 38, 29, 0.20) 100%
     );
 }
@@ -330,7 +435,6 @@ p {
   display: flex;
 
   flex-direction: column;
-
   justify-content: center;
 
   width: min(var(--wide-width), calc(100% - 80px));
@@ -345,35 +449,41 @@ p {
 }
 
 .hero-label {
-  margin: 0 0 25px;
+  margin: 0 0 24px;
 
-  font-size: 12px;
+  color: rgba(255, 255, 255, 0.82);
 
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 400;
 
-  letter-spacing: 0.25em;
+  line-height: 1.5;
+
+  letter-spacing: 0.2em;
 }
 
 .hero h1 {
   margin: 0;
 
-  font-size: clamp(48px, 6vw, 82px);
+  color: var(--white);
 
+  font-size: clamp(48px, 6vw, 82px);
   font-weight: 400;
 
-  line-height: 1.35;
+  line-height: 1.4;
 
   letter-spacing: 0.08em;
 }
 
 .hero-description {
-  margin: 32px 0 40px;
+  margin: 30px 0 40px;
+
+  color: rgba(255, 255, 255, 0.92);
 
   font-size: 15px;
 
   line-height: 2.2;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .hero-buttons {
@@ -386,91 +496,14 @@ p {
 
 
 /* =========================================================
-   Buttons
-========================================================= */
-
-.button {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-width: 210px;
-  min-height: 58px;
-
-  padding: 15px 28px;
-
-  font-size: 13px;
-
-  letter-spacing: 0.08em;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button-primary {
-  color: var(--dark);
-
-  background: var(--white);
-}
-
-.button-primary:hover {
-  background: var(--green-light);
-}
-
-.button-secondary {
-  color: var(--white);
-
-  border: 1px solid rgba(255, 255, 255, 0.8);
-
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.button-secondary:hover {
-  color: var(--dark);
-
-  background: var(--white);
-}
-
-.button-dark {
-  color: var(--white);
-
-  background: var(--green-dark);
-}
-
-.button-dark:hover {
-  background: var(--green);
-
-  box-shadow: 0 10px 25px rgba(45, 61, 48, 0.15);
-}
-
-.button-light {
-  color: var(--green-dark);
-
-  background: var(--white);
-}
-
-.button-light:hover {
-  background: var(--green-light);
-}
-
-
-/* =========================================================
    HOME
-   About Section
+   About
 ========================================================= */
 
 .about-section {
   position: relative;
 
-  min-height: 420px;
+  min-height: 480px;
 
   display: flex;
   align-items: center;
@@ -482,8 +515,8 @@ p {
   background:
     linear-gradient(
       90deg,
-      rgba(27, 42, 32, 0.82) 0%,
-      rgba(27, 42, 32, 0.58) 45%,
+      rgba(27, 42, 32, 0.86) 0%,
+      rgba(27, 42, 32, 0.62) 48%,
       rgba(27, 42, 32, 0.28) 100%
     ),
     url("/images/gunma/about-bg.jpg");
@@ -507,7 +540,7 @@ p {
   background:
     linear-gradient(
       180deg,
-      rgba(20, 30, 23, 0.04),
+      rgba(20, 30, 23, 0.03),
       rgba(20, 30, 23, 0.12)
     );
 }
@@ -521,7 +554,7 @@ p {
 
   margin: 0 auto;
 
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .about-content {
@@ -529,14 +562,9 @@ p {
 }
 
 .about-content .section-label {
-  margin: 0 0 20px;
+  margin-bottom: 20px;
 
   color: rgba(255, 255, 255, 0.72);
-
-  font-size: 11px;
-  font-weight: 600;
-
-  letter-spacing: 0.25em;
 }
 
 .about-content h2 {
@@ -544,33 +572,42 @@ p {
 
   color: var(--white);
 
-  font-family: "Shippori Mincho", serif;
-
   font-size: clamp(38px, 4.5vw, 56px);
-
   font-weight: 400;
 
-  line-height: 1.5;
+  line-height: 1.55;
 
   letter-spacing: 0.08em;
+}
+
+.about-content p {
+  margin: 0 0 28px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 15px;
+
+  line-height: 2.2;
+
+  letter-spacing: 0.04em;
 }
 
 .about-content .text-link {
   display: inline-block;
 
-  padding-bottom: 6px;
+  padding-bottom: 7px;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 
   color: var(--white);
 
-  font-size: 13px;
+  font-size: 14px;
 
   letter-spacing: 0.08em;
 
   transition:
-    opacity 0.3s ease,
-    border-color 0.3s ease;
+    opacity var(--transition),
+    border-color var(--transition);
 }
 
 .about-content .text-link:hover {
@@ -579,9 +616,10 @@ p {
   border-color: transparent;
 }
 
+
 /* =========================================================
    HOME
-   Property Section
+   Properties
 ========================================================= */
 
 .property-section {
@@ -602,14 +640,14 @@ p {
   background: var(--cream);
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .property-card:hover {
   transform: translateY(-5px);
 
-  box-shadow: 0 18px 40px rgba(40, 50, 42, 0.10);
+  box-shadow: 0 18px 40px rgba(40, 50, 42, 0.1);
 }
 
 .property-image {
@@ -620,6 +658,8 @@ p {
 
   aspect-ratio: 4 / 3;
 
+  overflow: hidden;
+
   background:
     linear-gradient(
       135deg,
@@ -629,9 +669,16 @@ p {
 
   color: #667067;
 
-  font-size: 10px;
+  font-size: 11px;
 
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
 
 .property-info {
@@ -639,31 +686,41 @@ p {
 }
 
 .property-type {
-  margin: 0 0 7px;
+  margin: 0 0 8px;
 
   color: var(--green);
 
-  font-size: 11px;
+  font-size: 12px;
 
-  letter-spacing: 0.15em;
+  line-height: 1.5;
+
+  letter-spacing: 0.14em;
 }
 
 .property-info h3 {
   margin: 0 0 12px;
 
+  color: var(--text);
+
   font-size: 21px;
+  font-weight: 400;
 
-  font-weight: 500;
+  line-height: 1.6;
 
-  line-height: 1.5;
+  letter-spacing: 0.05em;
 }
 
 .property-price {
-  margin: 0 0 7px;
+  margin: 0 0 8px;
+
+  color: var(--text);
 
   font-size: 19px;
+  font-weight: 500;
 
-  font-weight: 600;
+  line-height: 1.5;
+
+  letter-spacing: 0.04em;
 }
 
 .property-detail {
@@ -672,6 +729,10 @@ p {
   color: var(--gray);
 
   font-size: 12px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.04em;
 }
 
 .section-button {
@@ -683,7 +744,7 @@ p {
 
 /* =========================================================
    HOME
-   Sell Section
+   Sell
 ========================================================= */
 
 .sell-section {
@@ -692,7 +753,6 @@ p {
   min-height: 580px;
 
   display: flex;
-
   align-items: center;
 
   overflow: hidden;
@@ -703,7 +763,7 @@ p {
     linear-gradient(
       90deg,
       rgba(40, 58, 45, 0.88),
-      rgba(40, 58, 45, 0.58)
+      rgba(40, 58, 45, 0.56)
     ),
     url("/images/gunma/sell-bg.jpg") center / cover no-repeat,
     var(--green-dark);
@@ -711,7 +771,6 @@ p {
 
 .sell-inner {
   display: flex;
-
   align-items: center;
 
   width: min(var(--content-width), calc(100% - 80px));
@@ -726,7 +785,7 @@ p {
 }
 
 .sell-content .section-label {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .sell-content h2 {
@@ -735,10 +794,11 @@ p {
   color: var(--white);
 
   font-size: clamp(38px, 4vw, 58px);
-
   font-weight: 400;
 
-  line-height: 1.5;
+  line-height: 1.55;
+
+  letter-spacing: 0.08em;
 }
 
 .sell-content > p:not(.section-label) {
@@ -749,12 +809,14 @@ p {
   font-size: 14px;
 
   line-height: 2.2;
+
+  letter-spacing: 0.04em;
 }
 
 
 /* =========================================================
    HOME
-   Contact Section
+   Contact
 ========================================================= */
 
 .contact-section {
@@ -762,17 +824,23 @@ p {
 }
 
 .contact-description {
+  max-width: 700px;
+
   margin: 25px auto 0;
 
   color: var(--gray);
 
   font-size: 14px;
+
+  line-height: 2;
+
+  letter-spacing: 0.04em;
 }
 
 .contact-buttons {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 18px;
 
@@ -791,9 +859,9 @@ p {
   background: var(--white);
 
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+    transform var(--transition),
+    background var(--transition),
+    color var(--transition);
 }
 
 .contact-button:hover {
@@ -809,9 +877,11 @@ p {
 
   color: var(--green);
 
-  font-size: 10px;
+  font-size: 11px;
 
-  letter-spacing: 0.2em;
+  line-height: 1.5;
+
+  letter-spacing: 0.16em;
 }
 
 .contact-button:hover .contact-button-label {
@@ -819,7 +889,13 @@ p {
 }
 
 .contact-button-title {
+  color: inherit;
+
   font-size: 20px;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.06em;
 }
 
 
@@ -832,7 +908,7 @@ p {
 
   color: rgba(255, 255, 255, 0.9);
 
-  background: #29342c;
+  background: var(--green-deep);
 }
 
 .footer-main {
@@ -861,52 +937,52 @@ p {
   display: block;
 
   width: 190px;
-
   height: auto;
-
-  border-radius: 8px;
 }
 
 .footer-description {
   margin: 28px 0 0;
 
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.66);
 
   font-size: 12px;
 
   line-height: 2;
+
+  letter-spacing: 0.04em;
 }
 
 .footer-menu {
   display: flex;
 
   flex-direction: column;
-
   align-items: flex-start;
 }
 
 .footer-title {
   margin: 0 0 22px;
 
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.42);
 
-  font-size: 10px;
+  font-size: 11px;
 
-  font-weight: 600;
+  line-height: 1.5;
 
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
 }
 
 .footer-menu a {
   display: block;
 
-  margin: 0 0 12px;
+  margin-bottom: 12px;
 
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.84);
 
   font-size: 13px;
 
-  transition: opacity 0.3s ease;
+  line-height: 1.8;
+
+  transition: opacity var(--transition);
 }
 
 .footer-menu a:hover {
@@ -920,9 +996,13 @@ p {
 .footer-contact-text {
   margin: 0 0 20px;
 
+  color: var(--white);
+
   font-size: 17px;
 
-  line-height: 1.8;
+  line-height: 1.9;
+
+  letter-spacing: 0.05em;
 }
 
 .footer-phone {
@@ -930,7 +1010,11 @@ p {
 
   margin-bottom: 25px;
 
+  color: var(--white);
+
   font-size: 24px;
+
+  line-height: 1.5;
 
   letter-spacing: 0.04em;
 }
@@ -950,13 +1034,15 @@ p {
 
   color: rgba(255, 255, 255, 0.8);
 
-  font-size: 10px;
+  font-size: 11px;
+
+  line-height: 1.5;
 
   letter-spacing: 0.08em;
 
   transition:
-    background 0.3s ease,
-    color 0.3s ease;
+    background var(--transition),
+    color var(--transition);
 }
 
 .footer-social a:hover {
@@ -989,7 +1075,11 @@ p {
 .footer-company-name {
   margin: 0 0 5px;
 
+  color: var(--white);
+
   font-size: 17px;
+
+  line-height: 1.5;
 
   letter-spacing: 0.08em;
 }
@@ -1000,6 +1090,10 @@ p {
   color: rgba(255, 255, 255, 0.55);
 
   font-size: 10px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.04em;
 }
 
 .footer-company-info {
@@ -1025,9 +1119,11 @@ p {
 
   color: rgba(255, 255, 255, 0.35);
 
-  font-size: 9px;
+  font-size: 10px;
 
-  letter-spacing: 0.08em;
+  line-height: 1.5;
+
+  letter-spacing: 0.06em;
 }
 
 
@@ -1040,31 +1136,43 @@ p {
 }
 
 .properties-hero {
-  padding: 190px 0 110px;
+  min-height: 440px;
+
+  display: flex;
+  align-items: center;
 
   color: var(--white);
 
-  background: var(--green-dark);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(40, 58, 45, 0.9),
+      rgba(40, 58, 45, 0.62)
+    ),
+    url("/images/gunma/about-bg.jpg") center / cover no-repeat;
 }
 
 .properties-hero-inner {
-  width: min(var(--content-width), calc(100% - 80px));
+  width: min(var(--wide-width), calc(100% - 80px));
 
   margin: 0 auto;
+
+  padding-top: 70px;
 }
 
 .properties-hero .section-label {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .properties-hero h1 {
-  margin: 0 0 25px;
+  margin: 0 0 22px;
+
+  color: var(--white);
 
   font-size: clamp(42px, 5vw, 64px);
-
   font-weight: 400;
 
-  line-height: 1.4;
+  line-height: 1.45;
 
   letter-spacing: 0.08em;
 }
@@ -1072,16 +1180,16 @@ p {
 .properties-hero p:last-child {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.82);
 
   font-size: 14px;
 
   line-height: 2;
+
+  letter-spacing: 0.04em;
 }
 
-.properties-list-section {
-  padding: 110px 0;
-
+.properties-list {
   background: var(--cream);
 }
 
@@ -1092,65 +1200,17 @@ p {
 }
 
 .properties-list-heading {
-  display: flex;
-
-  align-items: flex-end;
-  justify-content: space-between;
-
-  margin-bottom: 45px;
+  margin-bottom: 50px;
 }
 
 .properties-list-heading h2 {
   margin: 0;
 
-  font-size: 42px;
+  font-size: clamp(32px, 4vw, 48px);
 
-  font-weight: 400;
+  line-height: 1.5;
 
-  line-height: 1.4;
-}
-
-.property-count {
-  margin: 0;
-
-  color: var(--gray);
-
-  font-size: 13px;
-}
-
-.property-filters {
-  display: flex;
-
-  gap: 10px;
-
-  margin-bottom: 45px;
-}
-
-.property-filter {
-  min-width: 100px;
-
-  padding: 12px 22px;
-
-  border: 1px solid var(--border);
-
-  background: var(--white);
-
-  color: var(--gray);
-
-  font-size: 12px;
-
-  cursor: pointer;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-
-.property-filter:hover,
-.property-filter.active {
-  color: var(--white);
-
-  background: var(--green-dark);
+  letter-spacing: 0.07em;
 }
 
 .properties-grid {
@@ -1158,34 +1218,33 @@ p {
 
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 30px;
+  gap: 28px;
 }
 
-.property-list-card {
-  display: block;
-
+.properties-card {
   overflow: hidden;
 
   background: var(--white);
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
-.property-list-card:hover {
+.properties-card:hover {
   transform: translateY(-5px);
 
   box-shadow: 0 18px 40px rgba(40, 50, 42, 0.1);
 }
 
-.property-list-image {
-  display: flex;
+.properties-card-image {
+  aspect-ratio: 4 / 3;
 
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  aspect-ratio: 4 / 3;
+  overflow: hidden;
 
   background:
     linear-gradient(
@@ -1196,100 +1255,90 @@ p {
 
   color: #667067;
 
-  font-size: 10px;
+  font-size: 11px;
 
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
 }
 
-.property-list-content {
+.properties-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.properties-card-content {
   padding: 25px;
 }
 
-.property-list-type {
-  margin: 0 0 7px;
+.properties-card-type {
+  margin: 0 0 8px;
 
   color: var(--green);
 
-  font-size: 10px;
+  font-size: 12px;
 
-  font-weight: 600;
-
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
 }
 
-.property-list-content h3 {
-  margin: 0 0 15px;
+.properties-card-title {
+  margin: 0 0 12px;
 
-  font-size: 21px;
+  color: var(--text);
 
-  font-weight: 500;
+  font-size: 20px;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.05em;
+}
+
+.properties-card-price {
+  margin: 0 0 8px;
+
+  font-size: 19px;
 
   line-height: 1.5;
 }
 
-.property-list-price {
-  margin: 0 0 8px;
-
-  font-size: 20px;
-
-  font-weight: 600;
-}
-
-.property-list-detail,
-.property-list-address {
+.properties-card-detail {
   margin: 0;
 
   color: var(--gray);
 
-  font-size: 11px;
-}
+  font-size: 12px;
 
-.property-list-link {
-  display: inline-block;
-
-  margin-top: 22px;
-
-  padding-bottom: 3px;
-
-  border-bottom: 1px solid var(--green);
-
-  color: var(--green-dark);
-
-  font-size: 11px;
-
-  letter-spacing: 0.08em;
+  line-height: 1.8;
 }
 
 .properties-contact {
-  padding: 120px 0;
+  text-align: center;
 
   background: var(--green-light);
 }
 
 .properties-contact-inner {
-  width: min(800px, calc(100% - 80px));
+  width: min(900px, calc(100% - 80px));
 
   margin: 0 auto;
-
-  text-align: center;
 }
 
 .properties-contact h2 {
   margin: 0 0 25px;
 
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 50px);
 
-  font-weight: 400;
-
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-.properties-contact p:not(.section-label) {
+.properties-contact p {
   margin: 0 0 35px;
 
   color: var(--gray);
 
-  font-size: 13px;
+  font-size: 14px;
+
+  line-height: 2;
 }
 
 
@@ -1302,43 +1351,68 @@ p {
 }
 
 .property-detail-hero {
-  padding: 190px 0 100px;
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
 
   color: var(--white);
 
-  background: var(--green-dark);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(40, 58, 45, 0.9),
+      rgba(40, 58, 45, 0.58)
+    ),
+    url("/images/gunma/about-bg.jpg") center / cover no-repeat;
+}
+
+.property-detail-hero-inner {
+  width: min(var(--wide-width), calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding-top: 70px;
+}
+
+.property-detail-hero .section-label {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.property-detail-hero h1 {
+  margin: 0 0 22px;
+
+  color: var(--white);
+
+  font-size: clamp(36px, 5vw, 58px);
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.property-detail-price {
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: 25px;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.04em;
+}
+
+.property-detail-section {
+  padding: 100px 0 130px;
+
+  background: var(--cream);
 }
 
 .property-detail-inner {
   width: min(1000px, calc(100% - 80px));
 
   margin: 0 auto;
-}
-
-.property-detail-hero .section-label {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.property-detail-hero h1 {
-  margin: 0 0 25px;
-
-  font-size: clamp(36px, 5vw, 58px);
-
-  font-weight: 400;
-
-  line-height: 1.5;
-}
-
-.property-detail-price {
-  margin: 0;
-
-  font-size: 25px;
-
-  font-weight: 600;
-}
-
-.property-detail-section {
-  padding: 100px 0 130px;
 }
 
 .property-main-image {
@@ -1349,7 +1423,9 @@ p {
 
   aspect-ratio: 16 / 9;
 
-  margin-bottom: 80px;
+  margin-bottom: 70px;
+
+  overflow: hidden;
 
   background:
     linear-gradient(
@@ -1362,7 +1438,14 @@ p {
 
   font-size: 11px;
 
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
+}
+
+.property-main-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
 
 .property-detail-content {
@@ -1372,7 +1455,7 @@ p {
 }
 
 .property-detail-block {
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
 .property-detail-label {
@@ -1380,19 +1463,23 @@ p {
 
   color: var(--green);
 
-  font-size: 10px;
+  font-size: 11px;
 
-  font-weight: 600;
+  line-height: 1.5;
 
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
 }
 
 .property-detail-block h2 {
   margin: 0;
 
-  font-size: 38px;
+  color: var(--text);
 
-  font-weight: 400;
+  font-size: 36px;
+
+  line-height: 1.55;
+
+  letter-spacing: 0.06em;
 }
 
 .property-info-table {
@@ -1410,7 +1497,9 @@ p {
 
   border-bottom: 1px solid var(--border);
 
-  font-size: 13px;
+  font-size: 14px;
+
+  line-height: 1.8;
 }
 
 .property-info-row > span:first-child {
@@ -1419,6 +1508,8 @@ p {
 
 .property-info-row strong {
   font-size: 16px;
+
+  font-weight: 400;
 }
 
 .property-description {
@@ -1440,7 +1531,7 @@ p {
 
   align-items: center;
 
-  gap: 30px;
+  gap: 15px;
 
   margin-top: 60px;
 }
@@ -1456,7 +1547,7 @@ p {
 
   font-size: 42px;
 
-  font-weight: 400;
+  line-height: 1.5;
 }
 
 .property-not-found p:not(.section-label) {
@@ -1475,30 +1566,20 @@ p {
 }
 
 .about-hero {
-  position: relative;
-
   min-height: 520px;
 
   display: flex;
-
   align-items: center;
-
-  overflow: hidden;
 
   color: var(--white);
 
   background:
     linear-gradient(
       90deg,
-      rgba(30, 42, 32, 0.88) 0%,
-      rgba(30, 42, 32, 0.68) 55%,
-      rgba(30, 42, 32, 0.42) 100%
+      rgba(30, 42, 32, 0.88),
+      rgba(30, 42, 32, 0.48)
     ),
-    url("/images/gunma/about-bg.jpg");
-
-  background-size: cover;
-
-  background-position: center;
+    url("/images/gunma/about-bg.jpg") center / cover no-repeat;
 }
 
 .about-hero-inner {
@@ -1506,67 +1587,77 @@ p {
 
   margin: 0 auto;
 
-  padding: 100px 0;
+  padding-top: 70px;
 }
 
 .about-hero .section-label {
-  color: rgba(255, 255, 255, 0.75);
-
-  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .about-hero h1 {
-  margin: 0 0 28px;
+  margin: 0 0 25px;
 
-  font-size: clamp(42px, 5vw, 72px);
+  color: var(--white);
 
-  line-height: 1.15;
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.45;
 
   letter-spacing: 0.08em;
 }
 
-.about-hero p:last-child {
+.about-hero p {
+  max-width: 700px;
+
   margin: 0;
 
-  font-size: 16px;
+  color: rgba(255, 255, 255, 0.86);
 
-  line-height: 2;
+  font-size: 14px;
 
-  letter-spacing: 0.08em;
+  line-height: 2.1;
 }
 
 .about-message {
-  background: var(--cream);
+  background: var(--white);
 }
 
 .about-message .section-inner {
   display: grid;
 
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 0.8fr 1.2fr;
 
   gap: 100px;
 
   align-items: start;
 }
 
+.about-message h2 {
+  margin: 0;
+
+  font-size: clamp(34px, 4vw, 52px);
+
+  line-height: 1.55;
+
+  letter-spacing: 0.07em;
+}
+
 .about-message-content {
-  padding-top: 10px;
+  max-width: 700px;
 }
 
 .about-message-content p {
-  margin: 0 0 28px;
+  margin: 0 0 25px;
 
-  font-size: 16px;
+  color: var(--gray);
 
-  line-height: 2.2;
+  font-size: 15px;
 
-  letter-spacing: 0.05em;
-
-  color: var(--text);
+  line-height: 2.3;
 }
 
 .about-strength {
-  background: var(--green-light);
+  background: var(--cream);
 }
 
 .about-strength-grid {
@@ -1576,15 +1667,13 @@ p {
 
   gap: 24px;
 
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .about-strength-card {
-  position: relative;
+  padding: 45px 38px;
 
-  padding: 48px 40px;
-
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.75);
 
   border: 1px solid rgba(45, 74, 53, 0.1);
 }
@@ -1592,37 +1681,35 @@ p {
 .about-strength-number {
   display: block;
 
-  margin-bottom: 28px;
+  margin-bottom: 25px;
 
   color: var(--green);
 
-  font-family: Georgia, serif;
+  font-size: 14px;
 
-  font-size: 15px;
+  line-height: 1.5;
 
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
 
 .about-strength-card h3 {
-  margin: 0 0 22px;
+  margin: 0 0 20px;
 
   font-size: 21px;
 
   line-height: 1.6;
 
-  font-weight: 500;
-
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 .about-strength-card p {
   margin: 0;
 
-  color: var(--text-light);
+  color: var(--gray);
 
   font-size: 14px;
 
-  line-height: 2;
+  line-height: 2.1;
 }
 
 .company-section {
@@ -1640,47 +1727,39 @@ p {
 .company-info-row {
   display: grid;
 
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 220px 1fr;
 
   gap: 40px;
 
-  padding: 24px 0;
+  padding: 23px 0;
 
   border-bottom: 1px solid var(--border);
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .company-info-row > span:first-child {
-  color: var(--text-light);
-
-  letter-spacing: 0.08em;
+  color: var(--gray);
 }
 
 .company-info-row strong {
-  font-weight: 500;
+  font-weight: 400;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .about-contact {
-  background: var(--green-light);
-
   text-align: center;
+
+  background: var(--green-light);
 }
 
 .about-contact-inner {
   width: min(900px, calc(100% - 80px));
 
   margin: 0 auto;
-
-  padding: 120px 0;
-}
-
-.about-contact .section-label {
-  margin-bottom: 24px;
 }
 
 .about-contact h2 {
@@ -1688,19 +1767,17 @@ p {
 
   font-size: clamp(32px, 4vw, 52px);
 
-  font-weight: 500;
+  line-height: 1.55;
 
-  line-height: 1.5;
-
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
 }
 
 .about-contact p:not(.section-label) {
   margin: 0 0 40px;
 
-  color: var(--text-light);
+  color: var(--gray);
 
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 2;
 }
@@ -1715,30 +1792,20 @@ p {
 }
 
 .sell-hero {
-  position: relative;
-
   min-height: 520px;
 
   display: flex;
-
   align-items: center;
-
-  overflow: hidden;
 
   color: var(--white);
 
   background:
     linear-gradient(
       90deg,
-      rgba(30, 42, 32, 0.88) 0%,
-      rgba(30, 42, 32, 0.68) 55%,
-      rgba(30, 42, 32, 0.42) 100%
+      rgba(30, 42, 32, 0.88),
+      rgba(30, 42, 32, 0.48)
     ),
-    url("/images/gunma/sell-bg.jpg");
-
-  background-size: cover;
-
-  background-position: center;
+    url("/images/gunma/sell-bg.jpg") center / cover no-repeat;
 }
 
 .sell-hero-inner {
@@ -1746,67 +1813,71 @@ p {
 
   margin: 0 auto;
 
-  padding: 100px 0;
+  padding-top: 70px;
 }
 
 .sell-hero .section-label {
-  color: rgba(255, 255, 255, 0.75);
-
-  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .sell-hero h1 {
-  margin: 0 0 28px;
+  margin: 0 0 25px;
 
-  font-size: clamp(42px, 5vw, 72px);
+  color: var(--white);
 
-  line-height: 1.15;
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.45;
 
   letter-spacing: 0.08em;
 }
 
-.sell-hero p:last-child {
+.sell-hero p {
+  max-width: 700px;
+
   margin: 0;
 
-  font-size: 16px;
+  color: rgba(255, 255, 255, 0.86);
 
-  line-height: 2;
+  font-size: 14px;
 
-  letter-spacing: 0.08em;
+  line-height: 2.1;
 }
 
 .sell-message {
-  background: var(--cream);
+  background: var(--white);
 }
 
 .sell-message .section-inner {
   display: grid;
 
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 0.8fr 1.2fr;
 
   gap: 100px;
 
   align-items: start;
 }
 
-.sell-message-content {
-  padding-top: 10px;
+.sell-message h2 {
+  margin: 0;
+
+  font-size: clamp(34px, 4vw, 52px);
+
+  line-height: 1.55;
 }
 
 .sell-message-content p {
-  margin: 0 0 28px;
+  margin: 0 0 25px;
 
-  color: var(--text);
+  color: var(--gray);
 
-  font-size: 16px;
+  font-size: 15px;
 
-  line-height: 2.2;
-
-  letter-spacing: 0.05em;
+  line-height: 2.3;
 }
 
 .sell-reasons {
-  background: var(--green-light);
+  background: var(--cream);
 }
 
 .sell-reasons-grid {
@@ -1816,51 +1887,45 @@ p {
 
   gap: 24px;
 
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .sell-reason-card {
-  padding: 48px 40px;
+  padding: 42px 36px;
 
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--white);
 
-  border: 1px solid rgba(45, 74, 53, 0.1);
+  border: 1px solid rgba(45, 74, 53, 0.08);
 }
 
 .sell-reason-number {
   display: block;
 
-  margin-bottom: 28px;
+  margin-bottom: 25px;
 
   color: var(--green);
 
-  font-family: Georgia, serif;
+  font-size: 14px;
 
-  font-size: 15px;
-
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
 
 .sell-reason-card h3 {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
 
   font-size: 21px;
 
   line-height: 1.6;
-
-  font-weight: 500;
-
-  letter-spacing: 0.06em;
 }
 
 .sell-reason-card p {
   margin: 0;
 
-  color: var(--text-light);
+  color: var(--gray);
 
   font-size: 14px;
 
-  line-height: 2;
+  line-height: 2.1;
 }
 
 .sell-flow {
@@ -1870,9 +1935,7 @@ p {
 .sell-flow-list {
   max-width: 900px;
 
-  margin-top: 65px;
-
-  border-top: 1px solid var(--border);
+  margin: 60px auto 0;
 }
 
 .sell-flow-item {
@@ -1880,37 +1943,37 @@ p {
 
   grid-template-columns: 100px 1fr;
 
-  gap: 40px;
+  gap: 35px;
 
-  padding: 38px 0;
+  padding: 30px 0;
 
+  border-top: 1px solid var(--border);
+}
+
+.sell-flow-item:last-child {
   border-bottom: 1px solid var(--border);
 }
 
 .sell-flow-number {
   color: var(--green);
 
-  font-family: Georgia, serif;
+  font-size: 13px;
 
-  font-size: 28px;
-
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 }
 
-.sell-flow-content h3 {
-  margin: 0 0 12px;
+.sell-flow-item h3 {
+  margin: 0 0 10px;
 
   font-size: 21px;
 
-  font-weight: 500;
-
-  letter-spacing: 0.06em;
+  line-height: 1.6;
 }
 
-.sell-flow-content p {
+.sell-flow-item p {
   margin: 0;
 
-  color: var(--text-light);
+  color: var(--gray);
 
   font-size: 14px;
 
@@ -1918,37 +1981,23 @@ p {
 }
 
 .sell-consultation {
-  color: var(--white);
-
-  background: var(--green-dark);
+  background: var(--cream);
 }
 
 .sell-consultation-inner {
-  width: min(1000px, calc(100% - 80px));
+  max-width: 900px;
 
   margin: 0 auto;
-
-  padding: 110px 0;
-}
-
-.sell-consultation .section-label {
-  color: rgba(255, 255, 255, 0.7);
-
-  margin-bottom: 24px;
 }
 
 .sell-consultation h2 {
-  margin: 0 0 50px;
+  margin: 0 0 35px;
 
-  color: var(--white);
+  text-align: center;
 
-  font-size: clamp(34px, 4vw, 54px);
+  font-size: clamp(32px, 4vw, 50px);
 
-  font-weight: 500;
-
-  line-height: 1.5;
-
-  letter-spacing: 0.08em;
+  line-height: 1.55;
 }
 
 .sell-consultation-list {
@@ -1956,73 +2005,47 @@ p {
 
   grid-template-columns: repeat(2, 1fr);
 
-  gap: 0 60px;
-
-  max-width: 800px;
+  gap: 18px;
 }
 
-.sell-consultation-list p {
+.sell-consultation-item {
+  padding: 25px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+}
+
+.sell-consultation-item p {
   margin: 0;
 
-  padding: 18px 0;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-  font-size: 15px;
-
-  line-height: 1.8;
-
-  letter-spacing: 0.04em;
-}
-
-.sell-contact {
-  background: var(--cream);
-
-  text-align: center;
-}
-
-.sell-contact-inner {
-  width: min(900px, calc(100% - 80px));
-
-  margin: 0 auto;
-
-  padding: 120px 0;
-}
-
-.sell-contact .section-label {
-  margin-bottom: 24px;
-}
-
-.sell-contact h2 {
-  margin: 0 0 28px;
-
-  font-size: clamp(32px, 4vw, 52px);
-
-  font-weight: 500;
-
-  line-height: 1.5;
-
-  letter-spacing: 0.08em;
-}
-
-.sell-contact-inner > p:not(.section-label) {
-  margin: 0 0 40px;
-
-  color: var(--text-light);
-
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 2;
 }
 
-.sell-contact-buttons {
-  display: flex;
+.sell-contact {
+  text-align: center;
 
-  justify-content: center;
+  background: var(--green-light);
+}
 
-  gap: 16px;
+.sell-contact h2 {
+  margin: 0 0 25px;
 
-  flex-wrap: wrap;
+  font-size: clamp(32px, 4vw, 52px);
+
+  line-height: 1.55;
+}
+
+.sell-contact p {
+  margin: 0 0 35px;
+
+  color: var(--gray);
+
+  font-size: 14px;
+
+  line-height: 2;
 }
 
 
@@ -2035,30 +2058,20 @@ p {
 }
 
 .contact-hero {
-  position: relative;
-
-  min-height: 520px;
+  min-height: 500px;
 
   display: flex;
-
   align-items: center;
-
-  overflow: hidden;
 
   color: var(--white);
 
   background:
     linear-gradient(
       90deg,
-      rgba(30, 42, 32, 0.88) 0%,
-      rgba(30, 42, 32, 0.68) 55%,
-      rgba(30, 42, 32, 0.42) 100%
+      rgba(30, 42, 32, 0.88),
+      rgba(30, 42, 32, 0.48)
     ),
-    url("/images/gunma/contact-bg.jpg");
-
-  background-size: cover;
-
-  background-position: center;
+    url("/images/gunma/contact-bg.jpg") center / cover no-repeat;
 }
 
 .contact-hero-inner {
@@ -2066,77 +2079,67 @@ p {
 
   margin: 0 auto;
 
-  padding: 100px 0;
+  padding-top: 70px;
 }
 
 .contact-hero .section-label {
-  color: rgba(255, 255, 255, 0.75);
-
-  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .contact-hero h1 {
-  margin: 0 0 28px;
+  margin: 0 0 25px;
 
-  font-size: clamp(42px, 5vw, 72px);
+  color: var(--white);
 
-  line-height: 1.15;
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.45;
 
   letter-spacing: 0.08em;
 }
 
-.contact-hero p:last-child {
+.contact-hero p {
+  max-width: 700px;
+
   margin: 0;
 
-  font-size: 16px;
+  color: rgba(255, 255, 255, 0.86);
 
-  line-height: 2;
+  font-size: 14px;
 
-  letter-spacing: 0.08em;
+  line-height: 2.1;
 }
 
 .contact-message {
-  background: var(--cream);
+  background: var(--white);
 }
 
 .contact-message .section-inner {
   display: grid;
 
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 0.8fr 1.2fr;
 
   gap: 100px;
 
   align-items: start;
 }
 
-.contact-message-content {
-  padding-top: 10px;
-}
+.contact-message h2 {
+  margin: 0;
 
-.contact-message-content p {
-  margin: 0 0 28px;
+  font-size: clamp(34px, 4vw, 52px);
 
-  color: var(--text);
-
-  font-size: 16px;
-
-  line-height: 2.2;
-
-  letter-spacing: 0.05em;
-}
-
-.contact-methods {
-  background: var(--green-light);
+  line-height: 1.55;
 }
 
 .contact-method-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
-  gap: 24px;
+  gap: 18px;
 
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .contact-method-card {
@@ -2144,7 +2147,7 @@ p {
 
   flex-direction: column;
 
-  min-height: 300px;
+  min-height: 250px;
 
   padding: 42px 36px;
 
@@ -2152,12 +2155,10 @@ p {
 
   border: 1px solid rgba(45, 74, 53, 0.1);
 
-  color: var(--text);
-
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
 }
 
 .contact-method-card:hover {
@@ -2173,11 +2174,11 @@ p {
 
   color: var(--green);
 
-  font-family: Georgia, serif;
+  font-size: 12px;
 
-  font-size: 13px;
+  line-height: 1.5;
 
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
 
 .contact-method-card h3 {
@@ -2185,17 +2186,15 @@ p {
 
   font-size: 22px;
 
-  font-weight: 500;
+  font-weight: 400;
 
-  line-height: 1.5;
-
-  letter-spacing: 0.06em;
+  line-height: 1.6;
 }
 
 .contact-method-card p {
   margin: 0;
 
-  color: var(--text-light);
+  color: var(--gray);
 
   font-size: 14px;
 
@@ -2210,6 +2209,8 @@ p {
   color: var(--green);
 
   font-size: 14px;
+
+  line-height: 1.6;
 
   letter-spacing: 0.04em;
 }
@@ -2239,53 +2240,47 @@ p {
 .contact-company-info p {
   margin: 0 0 10px;
 
-  color: var(--text-light);
+  color: var(--gray);
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .contact-company-info .contact-company-name {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 
   color: var(--text);
 
-  font-family: Georgia, serif;
-
   font-size: 22px;
 
-  letter-spacing: 0.12em;
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
 }
 
 .contact-final {
-  background: var(--green-light);
-
   text-align: center;
+
+  background: var(--green-light);
 }
 
 .contact-final-inner {
   width: min(900px, calc(100% - 80px));
 
   margin: 0 auto;
-
-  padding: 120px 0;
-}
-
-.contact-final .section-label {
-  margin-bottom: 24px;
 }
 
 .contact-final h2 {
-  margin: 0 0 45px;
+  margin: 0 0 40px;
 
   font-size: clamp(32px, 4vw, 52px);
 
-  font-weight: 500;
+  font-weight: 400;
 
-  line-height: 1.5;
+  line-height: 1.55;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
 }
 
 .contact-final-buttons {
@@ -2306,8 +2301,6 @@ p {
 
 @media (max-width: 900px) {
 
-  /* Header */
-
   .header-inner {
     width: calc(100% - 40px);
   }
@@ -2327,19 +2320,20 @@ p {
 
     padding: 20px 30px 30px;
 
-    background: rgba(40, 52, 43, 0.97);
+    background: rgba(41, 58, 47, 0.97);
   }
 
   .mobile-nav a {
     padding: 15px 0;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 
-    font-size: 13px;
+    color: var(--white);
+
+    font-size: 14px;
+
+    line-height: 1.8;
   }
-
-
-  /* Hero */
 
   .hero {
     min-height: 680px;
@@ -2351,96 +2345,16 @@ p {
     min-height: 680px;
   }
 
-
-  /* About */
-
-  .about-section {
-    min-height: auto;
-  }
-
-  .about-section .section-inner {
-    grid-template-columns: 1fr;
-
-    gap: 50px;
-
+  .about-section-inner {
     width: calc(100% - 60px);
 
-    padding: 90px 0;
+    padding: 85px 0;
   }
 
-  .about-content {
-    max-width: 700px;
-
-    padding-left: 0;
-  }
-
-
-  /* Home Property */
-
-  .property-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-
-  /* Home Contact */
-
-  .contact-buttons {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* About / Sell / Contact */
-
-  .about-message .section-inner,
-  .sell-message .section-inner,
-  .contact-message .section-inner {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-  }
-
-  .about-strength-grid,
-  .sell-reasons-grid,
-  .contact-method-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .company-info-row {
-    grid-template-columns: 180px 1fr;
-  }
-
-  .contact-company-content {
-    grid-template-columns: 1fr;
-
-    gap: 0;
-  }
-
-  .sell-consultation-list {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* Properties */
-
-  .properties-hero-inner,
-  .properties-list-inner,
-  .property-detail-inner {
-    width: calc(100% - 40px);
-  }
-
+  .property-grid,
   .properties-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-
-  /* Sell Flow */
-
-  .sell-flow-item {
-    grid-template-columns: 80px 1fr;
-  }
-
-
-  /* Footer */
 
   .footer-main {
     grid-template-columns: 1fr;
@@ -2461,6 +2375,42 @@ p {
   .footer-company-info {
     text-align: left;
   }
+
+  .about-message .section-inner,
+  .sell-message .section-inner,
+  .contact-message .section-inner {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .about-strength-grid,
+  .sell-reasons-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-method-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .company-info-row {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .contact-company-content {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .properties-hero-inner,
+  .properties-list-inner,
+  .property-detail-inner,
+  .sell-hero-inner,
+  .about-hero-inner,
+  .contact-hero-inner {
+    width: calc(100% - 40px);
+  }
 }
 
 
@@ -2471,8 +2421,6 @@ p {
 
 @media (max-width: 600px) {
 
-  /* Header */
-
   .header-inner {
     height: 80px;
   }
@@ -2481,43 +2429,56 @@ p {
     width: 145px;
   }
 
-
-  /* Common */
-
   .section {
-    padding: 90px 0;
+    padding: 85px 0;
   }
 
   .section-inner,
+  .wide-inner,
   .sell-inner {
     width: calc(100% - 40px);
   }
 
+  .section-heading {
+    margin-bottom: 45px;
+  }
 
-  /* Hero */
+  .section-heading h2 {
+    font-size: 34px;
+
+    line-height: 1.6;
+  }
 
   .hero {
-    min-height: 680px;
+    min-height: 650px;
   }
 
   .hero-content {
     width: calc(100% - 40px);
 
-    min-height: 680px;
+    min-height: 650px;
 
     padding-top: 80px;
   }
 
-  .hero h1 {
-    font-size: 46px;
+  .hero-label {
+    font-size: 11px;
 
-    line-height: 1.45;
+    letter-spacing: 0.16em;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+
+    line-height: 1.5;
   }
 
   .hero-description {
-    margin-top: 28px;
+    margin: 25px 0 32px;
 
     font-size: 13px;
+
+    line-height: 2.1;
   }
 
   .hero-buttons {
@@ -2526,286 +2487,644 @@ p {
     align-items: stretch;
   }
 
-
-  /* Buttons */
-
   .button {
     width: 100%;
+
+    min-width: 0;
   }
 
-/* About Home */
-
-.about-section {
-  min-height: 360px;
-
-  background-position: center;
-}
-
-.about-section-inner {
-  width: calc(100% - 40px);
-
-  padding: 70px 0;
-}
-
-.about-content {
-  max-width: 100%;
-}
-
-.about-content .section-label {
-  margin-bottom: 16px;
-}
-
-.about-content h2 {
-  margin-bottom: 24px;
-
-  font-size: 34px;
-
-  line-height: 1.55;
-}
-
-.about-content .text-link {
-  font-size: 12px;
-}
-
-  /* Home Property */
-
-  .property-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .property-card {
-    width: 100%;
-  }
-
-
-  /* Properties Page */
-
-  .properties-hero {
-    padding: 150px 0 80px;
-  }
-
-  .properties-list-section {
-    padding: 80px 0;
-  }
-
-  .properties-list-inner {
+  .about-section-inner {
     width: calc(100% - 40px);
+
+    padding: 75px 0;
   }
 
-  .properties-list-heading {
-    align-items: flex-start;
-  }
-
-  .properties-list-heading h2 {
+  .about-content h2 {
     font-size: 34px;
+
+    line-height: 1.6;
   }
 
-  .property-filters {
-    overflow-x: auto;
+  .about-content p {
+    font-size: 14px;
 
-    padding-bottom: 5px;
+    line-height: 2.2;
   }
 
-  .property-filter {
-    flex-shrink: 0;
-  }
-
+  .property-grid,
   .properties-grid {
     grid-template-columns: 1fr;
   }
 
-  .properties-contact {
-    padding: 90px 0;
+  .sell-section {
+    min-height: 520px;
   }
 
-  .properties-contact-inner {
+  .sell-inner {
+    min-height: 520px;
+  }
+
+  .sell-content h2 {
+    font-size: 36px;
+  }
+
+  .contact-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-button {
+    min-height: 135px;
+
+    padding: 25px;
+  }
+
+  .properties-hero,
+  .about-hero,
+  .sell-hero,
+  .contact-hero {
+    min-height: 440px;
+  }
+
+  .properties-hero-inner,
+  .about-hero-inner,
+  .sell-hero-inner,
+  .contact-hero-inner {
+    width: calc(100% - 40px);
+
+    padding-top: 60px;
+  }
+
+  .properties-hero h1,
+  .about-hero h1,
+  .sell-hero h1,
+  .contact-hero h1 {
+    font-size: 40px;
+
+    line-height: 1.55;
+  }
+
+  .properties-contact-inner,
+  .about-contact-inner,
+  .contact-final-inner {
     width: calc(100% - 40px);
   }
 
+  .property-detail-hero {
+    min-height: 440px;
+  }
 
-  /* Property Detail */
+  .property-detail-hero-inner {
+    width: calc(100% - 40px);
+
+    padding-top: 60px;
+  }
+
+  .property-detail-hero h1 {
+    font-size: 36px;
+  }
+
+  .property-detail-section {
+    padding: 75px 0 90px;
+  }
 
   .property-detail-inner {
     width: calc(100% - 40px);
   }
 
-  .property-detail-hero {
-    padding: 150px 0 80px;
-  }
-
-  .property-detail-section {
-    padding: 70px 0 90px;
-  }
-
   .property-main-image {
-    margin-bottom: 55px;
+    margin-bottom: 50px;
   }
 
   .property-detail-block h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .property-info-row {
     grid-template-columns: 1fr;
 
     gap: 5px;
+
+    padding: 17px 0;
+  }
+
+  .property-info-row > span:first-child {
+    font-size: 12px;
   }
 
   .property-detail-actions {
     flex-direction: column;
 
     align-items: stretch;
-
-    gap: 25px;
-  }
-
-  .property-detail-actions .button {
-    width: 100%;
-  }
-
-  .property-detail-actions .text-link {
-    align-self: center;
-  }
-
-
-  /* About Page */
-
-  .about-hero {
-    min-height: 460px;
-  }
-
-  .about-hero-inner {
-    width: calc(100% - 40px);
-
-    padding: 80px 0;
-  }
-
-  .about-hero h1 {
-    font-size: 42px;
   }
 
   .about-message .section-inner,
-  .about-strength .section-inner,
-  .company-section .section-inner {
-    width: calc(100% - 40px);
+  .sell-message .section-inner,
+  .contact-message .section-inner {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
   }
 
-  .about-strength-grid {
-    margin-top: 50px;
+  .about-message h2,
+  .sell-message h2,
+  .contact-message h2 {
+    font-size: 34px;
   }
 
-  .about-strength-card {
-    padding: 36px 28px;
+  .about-strength-grid,
+  .sell-reasons-grid,
+  .contact-method-grid {
+    grid-template-columns: 1fr;
   }
 
-  .company-info {
-    margin-top: 40px;
+  .about-strength-card,
+  .sell-reason-card {
+    padding: 35px 28px;
   }
 
   .company-info-row {
     grid-template-columns: 1fr;
 
-    gap: 6px;
+    gap: 5px;
 
-    padding: 20px 0;
+    padding: 18px 0;
   }
 
-  .about-contact-inner {
+  .contact-company-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method-card {
+    min-height: 220px;
+
+    padding: 35px 28px;
+  }
+
+  .contact-final-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .footer-main {
     width: calc(100% - 40px);
 
-    padding: 90px 0;
+    padding: 65px 0;
   }
 
-  .about-contact h2 {
-    font-size: 32px;
-  }
-
-
-  /* Sell */
-
-  .sell-section,
-  .sell-inner {
-    min-height: 520px;
-  }
-
-  .sell-hero {
-    min-height: 460px;
-  }
-
-  .sell-hero-inner {
+  .footer-company-inner {
     width: calc(100% - 40px);
-
-    padding: 80px 0;
-  }
-
-  .sell-hero h1 {
-    font-size: 42px;
-  }
-
-  .sell-message .section-inner,
-  .sell-reasons .section-inner,
-  .sell-flow .section-inner {
-    width: calc(100% - 40px);
-  }
-
-  .sell-reasons-grid {
-    margin-top: 50px;
-  }
-
-  .sell-reason-card {
-    padding: 36px 28px;
-  }
-
-  .sell-flow-list {
-    margin-top: 45px;
-  }
-
-  .sell-flow-item {
-    grid-template-columns: 60px 1fr;
-
-    gap: 20px;
 
     padding: 30px 0;
   }
 
-  .sell-flow-number {
-    font-size: 22px;
+  .footer-logo img {
+    width: 160px;
   }
 
-  .sell-flow-content h3 {
-    font-size: 18px;
+  .footer-company-info {
+    text-align: left;
+  }
+}
+/* =========================================================
+   Contact Page
+========================================================= */
+
+/* ---------------------------------------------------------
+   Contact Hero
+--------------------------------------------------------- */
+
+.contact-page {
+  background: var(--white);
+}
+
+.contact-hero {
+  position: relative;
+
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      rgba(39, 57, 45, 0.72),
+      rgba(39, 57, 45, 0.72)
+    ),
+    url("/images/gunma/contact-bg.jpg") center / cover no-repeat;
+
+  color: var(--white);
+}
+
+.contact-hero-inner {
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.contact-hero .section-label {
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contact-hero h1 {
+  margin: 0 0 32px;
+
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.contact-hero p:last-child {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 2.1;
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   Contact Message
+--------------------------------------------------------- */
+
+.contact-message {
+  background: var(--cream);
+}
+
+.contact-message .section-inner {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.contact-message-content {
+  padding-top: 10px;
+}
+
+.contact-message-content p {
+  margin: 0 0 28px;
+
+  color: var(--text);
+
+  font-size: 16px;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+}
+
+.contact-message-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Contact Form Section
+--------------------------------------------------------- */
+
+.contact-form-section {
+  background: var(--white);
+}
+
+.contact-form-lead {
+  margin: 28px 0 0;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.05em;
+}
+
+
+/* ---------------------------------------------------------
+   Form
+--------------------------------------------------------- */
+
+.contact-form {
+  width: min(800px, 100%);
+  margin: 70px auto 0;
+}
+
+.contact-form-group {
+  margin-bottom: 32px;
+}
+
+.contact-form-group label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 12px;
+
+  color: var(--text);
+
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.contact-form-group label span {
+  display: inline-block;
+
+  padding: 3px 8px;
+
+  background: var(--green);
+
+  color: var(--white);
+
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.contact-form-group input,
+.contact-form-group select,
+.contact-form-group textarea {
+  width: 100%;
+
+  padding: 16px 18px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 0;
+
+  background: #fafbf9;
+
+  color: var(--text);
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-form-group input,
+.contact-form-group select {
+  height: 54px;
+}
+
+.contact-form-group textarea {
+  min-height: 200px;
+
+  resize: vertical;
+
+  line-height: 1.9;
+}
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+  color: #a5aaa6;
+}
+
+.contact-form-group input:focus,
+.contact-form-group select:focus,
+.contact-form-group textarea:focus {
+  border-color: var(--green);
+
+  background: var(--white);
+}
+
+
+/* ---------------------------------------------------------
+   Form Note
+--------------------------------------------------------- */
+
+.contact-form-note {
+  margin: 45px 0 0;
+
+  padding: 22px 24px;
+
+  background: var(--light-green);
+
+  border-left: 3px solid var(--green);
+}
+
+.contact-form-note p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+
+/* ---------------------------------------------------------
+   Submit
+--------------------------------------------------------- */
+
+.contact-form-submit {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 45px;
+}
+
+.contact-form-submit button {
+  min-width: 280px;
+
+  padding: 17px 35px;
+
+  border: 1px solid var(--green);
+
+  background: var(--green);
+
+  color: var(--white);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-form-submit button:hover {
+  background: transparent;
+
+  color: var(--green);
+
+  transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   Other Contact
+--------------------------------------------------------- */
+
+.contact-other {
+  background: var(--light-green);
+}
+
+.contact-other-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+
+  max-width: 900px;
+
+  margin: 70px auto 0;
+}
+
+.contact-other-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 300px;
+
+  padding: 42px 36px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  border: 1px solid rgba(45, 74, 53, 0.1);
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.contact-other-card:hover {
+  transform: translateY(-5px);
+
+  background: var(--white);
+
+  box-shadow: 0 16px 40px rgba(30, 42, 32, 0.08);
+}
+
+.contact-other-label {
+  margin-bottom: 24px;
+
+  color: var(--green);
+
+  font-family: Georgia, serif;
+
+  font-size: 13px;
+
+  letter-spacing: 0.18em;
+}
+
+.contact-other-card h3 {
+  margin: 0 0 18px;
+
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  letter-spacing: 0.06em;
+}
+
+.contact-other-card p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+  line-height: 2;
+}
+
+.contact-other-card strong {
+  margin-top: auto;
+  padding-top: 30px;
+
+  color: var(--green);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* ---------------------------------------------------------
+   Contact Final
+--------------------------------------------------------- */
+
+.contact-final {
+  background: var(--green-light);
+
+  text-align: center;
+}
+
+.contact-final-inner {
+  width: min(900px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding: 120px 0;
+}
+
+.contact-final .section-label {
+  margin-bottom: 24px;
+}
+
+.contact-final h2 {
+  margin: 0 0 28px;
+
+  font-size: clamp(32px, 4vw, 52px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.08em;
+}
+
+.contact-final p:not(.section-label) {
+  margin: 0 0 40px;
+
+  color: var(--text-light);
+
+  font-size: 15px;
+
+  line-height: 2;
+}
+
+
+/* =========================================================
+   Contact Responsive
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .contact-message .section-inner {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
   }
 
-  .sell-consultation-inner {
-    width: calc(100% - 40px);
+  .contact-other-grid {
+    grid-template-columns: 1fr;
 
-    padding: 90px 0;
+    margin-top: 50px;
   }
-
-  .sell-consultation h2 {
-    font-size: 34px;
-  }
-
-  .sell-contact-inner {
-    width: calc(100% - 40px);
-
-    padding: 90px 0;
-  }
-
-  .sell-contact h2 {
-    font-size: 32px;
-  }
-
-  .sell-contact-buttons {
-    flex-direction: column;
-  }
-
-  .sell-contact-buttons .button {
-    width: 100%;
-  }
+}
 
 
-  /* Contact */
+@media (max-width: 768px) {
 
   .contact-hero {
     min-height: 460px;
@@ -2822,23 +3141,25 @@ p {
   }
 
   .contact-message .section-inner,
-  .contact-methods .section-inner,
-  .contact-company .section-inner {
+  .contact-form-section .section-inner,
+  .contact-other .section-inner {
     width: calc(100% - 40px);
   }
 
-  .contact-method-grid {
+  .contact-form {
     margin-top: 50px;
   }
 
-  .contact-method-card {
+  .contact-form-submit button {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  .contact-other-card {
     min-height: 260px;
 
     padding: 34px 28px;
-  }
-
-  .contact-company-content {
-    margin-top: 40px;
   }
 
   .contact-final-inner {
@@ -2850,433 +3171,46 @@ p {
   .contact-final h2 {
     font-size: 32px;
   }
+}
 
-  .contact-final-buttons {
-    flex-direction: column;
+
+@media (max-width: 600px) {
+
+  .contact-hero h1 {
+    font-size: 38px;
   }
 
-  .contact-final-buttons .button {
-    width: 100%;
+  .contact-message-content p {
+    font-size: 14px;
   }
 
-
-  /* Footer */
-
-  .footer-logo img {
-    width: 160px;
+  .contact-form-group {
+    margin-bottom: 26px;
   }
 
-  .footer-main {
-    gap: 45px;
+  .contact-form-group input,
+  .contact-form-group select {
+    height: 52px;
   }
 
-  .footer-phone {
-    font-size: 21px;
-  }
-}
-/* =========================================================
-   橘　ESTATE Design Update
-   ========================================================= */
-
-/* ---------------------------------------------------------
-   Typography
-   サイト全体のフォントを Noto Sans JP に統一
-   --------------------------------------------------------- */
-
-body,
-button,
-input,
-textarea,
-select {
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-.hero h1,
-.about-hero h1,
-.properties-hero h1,
-.sell-hero h1,
-.contact-hero h1,
-.property-detail-hero h1,
-.property-not-found h1,
-.section-heading h2,
-.sell-content h2,
-.properties-list-heading h2,
-.properties-contact h2,
-.property-detail-block h2,
-.about-contact h2,
-.sell-consultation h2,
-.sell-contact h2,
-.contact-final h2,
-.property-info h3,
-.property-list-content h3,
-.contact-button-title,
-.footer-contact-text,
-.footer-phone,
-.footer-company-name {
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-
-/* ---------------------------------------------------------
-   Letter Spacing
-   --------------------------------------------------------- */
-
-body {
-  letter-spacing: 0.02em;
-}
-
-.section-label {
-  letter-spacing: 0.22em;
-}
-
-.button,
-.desktop-nav,
-.mobile-nav,
-.text-link {
-  letter-spacing: 0.06em;
-}
-
-
-/* ---------------------------------------------------------
-   HOME
-   About / 20年
-   --------------------------------------------------------- */
-
-.home-about-history {
-  margin: 28px 0 0;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 14px;
-  line-height: 2.1;
-  letter-spacing: 0.06em;
-}
-
-
-/* ---------------------------------------------------------
-   ABOUT
-   地域に根ざして20年
-   --------------------------------------------------------- */
-
-.about-roots-lead {
-  max-width: 720px;
-  margin: 28px auto 0;
-  color: var(--text-light);
-  font-size: 14px;
-  line-height: 2.2;
-  letter-spacing: 0.04em;
-}
-
-
-/* ---------------------------------------------------------
-   FOOTER
-   --------------------------------------------------------- */
-
-.footer-company-name {
-  letter-spacing: 0.08em;
-}
-
-.footer-company-history {
-  margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 12px;
-  line-height: 1.8;
-  letter-spacing: 0.08em;
-}
-
-
-/* ---------------------------------------------------------
-   INSTAGRAM
-   --------------------------------------------------------- */
-
-.footer-social a {
-  transition: opacity 0.3s ease;
-}
-
-.footer-social a:hover {
-  opacity: 0.65;
-}
-
-
-/* ---------------------------------------------------------
-   CONTACT
-   LINE削除後の2カラム
-   --------------------------------------------------------- */
-
-.contact-buttons-two {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  max-width: 760px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.contact-method-grid-two {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  max-width: 820px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.contact-final-buttons-two {
-  justify-content: center;
-}
-
-
-/* ---------------------------------------------------------
-   CONTACT CARD
-   --------------------------------------------------------- */
-
-.contact-method-card {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.contact-method-card:hover {
-  transform: translateY(-4px);
-}
-
-
-/* ---------------------------------------------------------
-   HEADER
-   --------------------------------------------------------- */
-
-.site-logo {
-  display: flex;
-  align-items: center;
-}
-
-.site-logo img {
-  max-width: 190px;
-  height: auto;
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
-
-@media (max-width: 767px) {
-  .contact-buttons-two,
-  .contact-method-grid-two {
-    grid-template-columns: 1fr;
-    max-width: 100%;
+  .contact-form-group textarea {
+    min-height: 180px;
   }
 
-  .home-about-history,
-  .about-roots-lead {
-    font-size: 13px;
-    line-height: 2;
+  .contact-form-note {
+    padding: 18px;
   }
 
-  .site-logo img {
-    max-width: 150px;
+  .contact-other-grid {
+    gap: 16px;
+  }
+
+  .contact-other-card {
+    min-height: 240px;
+
+    padding: 30px 24px;
   }
 }
-/* =========================================================
-   ABOUT US - Image Background
-   ========================================================= */
-
-.about-section {
-  position: relative;
-  min-height: 680px;
-  padding: 0;
-  overflow: hidden;
-  background: #333;
-}
-
-.about-section-inner {
-  position: relative;
-  width: 100%;
-  min-height: 680px;
-  margin: 0 auto;
-}
-
-/* ---------------------------------------------------------
-   Background Image
-   --------------------------------------------------------- */
-
-.about-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.about-image img {
+.property-list-image-content {
   object-fit: cover;
-  object-position: center;
-}
-
-/* ---------------------------------------------------------
-   Image Overlay
-   --------------------------------------------------------- */
-
-.about-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(20, 30, 25, 0.68) 0%,
-      rgba(20, 30, 25, 0.42) 38%,
-      rgba(20, 30, 25, 0.12) 70%,
-      rgba(20, 30, 25, 0.02) 100%
-    );
-
-  z-index: 1;
-}
-
-/* ---------------------------------------------------------
-   Text
-   --------------------------------------------------------- */
-
-.about-content {
-  position: relative;
-  z-index: 2;
-
-  width: min(1180px, calc(100% - 80px));
-  min-height: 680px;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 80px 0;
-}
-
-/* ABOUT US */
-
-.about-content .section-label {
-  margin: 0 0 28px;
-
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 12px;
-  letter-spacing: 0.25em;
-}
-
-/* Main heading */
-
-.about-content h2 {
-  margin: 0;
-
-  color: #fff;
-
-  font-family: "Shippori Mincho", serif;
-  font-size: clamp(38px, 4.5vw, 64px);
-  font-weight: 400;
-  line-height: 1.65;
-  letter-spacing: 0.08em;
-}
-
-/* Description */
-
-.about-content .home-about-history {
-  margin: 36px 0 0;
-
-  color: rgba(255, 255, 255, 0.9);
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  line-height: 2.2;
-  letter-spacing: 0.04em;
-}
-
-/* Link */
-
-.about-content .text-link {
-  display: inline-block;
-  width: fit-content;
-
-  margin-top: 40px;
-  padding-bottom: 9px;
-
-  color: #fff;
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-
-  text-decoration: none;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-
-  transition:
-    opacity 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.about-content .text-link:hover {
-  opacity: 0.65;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-
-/* =========================================================
-   Mobile
-   ========================================================= */
-
-@media (max-width: 767px) {
-  .about-section {
-    min-height: 620px;
-  }
-
-  .about-section-inner {
-    min-height: 620px;
-  }
-
-  .about-image {
-    min-height: 620px;
-  }
-
-  .about-image img {
-    object-position: center;
-  }
-
-  .about-image::after {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(20, 30, 25, 0.25) 0%,
-        rgba(20, 30, 25, 0.55) 45%,
-        rgba(20, 30, 25, 0.82) 100%
-      );
-  }
-
-  .about-content {
-    width: calc(100% - 40px);
-    min-height: 620px;
-
-    justify-content: flex-end;
-
-    padding: 60px 0;
-  }
-
-  .about-content .section-label {
-    margin-bottom: 20px;
-    font-size: 10px;
-  }
-
-  .about-content h2 {
-    font-size: 32px;
-    line-height: 1.7;
-    letter-spacing: 0.06em;
-  }
-
-  .about-content .home-about-history {
-    margin-top: 24px;
-    font-size: 12px;
-    line-height: 2;
-  }
-
-  .about-content .text-link {
-    margin-top: 30px;
-  }
 }

@@ -7,22 +7,30 @@ import { useState } from "react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link href="/" className="site-logo" aria-label="橘　ESTATE ホーム">
+
+        {/* Logo */}
+        <Link href="/" className="site-logo" onClick={closeMenu}>
           <Image
             src="/logo/tachibana-estate.png"
-            alt="橘　ESTATE"
+            alt="橘 ESTATE"
             width={190}
             height={100}
-            style={{ width: "auto", height: "auto" }}
             priority
           />
         </Link>
 
+        {/* PC Navigation */}
         <nav className="desktop-nav" aria-label="メインナビゲーション">
-          <Link href="/">ホーム</Link>
+          <Link href="/">
+            ホーム
+          </Link>
 
           <Link href="/about">
             私たちについて
@@ -41,12 +49,14 @@ export default function Header() {
           </Link>
         </nav>
 
+        {/* Mobile Menu Button */}
         <button
+          type="button"
           className="menu-button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={isMenuOpen}
-          type="button"
+          aria-controls="mobile-navigation"
         >
           <span></span>
           <span></span>
@@ -54,25 +64,30 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="mobile-nav" aria-label="モバイルナビゲーション">
-          <Link href="/" onClick={() => setIsMenuOpen(false)}>
+        <nav
+          id="mobile-navigation"
+          className="mobile-nav"
+          aria-label="モバイルナビゲーション"
+        >
+          <Link href="/" onClick={closeMenu}>
             ホーム
           </Link>
 
-          <Link href="/about" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/about" onClick={closeMenu}>
             私たちについて
           </Link>
 
-          <Link href="/properties" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/properties" onClick={closeMenu}>
             物件を探す
           </Link>
 
-          <Link href="/sell" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/sell" onClick={closeMenu}>
             売却相談
           </Link>
 
-          <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/contact" onClick={closeMenu}>
             お問い合わせ
           </Link>
         </nav>

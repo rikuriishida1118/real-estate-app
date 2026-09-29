@@ -1,28 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const INSTAGRAM_URL =
-  "https://www.instagram.com/tachibana_estate_gunma/";
-
-const PHONE_NUMBER = "TEL 0279-25-7099";
-
 export default function Footer() {
   return (
     <footer className="site-footer">
+      {/* =========================
+          Footer Main
+      ========================= */}
       <div className="footer-main">
-        {/* ブランド */}
+        {/* Brand */}
         <div className="footer-brand">
-          <Link
-            href="/"
-            className="footer-logo"
-            aria-label="橘ESTATE ホーム"
-          >
+          <Link href="/" className="footer-logo">
             <Image
               src="/logo/tachibana-estate.png"
-              alt="橘ESTATE"
+              alt="橘 ESTATE"
               width={240}
               height={100}
-              style={{ width: "auto", height: "auto" }}
             />
           </Link>
 
@@ -39,35 +32,18 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* メニュー */}
-        <nav
-          className="footer-menu"
-          aria-label="フッターメニュー"
-        >
+        {/* Menu */}
+        <nav className="footer-menu" aria-label="フッターナビゲーション">
           <p className="footer-title">MENU</p>
 
-          <Link href="/">
-            ホーム
-          </Link>
-
-          <Link href="/about">
-            私たちについて
-          </Link>
-
-          <Link href="/properties">
-            物件を探す
-          </Link>
-
-          <Link href="/sell">
-            売却相談
-          </Link>
-
-          <Link href="/contact">
-            お問い合わせ
-          </Link>
+          <Link href="/">ホーム</Link>
+          <Link href="/about">私たちについて</Link>
+          <Link href="/properties">物件を探す</Link>
+          <Link href="/sell">売却相談</Link>
+          <Link href="/contact">お問い合わせ</Link>
         </nav>
 
-        {/* お問い合わせ */}
+        {/* Contact */}
         <div className="footer-contact">
           <p className="footer-title">CONTACT</p>
 
@@ -77,19 +53,15 @@ export default function Footer() {
             お気軽にご相談ください。
           </p>
 
-          <a
-            href={`tel:${PHONE_NUMBER.replaceAll("-", "")}`}
-            className="footer-phone"
-          >
-            {PHONE_NUMBER}
+          <a href="tel:0000000000" className="footer-phone">
+            000-0000-0000
           </a>
 
           <div className="footer-social">
             <a
-              href={INSTAGRAM_URL}
+              href="https://www.instagram.com/tachibana_estate_gunma?stkn=ajN4OW54bHdidDk%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="橘ESTATE Instagram"
             >
               Instagram
             </a>
@@ -97,32 +69,40 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* 会社情報 */}
+      {/* =========================
+          Company Information
+      ========================= */}
       <div className="footer-company-area">
         <div className="footer-company-inner">
           <div>
             <p className="footer-company-name">
-              橘ESTATE
+              橘 ESTATE
             </p>
 
-            <p className="footer-company-history">
-              株式会社橘電工として、地域に根ざして20年。
-            </p>
+            <p>株式会社橘不動産</p>
+
+            <p>代表者：石田省吾</p>
           </div>
 
           <div className="footer-company-info">
-            <p>群馬県渋川市北橘町下箱田724-5</p>
-            <p>有限会社橘不動産</p>
-            <p>宅地建物取引業免許：XXXXXXXX号</p>
+            <p>
+              株式会社橘電工として地域で20年
+            </p>
+
+            <p>
+              その地域とのつながりを活かし、
+              <br />
+              不動産事業を行っています。
+            </p>
           </div>
         </div>
       </div>
 
-      {/* コピーライト */}
+      {/* =========================
+          Copyright
+      ========================= */}
       <div className="footer-bottom">
-        <p>
-          © TACHIBANA ESTATE All Rights Reserved.
-        </p>
+        <p>© 橘 ESTATE All Rights Reserved.</p>
       </div>
     </footer>
   );

@@ -1,191 +1,284 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-const INSTAGRAM_URL =
-  "https://www.instagram.com/tachibana_estate_gunma/";
-
-const PHONE_NUMBER = "0279-25-7099";
-
 export default function ContactPage() {
   return (
     <>
       <Header />
 
       <main className="contact-page">
-        {/* =========================================================
+        {/* =========================
             Hero
-        ========================================================= */}
+        ========================== */}
         <section className="contact-hero">
           <div className="contact-hero-inner">
             <p className="section-label">CONTACT</p>
 
-            <h1>お問い合わせ</h1>
+            <h1>
+              不動産のこと、
+              <br />
+              まずはご相談ください。
+            </h1>
 
             <p>
-              不動産についてのご相談は、
+              物件探しから不動産売却まで、
               <br />
               お気軽にお問い合わせください。
             </p>
           </div>
         </section>
 
-        {/* =========================================================
-            Consultation
-        ========================================================= */}
+        {/* =========================
+            Message
+        ========================== */}
         <section className="contact-message section">
           <div className="section-inner">
             <div className="section-heading">
-              <p className="section-label">CONSULTATION</p>
+              <p className="section-label">MESSAGE</p>
 
               <h2>
-                まずはお気軽に
+                ちょっとしたご相談も、
                 <br />
-                ご相談ください。
+                お気軽に。
               </h2>
             </div>
 
             <div className="contact-message-content">
               <p>
-                物件探しや土地の購入、不動産の売却など、
-                不動産に関することならお気軽にご相談ください。
+                「気になる物件がある」
+                <br />
+                「渋川市で土地を探している」
+                <br />
+                「不動産を売却したい」
               </p>
 
               <p>
-                「まだ具体的には決まっていない」
-                「ちょっと話を聞いてみたい」
-                という段階でも問題ありません。
+                まだ具体的に決まっていない段階でも、
+                まずはお気軽にご相談ください。
               </p>
 
               <p>
-                お客様の状況やご希望をお伺いしながら、
-                一つひとつ丁寧にご案内します。
+                橘 ESTATEでは、
+                お客様のお話を伺いながら、
+                これからの暮らしや不動産について
+                一緒に考えていきます。
               </p>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Contact Method
-        ========================================================= */}
-        <section className="contact-methods section">
+        {/* =========================
+            Contact Form
+        ========================== */}
+        <section className="contact-form-section section">
           <div className="section-inner">
             <div className="section-heading center">
-              <p className="section-label">CONTACT METHOD</p>
+              <p className="section-label">INQUIRY FORM</p>
 
-              <h2>お問い合わせ方法</h2>
+              <h2>お問い合わせフォーム</h2>
+
+              <p className="contact-form-lead">
+                以下のフォームに必要事項をご入力ください。
+                <br />
+                内容を確認のうえ、担当者よりご連絡いたします。
+              </p>
             </div>
 
-            <div className="contact-method-grid contact-method-grid-two">
-              {/* Phone */}
+            <form className="contact-form">
+              <div className="contact-form-group">
+                <label htmlFor="category">
+                  ご相談内容
+                  <span>必須</span>
+                </label>
+
+                <select id="category" name="category" defaultValue="">
+                  <option value="" disabled>
+                    選択してください
+                  </option>
+                  <option value="property">
+                    物件を探している
+                  </option>
+                  <option value="sell">
+                    不動産を売却したい
+                  </option>
+                  <option value="property-info">
+                    物件について詳しく知りたい
+                  </option>
+                  <option value="other">
+                    その他
+                  </option>
+                </select>
+              </div>
+
+              <div className="contact-form-group">
+                <label htmlFor="name">
+                  お名前
+                  <span>必須</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="例：山田 太郎"
+                  required
+                />
+              </div>
+
+              <div className="contact-form-group">
+                <label htmlFor="email">
+                  メールアドレス
+                  <span>必須</span>
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="例：example@email.com"
+                  required
+                />
+              </div>
+
+              <div className="contact-form-group">
+                <label htmlFor="phone">
+                  電話番号
+                </label>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="例：090-0000-0000"
+                />
+              </div>
+
+              <div className="contact-form-group">
+                <label htmlFor="message">
+                  お問い合わせ内容
+                  <span>必須</span>
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={8}
+                  placeholder="ご相談内容をご入力ください。"
+                  required
+                ></textarea>
+              </div>
+
+              <div className="contact-form-note">
+                <p>
+                  ※現在はお問い合わせフォームの画面のみ実装しています。
+                  <br />
+                  送信機能は今後実装予定です。
+                </p>
+              </div>
+
+              <div className="contact-form-submit">
+                <button type="submit">
+                  入力内容を確認する
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        {/* =========================
+            Other Contact
+        ========================== */}
+        <section className="contact-other section">
+          <div className="section-inner">
+            <div className="section-heading center">
+              <p className="section-label">OTHER CONTACT</p>
+
+              <h2>
+                お電話・Instagramからも
+                <br />
+                お問い合わせいただけます。
+              </h2>
+            </div>
+
+            <div className="contact-other-grid">
               <a
-                href={`tel:${PHONE_NUMBER.replaceAll("-", "")}`}
-                className="contact-method-card"
+                href="tel:0000000000"
+                className="contact-other-card"
               >
-                <span className="contact-method-label">
+                <span className="contact-other-label">
                   PHONE
                 </span>
 
-                <h3>電話で相談する</h3>
+                <h3>
+                  電話で相談する
+                </h3>
 
                 <p>
-                  お急ぎの方や直接相談したい方は、
-                  お電話でお気軽にお問い合わせください。
+                  お急ぎの方や、
+                  <br />
+                  直接相談したい方はこちら。
                 </p>
 
-                <span className="contact-method-action">
-                  {PHONE_NUMBER} →
-                </span>
+                <strong>
+                  000-0000-0000
+                </strong>
               </a>
 
-              {/* Instagram */}
               <a
-                href={INSTAGRAM_URL}
-                className="contact-method-card"
+                href="https://www.instagram.com/tachibana_estate_gunma?stkn=ajN4OW54bHdidDk%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="contact-other-card"
               >
-                <span className="contact-method-label">
+                <span className="contact-other-label">
                   INSTAGRAM
                 </span>
 
-                <h3>Instagramを見る</h3>
+                <h3>
+                  Instagramを見る
+                </h3>
 
                 <p>
-                  物件情報や地域の情報などを
-                  Instagramでも発信していきます。
+                  物件情報や、
+                  <br />
+                  日々の情報を発信しています。
                 </p>
 
-                <span className="contact-method-action">
-                  Instagramを見る →
-                </span>
+                <strong>
+                  @tachibana_estate_gunma
+                </strong>
               </a>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Company
-        ========================================================= */}
-        <section className="contact-company section">
-          <div className="section-inner">
-            <div className="section-heading">
-              <p className="section-label">COMPANY</p>
-
-              <h2>会社情報</h2>
-            </div>
-
-            <div className="contact-company-content">
-              <div className="contact-company-info">
-                <p className="contact-company-name">
-                  橘ESTATE
-                </p>
-
-                <p>有限会社橘不動産</p>
-
-                <p>群馬県渋川市北橘町下箱田724-5</p>
-
-                <p>地域に根ざして20年</p>
-              </div>
-
-              <div className="contact-company-info">
-                <p>宅地建物取引業免許</p>
-
-                <p>XXXXXXXX号</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================
+        {/* =========================
             Final CTA
-        ========================================================= */}
+        ========================== */}
         <section className="contact-final">
           <div className="contact-final-inner">
-            <p className="section-label">橘ESTATE</p>
+            <p className="section-label">
+              TACHIBANA ESTATE
+            </p>
 
             <h2>
-              暮らしと不動産のこと、
+              渋川での暮らし、
               <br />
-              何でもご相談ください。
+              一緒に考えてみませんか。
             </h2>
 
-            <div className="contact-final-buttons contact-final-buttons-two">
-              <a
-                href={`tel:${PHONE_NUMBER.replaceAll("-", "")}`}
-                className="button button-dark"
-              >
-                電話で相談する
-              </a>
+            <p>
+              土地探し、中古住宅、不動産売却など、
+              <br />
+              まずはお気軽にご相談ください。
+            </p>
 
-              <a
-                href={INSTAGRAM_URL}
-                className="button button-dark"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagramを見る
-              </a>
-            </div>
+            <a
+              href="tel:0000000000"
+              className="button button-light"
+            >
+              電話で相談する
+            </a>
           </div>
         </section>
       </main>

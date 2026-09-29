@@ -1,203 +1,271 @@
-import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <>
       <Header />
 
-      <main className="about-page">
-        {/* =========================================================
-            Hero
-        ========================================================= */}
+      <main>
+        {/* ==================================================
+            HERO
+        ================================================== */}
         <section className="about-hero">
           <div className="about-hero-inner">
-            <p className="section-label">ABOUT US</p>
+            <p className="section-label">
+              ABOUT US
+            </p>
 
-            <h1>私たちについて</h1>
+            <h1>
+              私たちについて
+            </h1>
 
             <p>
-              群馬・渋川の暮らしと不動産に、
+              地域に根ざし、
               <br />
-              地域に寄り添いながら向き合います。
+              暮らしに寄り添う不動産会社へ。
             </p>
           </div>
         </section>
 
-        {/* =========================================================
-            Message
-        ========================================================= */}
+        {/* ==================================================
+            MESSAGE
+        ================================================== */}
         <section className="about-message section">
           <div className="section-inner">
             <div className="section-heading">
-              <p className="section-label">MESSAGE</p>
+              <p className="section-label">
+                MESSAGE
+              </p>
 
               <h2>
-                渋川で暮らす人の
+                渋川で暮らす。
                 <br />
-                これからを考える。
+                その選択に、
+                <br />
+                寄り添いたい。
               </h2>
             </div>
 
             <div className="about-message-content">
               <p>
-                橘ESTATEは、群馬県渋川市を中心に、
-                暮らしと不動産のご相談を承っています。
+                橘 ESTATEは、群馬県渋川市を中心に、
+                土地・中古住宅などの不動産仲介を行っています。
               </p>
 
               <p>
-                不動産は、単に「土地」や「建物」を
-                取り引きするものではありません。
-                その先には、そこで暮らす人の生活があります。
+                不動産を探すことは、
+                これからの暮らしを考えることでもあります。
               </p>
 
               <p>
-                「どんな場所で暮らしたいのか」
-                「どんな暮らしをしたいのか」
-                「今ある不動産をどうしたいのか」
-                一人ひとりのお話を伺いながら、
-                その人に合った選択肢をご提案することを大切にしています。
+                どんな場所で暮らしたいのか。
+                どんな住まいが自分たちに合っているのか。
+                そして、今ある不動産をどうしていくのか。
+              </p>
+
+              <p>
+                私たちは、一つひとつのご相談に耳を傾けながら、
+                地域のことを知る不動産会社として、
+                お客様の暮らしに寄り添っていきます。
               </p>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Our Roots
-        ========================================================= */}
-        <section className="about-strength section">
+        {/* ==================================================
+            REGIONAL ROOTS
+        ================================================== */}
+        <section className="about-roots section">
           <div className="section-inner">
             <div className="section-heading center">
-              <p className="section-label">OUR ROOTS</p>
+              <p className="section-label">
+                OUR ROOTS
+              </p>
 
               <h2>
-                地域に根ざして、
+                地域とのつながりを、
                 <br />
-                20年。
+                次の暮らしへ。
               </h2>
 
               <p className="about-roots-lead">
-                株式会社橘電工として、地域とともに歩んできた20年。
-                <br />
-                その経験を、これからの暮らしと不動産のご相談にも活かします。
+                株式会社橘電工として地域で20年間、
+                事業を続けてきました。
+                これまで地域の皆さまと築いてきたつながりを大切にし、
+                不動産という新しい形で、
+                これからの暮らしをお手伝いします。
               </p>
             </div>
 
-            <div className="about-strength-grid">
-              {/* 01 */}
-              <article className="about-strength-card">
-                <span className="about-strength-number">
+            <div className="about-roots-content">
+              <div className="about-roots-item">
+                <span className="about-roots-number">
                   01
                 </span>
 
-                <h3>地域を知っていること</h3>
+                <h3>
+                  地域を知る
+                </h3>
 
                 <p>
-                  渋川・群馬の地域性や暮らしを大切にし、
-                  地域に根ざした視点からお客様のご相談に向き合います。
+                  地域で長く事業を続けてきたからこそ、
+                  その土地の環境や暮らしについて、
+                  お客様と一緒に考えることを大切にしています。
                 </p>
-              </article>
+              </div>
 
-              {/* 02 */}
-              <article className="about-strength-card">
-                <span className="about-strength-number">
+              <div className="about-roots-item">
+                <span className="about-roots-number">
                   02
                 </span>
 
-                <h3>一人ひとりに寄り添うこと</h3>
+                <h3>
+                  人とのつながり
+                </h3>
 
                 <p>
-                  物件をご紹介するだけではなく、
-                  ご希望やライフスタイルを伺いながら、
-                  納得できる住まい探しをサポートします。
+                  不動産の取引だけではなく、
+                  地域で築いてきた人とのつながりを大切にしながら、
+                  一人ひとりのご相談に向き合います。
                 </p>
-              </article>
+              </div>
 
-              {/* 03 */}
-              <article className="about-strength-card">
-                <span className="about-strength-number">
+              <div className="about-roots-item">
+                <span className="about-roots-number">
                   03
                 </span>
 
-                <h3>売ることにも向き合うこと</h3>
+                <h3>
+                  暮らしを支える
+                </h3>
 
                 <p>
-                  購入だけでなく、土地や建物の売却についても
-                  ご相談いただけます。
-                  「何から始めればいいかわからない」という段階から
-                  お気軽にご相談ください。
+                  物件をご紹介して終わりではなく、
+                  その先の暮らしまで考えたご提案を目指しています。
                 </p>
-              </article>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Company
-        ========================================================= */}
-        <section className="company-section section">
+        {/* ==================================================
+            COMPANY
+        ================================================== */}
+        <section className="about-company section">
           <div className="section-inner">
             <div className="section-heading">
-              <p className="section-label">COMPANY</p>
+              <p className="section-label">
+                COMPANY
+              </p>
 
-              <h2>会社情報</h2>
+              <h2>
+                会社情報
+              </h2>
             </div>
 
             <div className="company-info">
               <div className="company-info-row">
-                <span>ブランド名</span>
-                <strong>橘ESTATE</strong>
+                <dt>
+                  会社名
+                </dt>
+
+                <dd>
+                  株式会社橘不動産
+                </dd>
               </div>
 
               <div className="company-info-row">
-                <span>運営会社</span>
-                <strong>有限会社橘不動産</strong>
+                <dt>
+                  ブランド名
+                </dt>
+
+                <dd>
+                  橘 ESTATE
+                </dd>
               </div>
 
               <div className="company-info-row">
-                <span>所在地</span>
-                <span>群馬県渋川市北橘町下箱田724-5</span>
+                <dt>
+                  代表者
+                </dt>
+
+                <dd>
+                  石田省吾
+                </dd>
               </div>
 
               <div className="company-info-row">
-                <span>地域での歩み</span>
-                <span>株式会社橘電工として20年</span>
+                <dt>
+                  所在地
+                </dt>
+
+                <dd>
+                  群馬県渋川市
+                </dd>
               </div>
 
               <div className="company-info-row">
-                <span>事業内容</span>
-                <span>不動産売買仲介</span>
+                <dt>
+                  事業内容
+                </dt>
+
+                <dd>
+                  不動産仲介業
+                  <br />
+                  土地・中古住宅等の売買仲介
+                </dd>
               </div>
 
               <div className="company-info-row">
-                <span>宅地建物取引業免許</span>
-                <span>XXXXXXXX号</span>
+                <dt>
+                  関連会社
+                </dt>
+
+                <dd>
+                  株式会社橘電工
+                </dd>
+              </div>
+
+              <div className="company-info-row">
+                <dt>
+                  地域での歩み
+                </dt>
+
+                <dd>
+                  株式会社橘電工として20年
+                </dd>
               </div>
             </div>
           </div>
         </section>
 
-        {/* =========================================================
-            Contact
-        ========================================================= */}
+        {/* ==================================================
+            CONTACT
+        ================================================== */}
         <section className="about-contact">
           <div className="about-contact-inner">
-            <p className="section-label">CONTACT</p>
+            <p className="section-label">
+              CONTACT
+            </p>
 
             <h2>
-              不動産について、
+              不動産のこと、
               <br />
               お気軽にご相談ください。
             </h2>
 
             <p>
-              物件探しから売却のご相談まで、
+              物件探しや不動産売却について、
               <br />
-              まずはお話をお聞かせください。
+              まずはお気軽にお問い合わせください。
             </p>
 
-            <Link href="/contact" className="button button-dark">
+            <Link
+              href="/contact"
+              className="button button-light"
+            >
               お問い合わせ
             </Link>
           </div>

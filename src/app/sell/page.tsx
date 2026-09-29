@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Link from "next/link";
 
 export default function SellPage() {
   return (
@@ -8,141 +8,115 @@ export default function SellPage() {
       <Header />
 
       <main className="sell-page">
-        {/* =========================
-            Sell Hero
-        ========================= */}
+
+        {/* ==================================================
+            HERO
+        ================================================== */}
         <section className="sell-hero">
           <div className="sell-hero-inner">
-            <p className="section-label">SELL YOUR PROPERTY</p>
+            <p className="section-label">
+              SELL YOUR PROPERTY
+            </p>
 
             <h1>
-              不動産を
+              不動産を、
               <br />
-              売りたい方へ
+              売りたい方へ。
             </h1>
 
             <p>
-              土地や建物の売却について、
+              土地や建物の売却をお考えの方へ。
               <br />
-              まずはお気軽にご相談ください。
+              地域に寄り添いながら、大切な不動産の売却をサポートします。
             </p>
+
+            <Link
+              href="/contact"
+              className="button button-light"
+            >
+              売却について相談する
+            </Link>
           </div>
         </section>
 
-        {/* =========================
-            Message
-        ========================= */}
+        {/* ==================================================
+            MESSAGE
+        ================================================== */}
         <section className="sell-message section">
           <div className="section-inner">
+
             <div className="section-heading">
-              <p className="section-label">MESSAGE</p>
+              <p className="section-label">
+                MESSAGE
+              </p>
 
               <h2>
-                「売りたい」と思ったら、
+                不動産の売却は、
                 <br />
-                まずはご相談ください。
+                まず相談することから。
               </h2>
             </div>
 
             <div className="sell-message-content">
               <p>
-                不動産の売却は、
-                人生の中でも何度も経験することではありません。
-              </p>
-
-              <p>
-                「いくらくらいで売れるのか」
-                「どんな方法で売ればいいのか」
-                「売却にどのくらい時間がかかるのか」
-                など、わからないことも多いと思います。
-              </p>
-
-              <p>
-                橘ESTATEでは、
-                お客様のお話を伺いながら、
-                不動産の状況やご希望に合わせた売却方法をご提案します。
-              </p>
-
-              <p>
-                まだ売却を決めていない段階でも構いません。
-                まずは現在の状況をお聞かせください。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================
-            Reasons
-        ========================= */}
-        <section className="sell-reasons section">
-          <div className="section-inner">
-            <div className="section-heading center">
-              <p className="section-label">WHY 橘 ESTATE</p>
-
-              <h2>
-                売却のご相談で
+                「この土地はいくらくらいで売れるのだろう」
                 <br />
-                大切にしていること
-              </h2>
+                「家を売りたいけれど、何から始めればいいかわからない」
+              </p>
+
+              <p>
+                不動産の売却には、価格や手続き、タイミングなど、
+                分からないことがたくさんあります。
+              </p>
+
+              <p>
+                橘 ESTATEでは、お客様のお話を丁寧に伺いながら、
+                物件の状況や地域の特性を踏まえて、
+                売却について一緒に考えていきます。
+              </p>
+
+              <p>
+                まだ売却を決めていない段階でも、
+                まずはお気軽にご相談ください。
+              </p>
             </div>
 
-            <div className="sell-reasons-grid">
-              <article className="sell-reason-card">
-                <span className="sell-reason-number">01</span>
-
-                <h3>まずはお話を伺います</h3>
-
-                <p>
-                  売却の理由やご希望の時期、
-                  ご不安に感じていることなどを丁寧にお伺いします。
-                </p>
-              </article>
-
-              <article className="sell-reason-card">
-                <span className="sell-reason-number">02</span>
-
-                <h3>不動産の状況を確認します</h3>
-
-                <p>
-                  土地や建物の状態、
-                  所在地などを確認し、
-                  売却に向けた情報を整理します。
-                </p>
-              </article>
-
-              <article className="sell-reason-card">
-                <span className="sell-reason-number">03</span>
-
-                <h3>売却方法をご提案します</h3>
-
-                <p>
-                  お客様のご希望や不動産の状況を踏まえ、
-                  売却に向けた進め方をご提案します。
-                </p>
-              </article>
-            </div>
           </div>
         </section>
 
-        {/* =========================
-            Flow
-        ========================= */}
+        {/* ==================================================
+            FLOW
+        ================================================== */}
         <section className="sell-flow section">
           <div className="section-inner">
-            <div className="section-heading">
-              <p className="section-label">FLOW</p>
+
+            <div className="section-heading center">
+              <p className="section-label">
+                FLOW
+              </p>
 
               <h2>
                 売却までの流れ
               </h2>
+
+              <p className="sell-flow-lead">
+                ご相談から売却まで、
+                <br />
+                一つひとつ丁寧にサポートします。
+              </p>
             </div>
 
             <div className="sell-flow-list">
-              <div className="sell-flow-item">
-                <div className="sell-flow-number">01</div>
 
-                <div className="sell-flow-content">
-                  <h3>ご相談</h3>
+              <div className="sell-flow-item">
+                <span className="sell-flow-number">
+                  01
+                </span>
+
+                <div>
+                  <h3>
+                    ご相談
+                  </h3>
 
                   <p>
                     まずはお気軽にご相談ください。
@@ -152,89 +126,216 @@ export default function SellPage() {
               </div>
 
               <div className="sell-flow-item">
-                <div className="sell-flow-number">02</div>
+                <span className="sell-flow-number">
+                  02
+                </span>
 
-                <div className="sell-flow-content">
-                  <h3>査定・物件確認</h3>
+                <div>
+                  <h3>
+                    物件の確認・査定
+                  </h3>
 
                   <p>
-                    不動産の状況を確認し、
-                    売却に向けた情報を整理します。
+                    土地や建物の状態、立地、周辺環境などを確認し、
+                    売却について検討します。
                   </p>
                 </div>
               </div>
 
               <div className="sell-flow-item">
-                <div className="sell-flow-number">03</div>
+                <span className="sell-flow-number">
+                  03
+                </span>
 
-                <div className="sell-flow-content">
-                  <h3>売却方法のご提案</h3>
+                <div>
+                  <h3>
+                    売却方法のご提案
+                  </h3>
 
                   <p>
-                    ご希望や不動産の状況に合わせて、
-                    売却方法をご提案します。
+                    お客様のご希望を伺いながら、
+                    売却に向けた進め方をご提案します。
                   </p>
                 </div>
               </div>
 
               <div className="sell-flow-item">
-                <div className="sell-flow-number">04</div>
+                <span className="sell-flow-number">
+                  04
+                </span>
 
-                <div className="sell-flow-content">
-                  <h3>販売活動</h3>
+                <div>
+                  <h3>
+                    販売活動
+                  </h3>
 
                   <p>
-                    物件情報を整理し、
-                    購入を検討される方へ向けて販売活動を行います。
+                    物件の魅力を整理し、
+                    購入を検討される方へ情報を届けていきます。
                   </p>
                 </div>
               </div>
 
               <div className="sell-flow-item">
-                <div className="sell-flow-number">05</div>
+                <span className="sell-flow-number">
+                  05
+                </span>
 
-                <div className="sell-flow-content">
-                  <h3>ご契約・お引き渡し</h3>
+                <div>
+                  <h3>
+                    ご契約・お引き渡し
+                  </h3>
 
                   <p>
                     条件がまとまりましたら、
-                    ご契約からお引き渡しまでサポートします。
+                    契約からお引き渡しまでサポートします。
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
 
-        {/* =========================
-            Consultation
-        ========================= */}
-        <section className="sell-consultation">
-          <div className="sell-consultation-inner">
-            <p className="section-label">CONSULTATION</p>
+        {/* ==================================================
+            POINT
+        ================================================== */}
+        <section className="sell-point section">
+          <div className="section-inner">
 
-            <h2>
-              こんなご相談も
-              <br />
-              お気軽にどうぞ。
-            </h2>
+            <div className="section-heading">
+              <p className="section-label">
+                OUR APPROACH
+              </p>
 
-            <div className="sell-consultation-list">
-              <p>・相続した土地や建物を売りたい</p>
-              <p>・使っていない土地を売りたい</p>
-              <p>・現在住んでいる家の売却を考えている</p>
-              <p>・不動産の価値を知りたい</p>
-              <p>・売却するか迷っている</p>
+              <h2>
+                地域を知っているからこそ、
+                <br />
+                できること。
+              </h2>
             </div>
+
+            <div className="sell-point-grid">
+
+              <div className="sell-point-card">
+                <span className="sell-point-number">
+                  01
+                </span>
+
+                <h3>
+                  地域とのつながり
+                </h3>
+
+                <p>
+                  株式会社橘電工として地域で20年。
+                  これまで築いてきた地域とのつながりを大切にしながら、
+                  不動産事業に取り組んでいます。
+                </p>
+              </div>
+
+              <div className="sell-point-card">
+                <span className="sell-point-number">
+                  02
+                </span>
+
+                <h3>
+                  一つひとつ丁寧に
+                </h3>
+
+                <p>
+                  不動産は一つとして同じものがありません。
+                  物件の状況やお客様のご希望を伺いながら、
+                  丁寧に売却を進めていきます。
+                </p>
+              </div>
+
+              <div className="sell-point-card">
+                <span className="sell-point-number">
+                  03
+                </span>
+
+                <h3>
+                  暮らしまで考える
+                </h3>
+
+                <p>
+                  売却する方だけでなく、
+                  その不動産を必要としている次の方の暮らしも考えながら、
+                  お取引をサポートします。
+                </p>
+              </div>
+
+            </div>
+
           </div>
         </section>
 
-        {/* =========================
-            Contact
-        ========================= */}
+        {/* ==================================================
+            FAQ
+        ================================================== */}
+        <section className="sell-faq section">
+          <div className="section-inner">
+
+            <div className="section-heading center">
+              <p className="section-label">
+                FAQ
+              </p>
+
+              <h2>
+                よくあるご質問
+              </h2>
+            </div>
+
+            <div className="sell-faq-list">
+
+              <div className="sell-faq-item">
+                <h3>
+                  Q. まだ売却を決めていなくても相談できますか？
+                </h3>
+
+                <p>
+                  はい。売却するか迷っている段階でも、
+                  お気軽にご相談ください。
+                </p>
+              </div>
+
+              <div className="sell-faq-item">
+                <h3>
+                  Q. 土地だけでも相談できますか？
+                </h3>
+
+                <p>
+                  はい。土地・中古住宅など、
+                  不動産の売却についてご相談いただけます。
+                </p>
+              </div>
+
+              <div className="sell-faq-item">
+                <h3>
+                  Q. まずは話だけ聞きたいのですが大丈夫ですか？
+                </h3>
+
+                <p>
+                  もちろんです。
+                  売却について分からないことがあれば、
+                  まずはお気軽にお問い合わせください。
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ==================================================
+            CONTACT
+        ================================================== */}
         <section className="sell-contact">
           <div className="sell-contact-inner">
-            <p className="section-label">CONTACT</p>
+
+            <p className="section-label">
+              CONTACT
+            </p>
 
             <h2>
               不動産の売却について、
@@ -243,21 +344,21 @@ export default function SellPage() {
             </h2>
 
             <p>
-              相談だけでも構いません。
+              「売るかどうかまだ決めていない」
               <br />
-              お気軽にお問い合わせください。
+              という段階でもお気軽にご相談ください。
             </p>
 
-            <div className="sell-contact-buttons">
-              <a href="tel:0279257099" className="button button-dark">
-                電話で相談する
-              </a>
-              <Link href="/contact" className="button button-dark">
-                お問い合わせ
-              </Link>
-            </div>
+            <Link
+              href="/contact"
+              className="button button-light"
+            >
+              売却について相談する
+            </Link>
+
           </div>
         </section>
+
       </main>
 
       <Footer />
